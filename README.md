@@ -48,6 +48,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 - Install `Prettier` extension.
 - Install `vscode-styled-components` extension
+- Install `Error lens` extension
+-Install `Auto Close Tag` extension
 
 #
 
