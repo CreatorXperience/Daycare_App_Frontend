@@ -54,7 +54,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ## How to contribute
 
 1. Checkout to main branch and pull latest changes `git checkout main && git pull origin main && npm i --force --legacy-peer-deps`
-2. Create your branch with the of your current ticket e.g `git checkout -b ch-#675-add-pretier-configuration`.
+2. Create your branch with the title of your current ticket e.g `git checkout -b ch-#675-add-pretier-configuration`.
 3. Make your changes.
 4. Stage and commit your changes. e.g. `git add . && git commit -m "ch-#675: setup prettier configuration"`.
 5. Repeat **step 3 and 4** until you're done with your ticket tasks.
