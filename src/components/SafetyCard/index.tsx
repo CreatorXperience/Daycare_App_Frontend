@@ -30,7 +30,7 @@ const CardWrapper = styled.div`
     display: flex;
     width: 100%;
     height: 139px;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     flex-shrink: 0;
     background: linear-gradient(
@@ -68,6 +68,7 @@ font-size: 20px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
+padding: 0px 0px 10px 0px;
     }
     .text p {
       color: #fff;

@@ -1,5 +1,6 @@
 import Button from "./components/Button";
 import DiscountCard from "./components/DiscountCard";
+import Profile from "./components/Profile";
 import SafetyCard from "./components/SafetyCard";
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
     <div className="App">
       <Button text="Login" />
       <SafetyCard data={contentBlue} />
-      <DiscountCard dataGreen={contentGreen}/>
+      <DiscountCard dataGreen={contentGreen} />
+      <Profile/>
     </div>
   );
 }
