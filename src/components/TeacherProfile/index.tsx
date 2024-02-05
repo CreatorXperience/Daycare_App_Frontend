@@ -1,37 +1,37 @@
 import styled from "styled-components";
 import ratingImg from "../../constants/images/rating.png";
-const Profile = () => {
+
+const TeacherProfile = () => {
   return (
     <ProfileWrapper>
       <div className="profile-container">
         <div className="profile-detail">
           <div className="image"></div>
           <div className="profile-text-detail">
-            <h1 className="profile-name">Mary joe</h1>
-            <p className="profile-age">8 Years Old</p>
+            <h1 className="profile-name">ncjdnjns</h1>
             <div className="profile-rating">
               <img src={ratingImg} alt="rating.png" />
             </div>
           </div>
         </div>
-        <div className="profile-distance-wrapper">
-          <div className="profile-distance">60min Away</div>
+        <div className="profile-photo-btn-container">
+          <div className="profile-photo-btn">
+            <p>Change profile photo</p>
+          </div>
         </div>
       </div>
     </ProfileWrapper>
   );
 };
 
-export default Profile;
+export default TeacherProfile;
 
 const ProfileWrapper = styled.div`
   .profile-container {
-    background-color: rgba(153, 155, 157, 0.2);
     width: 100%;
     padding: 10px 10px 10px 10px;
     border-radius: 20px;
     justify-content: space-between;
-    display: flex;
   }
   .profile-detail {
     width: 100%;
@@ -46,33 +46,28 @@ const ProfileWrapper = styled.div`
     border-radius: 50%;
     margin-right: 10px;
   }
-  .profile-distance-wrapper {
-    width: 50%;
-  }
-
-  .profile-distance {
-    width: 100%;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    place-items: center;
-    border-radius: 50px;
-    background: linear-gradient(
-      180deg,
-      #72b5f1 0%,
-      rgba(23, 118, 202, 0.83) 131.58%
-    );
-    color: white;
-    font-weight: 400;
-    font-size: 20px;
-    justify-content: center;
-    place-items: center;
-  }
 
   .profile-name {
     font-size: 25px;
   }
   .profile-text-detail {
     margin-top: 10px;
+  }
+
+  .profile-photo-btn {
+    background-color: rgba(153, 155, 157, 0.2);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 900;
+    color: rgba(23, 118, 202, 0.83);
+  }
+  .profile-photo-btn-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
   }
 `;
