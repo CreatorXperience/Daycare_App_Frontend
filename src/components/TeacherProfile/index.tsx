@@ -8,7 +8,7 @@ const TeacherProfile = () => {
         <div className="profile-detail">
           <div className="image"></div>
           <div className="profile-text-detail">
-            <h1 className="profile-name">ncjdnjns</h1>
+            <h1 className="profile-name">David Joe</h1>
             <div className="profile-rating">
               <img src={ratingImg} alt="rating.png" />
             </div>

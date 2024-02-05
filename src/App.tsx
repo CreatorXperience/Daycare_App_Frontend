@@ -9,6 +9,9 @@ import UserNameInput from "./components/UserNameInput";
 import CaretLeft from "./components/CaretLeft";
 import MapDetailsNotification from "./components/MapDetailsNotification";
 import HelloUser from "./components/HelloUser";
+import BabyCardImage from "./components/BabyCardImage";
+import ChildCard from "./components/ChildCard";
+import Verification from "./components/Verification";
 
 function App() {
   let contentBlue = {
@@ -41,7 +44,10 @@ function App() {
       <UserNameInput />
       <CaretLeft />
       <MapDetailsNotification />
-      <HelloUser/>
+      <HelloUser />
+      <BabyCardImage />
+      <ChildCard />
+      <Verification/>
     </div>
   );
 }
