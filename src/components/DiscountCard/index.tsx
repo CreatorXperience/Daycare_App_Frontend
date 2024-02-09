@@ -28,7 +28,7 @@ const CardWrapper = styled.div`
     display: flex;
     width: 100%;
     height: 139px;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     flex-shrink: 0;
     background: linear-gradient(
