@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import NameInputWrapper from "./NameInputWrapper";
 const NameInput = () => {
     return (
       <NameInputWrapper>
@@ -14,25 +14,3 @@ const NameInput = () => {
  
 export default NameInput;
 
-const NameInputWrapper = styled.div`
-  .input-wrapper {
-    padding: 10px;
-    width: 100%;
-  }
-  .label {
-    width: 100%;
-    font-size: 20px;
-    font-weight: 900;
-    color: rgba(153, 155, 157);
-  }
-  #name {
-    width: 100%;
-    font-size: 25px;
-    padding: 10px;
-    font-weight: 700;
-    border: 1px solid rgba(153, 155, 157);
-    outline: 0;
-    border-radius: 10px;
-    margin-top: 10px;
-  }
-`;
