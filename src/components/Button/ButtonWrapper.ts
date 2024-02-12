@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "../../constants/colors";
 
 const ButtonWrapper = styled.div`
   .buttons {
@@ -18,7 +19,7 @@ const ButtonWrapper = styled.div`
     );
 
     span {
-      color: #fff;
+      color:${colors.primary.white};
       font-family: Poppins;
       font-size: 14px;
       font-style: normal;
