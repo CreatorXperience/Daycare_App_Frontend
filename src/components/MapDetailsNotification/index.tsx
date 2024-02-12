@@ -1,27 +1,19 @@
-import styled from "styled-components";
-import notificationbell from "../../constants/images/notificationBell.png";
+import ICONS from "../../constants/icons";
+import HeaderWrapper from "./MapDetailsWrapper";
 
-const MapDetailsNotification = () => {
+const Header = () => {
   return (
-    <MapDetailsWrapper>
+    <HeaderWrapper>
       <div className="map-details-container">
-        <h1>Map Details</h1>
+        <div className="header-text">Map Details</div>
         <div className="image">
-          <img src={notificationbell} alt={notificationbell} />
+        {ICONS.bellIcon()}
         </div>
       </div>
-    </MapDetailsWrapper>
+    </HeaderWrapper>
   );
 };
 
-export default MapDetailsNotification;
+export default Header;
 
-const MapDetailsWrapper =styled.div`
-    .map-details-container{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        place-items: center;
-        padding: 10px;
-    }
-`
+

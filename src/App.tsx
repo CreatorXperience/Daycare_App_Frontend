@@ -7,7 +7,7 @@ import NameInput from "./components/NameInput";
 import NavBarIcon from "./components/NavBarIcons";
 import UserNameInput from "./components/UserNameInput";
 import CaretLeft from "./components/CaretLeft";
-import MapDetailsNotification from "./components/MapDetailsNotification";
+import Header from "./components/MapDetailsNotification";
 import HelloUser from "./components/HelloUser";
 import BabyCardImage from "./components/BabyCardImage";
 import ChildCard from "./components/ChildCard";
@@ -43,7 +43,7 @@ function App() {
       <NavBarIcon />
       <UserNameInput />
       <CaretLeft />
-      <MapDetailsNotification />
+      <Header />
       <HelloUser />
       <BabyCardImage />
       <ChildCard />

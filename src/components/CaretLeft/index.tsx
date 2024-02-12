@@ -1,20 +1,14 @@
-import styled from "styled-components";
-import caretLeft from '../../constants/images/caretleft.png'
+import ICONS from "../../constants/icons";
+import CaretLeftWrapper from "./CaretLeftWrapper";
 
 const CaretLeft = () => {
     return ( 
         <CaretLeftWrapper>
             <div className="caret-wrapper">
-                <img src={caretLeft} alt={caretLeft} />
+            {ICONS.caretLeft()}
 </div>
         </CaretLeftWrapper>
      );
 }
  
 export default CaretLeft;
-
-const CaretLeftWrapper =styled.div`
-    .caret-wrapper{
-        padding: 10px;
-    }
-`
