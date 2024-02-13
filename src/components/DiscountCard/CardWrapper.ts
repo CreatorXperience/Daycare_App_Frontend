@@ -15,6 +15,8 @@ const CardWrapper = styled.div`
       rgba(9, 211, 28, 0.74) 100%
     );
     border-radius: 10px;
+    margin-top: 10px;
+    
     .circled-img {
       border: 1px solid rgba(9, 211, 28, 0.74);
       width: 80px;

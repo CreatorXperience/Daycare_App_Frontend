@@ -1,8 +1,6 @@
 type TDataProps= {
-    dataGreen : {
-        image: string,
-    message: string,
-    desc: string,
+    data : {
+    discount: string,
     }
 }
 

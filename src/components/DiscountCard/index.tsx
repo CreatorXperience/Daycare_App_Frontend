@@ -3,14 +3,15 @@ import CardWrapper from "./CardWrapper";
 import TDataProps from "./type";
 
 
-const DiscountCard = ({dataGreen}:TDataProps) => {
+const DiscountCard = ({data}:TDataProps) => {
   return (
     <CardWrapper>
       <div className="card">
         <div className="circled-img">{ICONS.promoIcon()}</div>
         <div className="text">
-          <p>{dataGreen.message}</p>
-          <div className="percent-text">{dataGreen.desc}</div>
+          <p>Register and get
+Discount up to</p>
+          <div className="percent-text">{data.discount}</div>
         </div>
       </div>
     </CardWrapper>

@@ -10,13 +10,13 @@ const HelloUserWrapper =styled.div`
         .hello-user-head{
 
          .greeting {
-                font-size: 25px;
-                font-weight: 800;
+                font-size: 18px;
+                font-weight: 400;
         }
 
         .user{
-            font-size: 18px;
-            font-weight: 400;
+            font-size: 20px;
+            font-weight: 800;
         }
         }
       
