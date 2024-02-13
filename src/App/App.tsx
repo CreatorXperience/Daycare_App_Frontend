@@ -1,35 +1,31 @@
-import { createRef, useEffect, useRef } from "react";
-import { Outlet } from "react-router-dom";
-import styled from "styled-components";
+import {createContext, useMemo} from "react";
+import { Outlet} from "react-router-dom";
+import useResizeObeserver from "./hooks/useResizeObserver";
+import useIsCompatible from "./hooks/useIsCompatible";
+import AppWrapper from "./AppWrapper";
+
+export  const AppContext = createContext<{} | null>(null)
 
 function App() {
-createRef()
-let myRef = createRef<HTMLDivElement>()
- let observer = new ResizeObserver((size)=>{
-console.log(size)
- })
- 
-  useEffect(()=>{
-    if(myRef !== null){
-      // observer.observe(myRef)
-    }
-  },[])
+
+  const {setIsCompatible} = useIsCompatible()
+const {screenRef} =  useResizeObeserver(setIsCompatible)
+
+const AppContextValue =  useMemo(()=>{
+return {}
+}, [setIsCompatible])
 
   return (
+    <AppContext.Provider value={AppContextValue}>
     <AppWrapper>
-    <div className="App"ref={myRef}>
+    <div className="App" ref={screenRef}>
       <Outlet />
     </div>
     </AppWrapper>
+    </AppContext.Provider>
   );
 }
 
 export default App;
 
 
-const AppWrapper = styled.div`
-  width: 100%;
-  height: 100vh;
-  border: 3px solid green;
-  overflow-y: hidden;
-`

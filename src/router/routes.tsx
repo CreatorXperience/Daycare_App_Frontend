@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App/App";
 import NavBarIcon from "../components/NavBarIcons";
 import Home from "../pages/Home";
+import Compatible from "../pages/Compatible";
 
 let router = createBrowserRouter([{
     path: "/",
@@ -15,8 +16,12 @@ let router = createBrowserRouter([{
                 path: "/home",
                 element: <NavBarIcon />
             }
-        ]
-    }
+        ],
+      
+    },
+    { path: "/compatible",
+    element: <Compatible />
+}
     ]
 }])
 
