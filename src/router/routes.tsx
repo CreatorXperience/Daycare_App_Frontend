@@ -3,23 +3,24 @@ import App from "../App/App";
 import NavBarIcon from "../components/NavBarIcons";
 import Home from "../pages/Home";
 import Compatible from "../pages/Compatible";
+import ROUTE from "../constants/routes";
 
 let router = createBrowserRouter([{
-    path: "/",
+    path: ROUTE.root,
     element: <App />,
     children: [
        { 
-        path: "/home",
+        path: ROUTE.home,
         element: <Home />,
         children: [
             {
-                path: "/home",
+                path: ROUTE.home,
                 element: <NavBarIcon />
             }
         ],
       
     },
-    { path: "/compatible",
+    { path: ROUTE.compatible,
     element: <Compatible />
 }
     ]
