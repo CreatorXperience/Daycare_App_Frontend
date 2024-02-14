@@ -5,7 +5,7 @@ const useIsCompatible = ()=>{
     let [isCompatible, setIsCompatible] =  useState<boolean>(false)
     const navigate =  useNavigate()
     useEffect(()=>{
-        if(window.innerWidth <= 750){
+        if(window.innerWidth <= 1200){
           setIsCompatible(true)
         }
       },[])
