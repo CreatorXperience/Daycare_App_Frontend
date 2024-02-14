@@ -13,7 +13,7 @@ const {screenRef} =  useResizeObeserver(setIsCompatible)
 
 const AppContextValue =  useMemo(()=>{
 return {}
-}, [setIsCompatible])
+}, [])
 
   return (
     <AppContext.Provider value={AppContextValue}>

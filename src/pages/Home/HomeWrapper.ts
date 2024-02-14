@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const HomeWrapper =  styled.div`
-height: 100vh;
+height: auto;
 position: relative;
 
 .home-container {

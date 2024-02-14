@@ -3,13 +3,13 @@ import HomeWrapper from "./HomeWrapper"
 import HelloUser from "../../components/HelloUser"
 import SafetyCard from "../../components/SafetyCard"
 import { useState } from "react"
-import DiscountCard from "../../components/DiscountCard"
+import OwnADayCare from "../../components/OwnADayCare"
 import ChildCareCard from "../../components/ChildCareCard"
 import List from "../../components/List"
 
 
 const Home = ()=>{
-    const [childData, setChildData] = useState({
+    const [childData] = useState({
         percentage: "100%"
     })
 
@@ -19,10 +19,10 @@ const Home = ()=>{
         <div className="body">
         <HelloUser />
         <SafetyCard data={childData} />
-        <List />
+        <List right="View all" left="Around you" />
         <ChildCareCard />
-        <List />
-        <DiscountCard data = {{discount: "30%"}}/>
+        <List left="Own  a day care"  />
+        <OwnADayCare />
         </div>
         <div className="footer">
         <Outlet />

@@ -27,7 +27,7 @@ const NavBarIconWrapper = styled.div`
     font-size: 14px;
   }
   .image img {
-    width: 25px;
+    width: 25%;
     height: 30px;
   }
 `;

@@ -1,11 +1,15 @@
 import styled from "styled-components"
 
-const List = ()=>{
+type TListProps = {
+    right?: string,
+    left: string
+}
+const List = ({right, left}: TListProps)=>{
     return (
        <ListWrapper> 
         <div className="list-container"> 
-        <div>Around you</div>
-        <div>View all</div>
+        <div>{left}</div>
+        {right && <div>{right}</div>}
         </div>
        </ListWrapper>
     )
