@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Navigate, redirect, useNavigate, useSearchParams,useHref } from "react-router-dom"
 
-const useIsCompatible = ()=>{
-    let [isCompatible, setIsCompatible] =  useState<boolean>(false)
+
+const useIsCompatible = (path: string)=>{
+    let [isCompatible, setIsCompatible] =  useState<boolean | null>(null)
     const navigate =  useNavigate()
     useEffect(()=>{
         if(window.innerWidth <= 1200){
@@ -13,8 +14,9 @@ const useIsCompatible = ()=>{
 
       useEffect(()=>{
         if(isCompatible){
-          navigate("/home")
-        }else {
+          navigate(path)   
+        }
+        else{
           navigate("/compatible")
         }
       },[isCompatible, navigate])

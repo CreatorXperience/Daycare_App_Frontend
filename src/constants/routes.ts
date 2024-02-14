@@ -1,7 +1,8 @@
 const ROUTE = {
     root: "/",
     compatible: "/compatible",
-    home: "/home"
+    home: "/home",
+    signup: "/signup"
 }
 
 export default ROUTE

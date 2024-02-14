@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react"
 
-const useResizeObeserver = (setIsCompatible: React.Dispatch<React.SetStateAction<boolean>>)=> {
+const useResizeObeserver = (setIsCompatible: React.Dispatch<React.SetStateAction<boolean | null>>)=> {
     const screenRef = useRef<HTMLDivElement | null>(null)
 
 
