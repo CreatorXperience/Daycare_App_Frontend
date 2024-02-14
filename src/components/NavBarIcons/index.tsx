@@ -8,26 +8,29 @@ const NavBarIcon = () => {
         <div className="icon-wrapper">
           <div className="image">
             {ICONS.homeIcon()}
+            <p>Home</p>
           </div>
-          <p>Home</p>
+      
         </div>
         <div className="icon-wrapper">
           <div className="image">
            {ICONS.listIcon()}
+           <p>To-Do-List</p>
           </div>
-          <p>To-Do-List</p>
+     
         </div>
         <div className="icon-wrapper">
           <div className="image">
            {ICONS.locationIcon()}
+           <p>Map</p>
           </div>
-          <p>Map</p>
+    
         </div>
         <div className="icon-wrapper">
           <div className="image">
             {ICONS.profileIcon()}
+            <p>User</p>
           </div>
-          <p>User</p>
         </div>
       </div>
     </NavBarIconWrapper>

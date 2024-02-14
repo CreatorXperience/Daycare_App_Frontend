@@ -15,6 +15,8 @@ const CardWrapper = styled.div`
       rgba(9, 211, 28, 0.74) 100%
     );
     border-radius: 10px;
+    margin-top: 10px;
+    
     .circled-img {
       border: 1px solid rgba(9, 211, 28, 0.74);
       width: 80px;
@@ -42,16 +44,16 @@ const CardWrapper = styled.div`
     .text p {
       color: #fff;
       font-family: Poppins;
-      font-size: 18px;
+      font-size: 24px;
       font-style: normal;
       font-weight: 900;
       line-height: normal;
-      width: 150px;
+      width: 100%;
     }
     .percent-text {
       color: #fff;
       font-family: Poppins;
-      font-size: 40px;
+      font-size: 15px;
       font-style: normal;
       font-weight: bold;
       line-height: normal;

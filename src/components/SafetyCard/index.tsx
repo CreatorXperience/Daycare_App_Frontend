@@ -7,8 +7,8 @@ const SafetyCard = ({ data }: TProps) => {
       <div className="card">
         <div className="percent">{data.percentage}</div>
         <div className="text">
-          <h1>{data.message}</h1>
-                  <p>{data.desc} </p>
+          <h1>Your Child Safety</h1>
+                  <p>trust your child with us safety is our priority</p>
              
         </div>
       </div>
