@@ -14,7 +14,8 @@ const PRODENDPOINT = {
 } 
 
 const ENDPOINT = {
-    signup: "/signup"
+    signup: "/signup",
+    login: "/auth"
 }
 
 export {URL,ENDPOINT}

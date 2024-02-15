@@ -1,5 +1,6 @@
 import { useState } from "react"
 import useRegisterUser from "../Signup/hooks/useRegisterUser"
+import useLoginUser from "../Login/hooks/useLoginUser"
 
 const useAuth = ()=> {
 
@@ -10,8 +11,8 @@ const useAuth = ()=> {
       })
 
       let {mutateUserData, response,errorResponse} = useRegisterUser()
-      console.log(response)
-      console.log(errorResponse)
+      let {errorResponse:LoginError, mutateUserData:mutateUserLoginData, response: LoginResponse} = useLoginUser()
+
 
       const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false)
 
@@ -28,8 +29,7 @@ const useAuth = ()=> {
         
     const handleSubmitLoginData = (e:   React.FormEvent<HTMLFormElement> )=>{
     e.preventDefault()
-
-    console.log(userPayload)
+    mutateUserLoginData(userPayload)
     }
 
     const handleSubmitSignUpData = (e:   React.FormEvent<HTMLFormElement> )=>{
