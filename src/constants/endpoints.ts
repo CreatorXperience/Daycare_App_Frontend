@@ -1,4 +1,4 @@
-const ENDPOINTS = ()=>{
+const URL = ()=>{
     if(process.env.NODE_ENV === "development"){
         return DEVENDPOINT
     }
@@ -13,4 +13,8 @@ const PRODENDPOINT = {
     endpoint: ""
 } 
 
-export default ENDPOINTS
+const ENDPOINT = {
+    signup: "/signup"
+}
+
+export {URL,ENDPOINT}

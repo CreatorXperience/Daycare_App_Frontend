@@ -8,7 +8,17 @@ import useAuth from "../hooks/useAuth"
 
 
 const Signup = ()=>{
-  const {handleChangeEmail,handleChangePassword,handleSubmitSignUpData, handleChangeName, setIsPasswordVisible, isPasswordVisible,userPayload} =  useAuth()
+  const {
+    handleChangeEmail,
+    handleChangePassword,
+    handleSubmitSignUpData, 
+    handleChangeName, 
+    setIsPasswordVisible, 
+    isPasswordVisible,
+    userPayload,
+    errorResponse,
+    response
+  } =  useAuth()
 
   return (
     <SignUpWrapper>
@@ -30,7 +40,7 @@ const Signup = ()=>{
          <GoEye className="eye" color={`${colors.primary.lightGray}`} onClick={()=> setIsPasswordVisible(!isPasswordVisible)} fontSize="22px" />
          </NameInput>
 
-         <div className="error">This is not okay</div>
+          <div className="error">{errorResponse?.message ? errorResponse.message : ""}</div>
          <FormAction text="Create Account" />
       </form>
         </div>

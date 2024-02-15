@@ -1,12 +1,17 @@
 import { useState } from "react"
+import useRegisterUser from "../Signup/hooks/useRegisterUser"
 
 const useAuth = ()=> {
 
     const [userPayload,setUserPayload] = useState({
         password: "",
         email: "",
-        name: ""
+        fullname: ""
       })
+
+      let {mutateUserData, response,errorResponse} = useRegisterUser()
+      console.log(response)
+      console.log(errorResponse)
 
       const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false)
 
@@ -23,12 +28,13 @@ const useAuth = ()=> {
         
     const handleSubmitLoginData = (e:   React.FormEvent<HTMLFormElement> )=>{
     e.preventDefault()
+
     console.log(userPayload)
     }
 
     const handleSubmitSignUpData = (e:   React.FormEvent<HTMLFormElement> )=>{
         e.preventDefault()
-        console.log(userPayload)
+        mutateUserData(userPayload)
         }
 
 
@@ -36,10 +42,21 @@ const useAuth = ()=> {
 
     const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>)=>{
             e.preventDefault()
-            setUserPayload({...userPayload,name: e.target.value})
+            setUserPayload({...userPayload,fullname: e.target.value})
     }
 
-              return {handleChangeEmail,handleChangePassword, handleSubmitLoginData, handleSubmitSignUpData, handleChangeName, isPasswordVisible, setIsPasswordVisible, userPayload}
+              return {
+                handleChangeEmail,
+                handleChangePassword, 
+                handleSubmitLoginData, 
+                handleSubmitSignUpData,
+                 handleChangeName, 
+                isPasswordVisible, 
+                setIsPasswordVisible, 
+                userPayload,
+                response,
+                errorResponse
+              }
 }
 
 export default useAuth
