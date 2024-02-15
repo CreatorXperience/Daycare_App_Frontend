@@ -1,22 +1,22 @@
 import styled from "styled-components";
 import { colors } from "../../constants/colors";
 
-const ButtonWrapper = styled.div`
-  .buttons {
-    font-family: "Poppins", sans-serif;
-    width: 40%;
-    height: 37px;
-    flex-shrink: 0;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    background: linear-gradient(
+const ButtonWrapper = styled.button`
+ background: linear-gradient(
       180deg,
       #72b5f1 0%,
       rgba(23, 118, 202, 0.83) 131.58%
     );
+    border: none;
+    outline: none;
+    border-radius: 10px;
+  .buttons {
+    font-family: "Poppins", sans-serif;
+    height: 37px;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+
 
     span {
       color:${colors.primary.white};

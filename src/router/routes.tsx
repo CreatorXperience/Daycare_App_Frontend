@@ -4,7 +4,8 @@ import NavBarIcon from "../components/NavBarIcons";
 import Home from "../pages/Home";
 import Compatible from "../pages/Compatible";
 import ROUTE from "../constants/routes";
-import Signup from "../pages/Auth/Signup";
+import Login from "../pages/Auth/Login/Login";
+import Signup from "../pages/Auth/Signup/Signup";
 
 let router = createBrowserRouter([{
     path: ROUTE.root,
@@ -27,6 +28,10 @@ let router = createBrowserRouter([{
 {
     path: ROUTE.signup,
     element: <Signup />
+},
+{
+    path: ROUTE.login,
+    element: <Login />
 }
     ]
 }])
