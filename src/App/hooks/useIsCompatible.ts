@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Navigate, redirect, useNavigate, useSearchParams,useHref } from "react-router-dom"
+import {  useNavigate,  } from "react-router-dom"
 
 
 const useIsCompatible = (path: string)=>{
@@ -19,7 +19,7 @@ const useIsCompatible = (path: string)=>{
         else{
           navigate("/compatible")
         }
-      },[isCompatible, navigate])
+      },[isCompatible, navigate, path])
 
       return {setIsCompatible}
 }

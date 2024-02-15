@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import NameInput from "../NameInput"
 
 
 type TLoginMessageProps = {

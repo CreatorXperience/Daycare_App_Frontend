@@ -1,23 +1,25 @@
 
 import { useMutation } from "react-query"
-import { useEffect, useState } from "react"
-import type { TUserPayload } from "./type"
+import { useContext, useEffect, useState } from "react"
+import type { TResponse, TUserPayload } from "./type"
 import { fetchUser } from "../../../../services/Axios/user"
 import { useNavigate } from "react-router-dom"
+import { UserContext } from "../../../../App/App"
 
 
 const useRegisterUser = ()=>  {
-    const [response, setResponse] =  useState<{}>()
+    const [response, setResponse] =  useState<TResponse>()
     const [errorResponse, setErrorResponse] =  useState<{message: string} | null>()
     const {mutate} =  useMutation("register-user", fetchUser)
     const navigate =  useNavigate()
-
+    const  user = useContext(UserContext)
 
     useEffect(()=>{
-        // if(response){
-        //     navigate("/login")
-        // }
-    }, [response])
+        if(response &&  user){
+            user.setUserInfo(response)
+            navigate("/login")
+        }
+    }, [response, user, navigate])
 
     const mutateUserData = (userPayload: TUserPayload)=> {
     mutate(userPayload, {
