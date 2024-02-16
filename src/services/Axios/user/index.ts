@@ -6,7 +6,7 @@ import axiosInstance from "../axiosInstance"
 
 
 
-const fetchUser = async (userPayload: TUserPayload)=>{
+const registerUser = async (userPayload: TUserPayload)=>{
     try{
  let response = await axiosInstance.post(`${ENDPOINT.signup}`, userPayload)
  console.log(response.data)
@@ -26,9 +26,10 @@ const loginUser = async (userPayload: Omit<TUserPayload, "fullname">)=>{
 return response.data as TLoginResponse
     }
     catch(e: any){
-return e.response.data  as TLoginResponse
+        let errorObj = {...e.response.data, status: 404}
+return errorObj  as TLoginResponse
     }
 
 }
 
-export  {fetchUser, loginUser}
+export  {registerUser , loginUser}

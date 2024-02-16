@@ -3,10 +3,11 @@ import { useNavigate } from "react-router-dom"
 import { TResponse } from "../../pages/Auth/Signup/hooks/type"
 import { TLoginResponse } from "../../pages/Auth/Login/type"
 
-const useIsUserRegistered = ()=>{
+const useIsUserRegistered = (isCompatible: boolean | null)=>{
     const navigate = useNavigate()
     const [userInfo, setUserInfo] =  useState<TResponse>()
     const [userLoginInfo, setUserLoginInfo] = useState<TLoginResponse>()
+
 
     const userSignupContextValue =  useMemo(()=>{
         return {setUserInfo, userInfo}
@@ -18,11 +19,11 @@ const useIsUserRegistered = ()=>{
     },[userLoginInfo])
         
         useEffect(()=>{
-          if(userInfo){
+          if(userInfo && isCompatible){
             localStorage.setItem("userDayCareInfo", JSON.stringify(userInfo))
             navigate("/login")
           }
-        }, [userInfo])
+        }, [userInfo, isCompatible])
         
         useEffect(()=>{
          let user =  localStorage.getItem("userDayCareInfo")

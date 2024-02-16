@@ -9,6 +9,7 @@ type TResponse = {
         email: string,
          fullname: string,
          _id: string,
+         is_verified: boolean
     },
     status: string
 }

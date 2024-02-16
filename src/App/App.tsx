@@ -17,9 +17,9 @@ let client = new QueryClient()
 
 function App() {
 const [path] = useState<string>(window.location.pathname)
-const {setIsCompatible} = useIsCompatible(path)
+const {setIsCompatible,isCompatible} = useIsCompatible(path)
 const {screenRef} =  useResizeObeserver(setIsCompatible)
-const {UserContextValue,userLoginContextValue} =  useIsUserRegistered()
+const {UserContextValue,userLoginContextValue} =  useIsUserRegistered(isCompatible)
 
   return (
     <QueryClientProvider client= {client}>

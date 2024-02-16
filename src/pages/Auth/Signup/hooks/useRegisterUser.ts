@@ -2,7 +2,7 @@
 import { useMutation } from "react-query"
 import { useContext, useEffect, useState } from "react"
 import type { TResponse, TUserPayload } from "./type"
-import { fetchUser } from "../../../../services/Axios/user"
+import {registerUser } from "../../../../services/Axios/user"
 import { useNavigate } from "react-router-dom"
 import { UserContext } from "../../../../App/App"
 
@@ -10,7 +10,7 @@ import { UserContext } from "../../../../App/App"
 const useRegisterUser = ()=>  {
     const [response, setResponse] =  useState<TResponse>()
     const [errorResponse, setErrorResponse] =  useState<{message: string} | null>()
-    const {mutate} =  useMutation("register-user", fetchUser)
+    const {mutate} =  useMutation("register-user", registerUser)
     const navigate =  useNavigate()
     const  user = useContext(UserContext)
 

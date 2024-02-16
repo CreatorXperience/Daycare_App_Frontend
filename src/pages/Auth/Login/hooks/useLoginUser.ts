@@ -25,7 +25,7 @@ const useLoginUser = ()=>  {
     const mutateUserData = (userPayload: TUserPayload)=> {
     mutate(userPayload, {
         onSuccess: (data)=>{
-            if(typeof data.message === "string"){
+            if(data.status !== String(404)){
              setResponse(data)
              return setErrorResponse(null)
             }
