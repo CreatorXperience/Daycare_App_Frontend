@@ -23,7 +23,7 @@ const useIsUserRegistered = (isCompatible: boolean | null)=>{
             localStorage.setItem("userDayCareInfo", JSON.stringify(userInfo))
             navigate("/login")
           }
-        }, [userInfo, isCompatible])
+        }, [userInfo, isCompatible, navigate])
         
         useEffect(()=>{
          let user =  localStorage.getItem("userDayCareInfo")
