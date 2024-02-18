@@ -1,8 +1,8 @@
-import { ENDPOINT } from "../../../constants/endpoints"
-import { TLoginResponse } from "../../../pages/Auth/Login/type"
+import { ENDPOINT } from "../../constants/endpoints"
+import { TLoginResponse } from "../../pages/Auth/Login/type"
 
-import type { TResponse, TUserPayload } from "../../../pages/Auth/Signup/hooks/type"
-import axiosInstance from "../axiosInstance"
+import type { TResponse, TUserPayload } from "../../pages/Auth/Signup/type"
+import axiosInstance from "../Axios/axiosInstance"
 
 
 
@@ -26,7 +26,7 @@ const loginUser = async (userPayload: Omit<TUserPayload, "fullname">)=>{
 return response.data as TLoginResponse
     }
     catch(e: any){
-        let errorObj = {...e.response.data, status: 404}
+        let errorObj = {...e.response.data, status: "404"}
 return errorObj  as TLoginResponse
     }
 

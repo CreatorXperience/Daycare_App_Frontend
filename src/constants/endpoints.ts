@@ -1,3 +1,5 @@
+
+
 const URL = ()=>{
     if(process.env.NODE_ENV === "development"){
         return DEVENDPOINT
@@ -15,7 +17,8 @@ const PRODENDPOINT = {
 
 const ENDPOINT = {
     signup: "/signup",
-    login: "/auth"
+    login: "/auth",
+    verify: "verify-email"
 }
 
 export {URL,ENDPOINT}

@@ -14,7 +14,8 @@ const {
   handleSubmitLoginData, 
   isPasswordVisible, 
   setIsPasswordVisible, 
-  userPayload
+  userPayload,
+  LoginError
 } = useAuth()
 
   return (
@@ -34,7 +35,7 @@ const {
          <GoEye className="eye" color={`${colors.primary.lightGray}`} fontSize="22px" />
          </NameInput>
 
-         <div className="error">This is not okay</div>
+         <div className="error">{LoginError?.message ? LoginError.message : ""}</div>
          
          <FormAction text="Login" />
 

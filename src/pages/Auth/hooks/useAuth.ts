@@ -55,7 +55,9 @@ const useAuth = ()=> {
                 setIsPasswordVisible, 
                 userPayload,
                 response,
-                errorResponse
+                errorResponse,
+                LoginResponse,
+                LoginError
               }
 }
 

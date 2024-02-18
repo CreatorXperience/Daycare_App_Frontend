@@ -1,11 +1,11 @@
 
 import { useMutation } from "react-query"
 import { useContext, useEffect, useState } from "react"
-import {loginUser } from "../../../../services/Axios/user"
+import {loginUser } from "../../../../services/user"
 import { useNavigate } from "react-router-dom"
 import {UserLoginContext } from "../../../../App/App"
 import { TLoginResponse} from "../type"
-import { TUserPayload } from "../../Signup/hooks/type"
+import { TUserPayload } from "../../Signup/type"
 
 
 const useLoginUser = ()=>  {
@@ -16,16 +16,18 @@ const useLoginUser = ()=>  {
     const  user = useContext(UserLoginContext)
 
     useEffect(()=>{
-        if(response &&  user){
+        if(response && user){
             user.setUserLoginInfo(response)
-            navigate("/login")
         }
     }, [response, user, navigate])
+
+
+
 
     const mutateUserData = (userPayload: TUserPayload)=> {
     mutate(userPayload, {
         onSuccess: (data)=>{
-            if(data.status !== String(404)){
+            if(data.status !== "404"){
              setResponse(data)
              return setErrorResponse(null)
             }

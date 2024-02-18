@@ -1,5 +1,5 @@
 import { TLoginResponse } from "../pages/Auth/Login/type"
-import { TResponse } from "../pages/Auth/Signup/hooks/type"
+import { TResponse } from "../pages/Auth/Signup/type"
 
 type TUserContext =  {
     setUserInfo: React.Dispatch<React.SetStateAction<TResponse | undefined>>,

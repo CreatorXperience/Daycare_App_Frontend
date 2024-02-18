@@ -3,7 +3,8 @@ const ROUTE = {
     compatible: "/compatible",
     home: "/home",
     login: "/login",
-    signup: "/signup"
+    signup: "/signup",
+    verify: "/verify"
 
 }
 

@@ -1,8 +1,8 @@
 
 import { useMutation } from "react-query"
 import { useContext, useEffect, useState } from "react"
-import type { TResponse, TUserPayload } from "./type"
-import {registerUser } from "../../../../services/Axios/user"
+import type { TResponse, TUserPayload } from "../type"
+import {registerUser } from "../../../../services/user"
 import { useNavigate } from "react-router-dom"
 import { UserContext } from "../../../../App/App"
 
@@ -17,7 +17,10 @@ const useRegisterUser = ()=>  {
     useEffect(()=>{
         if(response &&  user){
             user.setUserInfo(response)
-            navigate("/login")
+            if(!response.message.is_verified){
+                navigate("/verify")
+            }
+            
         }
     }, [response, user, navigate])
 

@@ -11,6 +11,7 @@ type TResponse = {
          _id: string,
          is_verified: boolean
     },
-    status: string
+    status: string,
+    _id: string;
 }
 export type {TUserPayload,TResponse}
