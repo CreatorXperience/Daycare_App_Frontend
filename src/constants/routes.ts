@@ -1,7 +1,11 @@
 const ROUTE = {
     root: "/",
     compatible: "/compatible",
-    home: "/home"
+    home: "/home",
+    login: "/login",
+    signup: "/signup",
+    verify: "/verify"
+
 }
 
 export default ROUTE

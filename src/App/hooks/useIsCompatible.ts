@@ -1,25 +1,27 @@
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useEffect, useMemo, useState } from "react"
+import {  useNavigate,  } from "react-router-dom"
 
-const useIsCompatible = ()=>{
-    let [isCompatible, setIsCompatible] =  useState<boolean>(false)
+
+const useIsCompatible = (path: string)=>{
+    let [isCompatible, setIsCompatible] =  useState<boolean | null>(null)
     const navigate =  useNavigate()
-    useEffect(()=>{
-        if(window.innerWidth <= 750){
-          setIsCompatible(true)
-        }
-      },[])
-    
 
+
+    const isCompatibleMemo = useMemo(()=>{
+      return isCompatible
+    },[isCompatible])
+
+ 
       useEffect(()=>{
-        if(isCompatible){
-          navigate("/home")
-        }else {
+        if(isCompatibleMemo){
+          navigate(path)   
+        }
+        else{
           navigate("/compatible")
         }
-      },[isCompatible, navigate])
+      },[isCompatibleMemo, navigate, path])
 
-      return {setIsCompatible}
+      return {setIsCompatible, isCompatibleMemo}
 }
 
 export default useIsCompatible

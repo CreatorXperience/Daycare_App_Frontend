@@ -36,8 +36,8 @@ const ICONS = {
     facebookIcon: ()=>(
     <img src={facebook} alt="facebook"></img>  
     ),
-    brandIcon1: ()=>(
-        <img src={brand1} alt="brand"></img>  
+    brandIcon1: (size: string)=>(
+        <img src={brand1} alt="brand" width={size}></img>  
     ),
     brandIcon2: ()=>(
         <img src={brand2} alt="brand"></img>  

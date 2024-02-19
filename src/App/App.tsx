@@ -1,28 +1,38 @@
-import {createContext, useMemo} from "react";
+import {createContext, useState} from "react";
 import { Outlet} from "react-router-dom";
 import useResizeObeserver from "./hooks/useResizeObserver";
 import useIsCompatible from "./hooks/useIsCompatible";
 import AppWrapper from "./AppWrapper";
+import { QueryClient } from "react-query";
+import { QueryClientProvider } from "react-query";
+import { TUserContext, TUserLoginContext } from "./type";
+import useIsUserRegistered from "./hooks/useIsUserRegistered";
 
-export  const AppContext = createContext<{} | null>(null)
+
+
+export  const UserContext = createContext<TUserContext | null>(null)
+export const UserLoginContext = createContext<TUserLoginContext | null>(null)
+
+let client = new QueryClient()
 
 function App() {
-
-  const {setIsCompatible} = useIsCompatible()
+const [path] = useState<string>(window.location.pathname)
+const {setIsCompatible,isCompatibleMemo} = useIsCompatible(path)
 const {screenRef} =  useResizeObeserver(setIsCompatible)
-
-const AppContextValue =  useMemo(()=>{
-return {}
-}, [])
+const {UserContextValue,userLoginContextValue} =  useIsUserRegistered(isCompatibleMemo)
 
   return (
-    <AppContext.Provider value={AppContextValue}>
+    <QueryClientProvider client= {client}>
+    <UserContext.Provider value={UserContextValue}>
+      <UserLoginContext.Provider value={userLoginContextValue}>
     <AppWrapper>
     <div className="App" ref={screenRef}>
       <Outlet />
     </div>
     </AppWrapper>
-    </AppContext.Provider>
+      </UserLoginContext.Provider>
+    </UserContext.Provider>
+    </QueryClientProvider> 
   );
 }
 

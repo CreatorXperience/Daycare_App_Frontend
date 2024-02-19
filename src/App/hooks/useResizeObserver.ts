@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react"
 
-const useResizeObeserver = (setIsCompatible: React.Dispatch<React.SetStateAction<boolean>>)=> {
+const useResizeObeserver = (setIsCompatible: React.Dispatch<React.SetStateAction<boolean | null>>)=> {
     const screenRef = useRef<HTMLDivElement | null>(null)
 
 
@@ -8,10 +8,10 @@ const useResizeObeserver = (setIsCompatible: React.Dispatch<React.SetStateAction
         let [entryObj] = resizeEntry
         let width = entryObj.contentRect.width
         
-        if(width <= 750){
+        if(width <= 1200){
          setIsCompatible(true)
         }
-        else if(width >= 750){
+        else if(width >= 1200){
           setIsCompatible(false)
         }
         })
