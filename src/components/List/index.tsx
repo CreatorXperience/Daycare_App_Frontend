@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import { colors } from "../../constants/colors"
+import { GoArrowRight } from "react-icons/go"
 
 type TListProps = {
     right?: string,
@@ -8,8 +10,10 @@ const List = ({right, left}: TListProps)=>{
     return (
        <ListWrapper> 
         <div className="list-container"> 
-        <div>{left}</div>
-        {right && <div>{right}</div>}
+        <div className="left">{left}</div>
+        {right && <div className="right">{right}
+        <span><GoArrowRight /></span>
+        </div>}
         </div>
        </ListWrapper>
     )
@@ -26,5 +30,16 @@ margin-top: 10px;
     display: flex;
     justify-content: space-between;
     font-weight: 600;
+
+    .left {
+        font-size: 14px;
+        font-weight: 900;
+    }
+
+    .right {
+        color: ${colors.primary.darkGreen};
+        font-size: 12px;
+        font-weight: 900;
+    }
 
 }`

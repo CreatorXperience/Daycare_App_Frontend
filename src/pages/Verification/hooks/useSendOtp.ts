@@ -1,5 +1,5 @@
 import { useMutation } from "react-query"
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import type { TOtpPayload, TOtpResponse } from "../type"
 import sendOtp from "../../../services/Otp"
 
@@ -24,8 +24,10 @@ const mutateOtp = (otpPayload:  TOtpPayload)=>{
     })
 }
 
+const mutateOtpCallback = useCallback(mutateOtp, [mutate])
 
-return {mutateOtp, response, errorResponse,isLoading}
+
+return {mutateOtp, response, errorResponse,isLoading, mutateOtpCallback}
 
 
 }

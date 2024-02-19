@@ -7,7 +7,7 @@ import useOtp from "./hooks/useOtp"
 
 
 const Verification = ()=>{
-    const {handleChangeOtp,handleSubmitOtp,otp,errorResponse,isLoading} = useOtp()
+    const {handleChangeOtp,handleSubmitOtp,errorResponse,isLoading} = useOtp()
 
  
     return (

@@ -1,11 +1,12 @@
-import { Outlet } from "react-router-dom"
+import { Outlet} from "react-router-dom"
 import HomeWrapper from "./HomeWrapper"
-import HelloUser from "../../components/HelloUser"
+import LocationNav from "../../components/LocationHeader"
 import SafetyCard from "../../components/SafetyCard"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import OwnADayCare from "../../components/OwnADayCare"
 import ChildCareCard from "../../components/ChildCareCard"
 import List from "../../components/List"
+import { TLoginResponse } from "../Auth/Login/type"
 
 
 const Home = ()=>{
@@ -13,11 +14,23 @@ const Home = ()=>{
         percentage: "100%"
     })
 
+        //TODO:  navigate user to to another page if user is not verified 
+        // const navigate = useNavigate()
+
+    useEffect(()=>{
+        let user =  localStorage.getItem("DayCareuserLoginInfo")
+        if(user){ 
+         let parsedUserObj = JSON.parse(user) as TLoginResponse
+        if(!parsedUserObj.message.isVerified){
+            // return navigate("/verify")
+        }
+        }
+    },[])
     return (
         <HomeWrapper>
         <div className="home-container">
         <div className="body">
-        <HelloUser />
+        <LocationNav />
         <SafetyCard data={childData} />
         <List right="View all" left="Around you" />
         <ChildCareCard />

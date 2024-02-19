@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 
 const useOtp = ()=>{
     const [otp,setOtp] = useState<string>()
-    const {mutateOtp,errorResponse,isLoading, response} = useSendOtp()
+    const {mutateOtpCallback,errorResponse,isLoading, response} = useSendOtp()
     const navigate = useNavigate()
 
     useEffect(()=>{
@@ -13,16 +13,16 @@ const useOtp = ()=>{
         if(otp?.length === 6 && user){
              let parsedUserObj = JSON.parse(user) as TResponse
         
-             mutateOtp({otp, ownerId: parsedUserObj.message._id})
+             mutateOtpCallback({otp, ownerId: parsedUserObj.message._id})
         }
-    }, [otp])
+    }, [otp, mutateOtpCallback])
 
 
     useEffect(()=>{
         if(response){
             navigate("/login")
         }
-    },[response])
+    },[response, navigate])
 
     const handleChangeOtp = (e: React.ChangeEvent<HTMLInputElement>)=>{
 e.preventDefault()
@@ -37,7 +37,7 @@ setOtp(e.target.value)
         if(otp?.length === 6 && user){
             console.log(user)
              let parsedUserObj = JSON.parse(user) as TResponse
-             mutateOtp({otp, ownerId: parsedUserObj.message._id})
+             mutateOtpCallback({otp, ownerId: parsedUserObj.message._id})
         }
         console.log(otp)
     }

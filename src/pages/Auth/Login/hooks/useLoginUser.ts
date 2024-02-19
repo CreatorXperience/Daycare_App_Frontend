@@ -10,7 +10,7 @@ import { TUserPayload } from "../../Signup/type"
 
 const useLoginUser = ()=>  {
     const [response, setResponse] =  useState<TLoginResponse>()
-    const [errorResponse, setErrorResponse] =  useState<{message: string} | null>()
+    const [errorResponse, setErrorResponse] =  useState<{message: any} | null>()
     const {mutate} =  useMutation("register-user",  loginUser)
     const navigate =  useNavigate()
     const  user = useContext(UserLoginContext)
@@ -31,6 +31,7 @@ const useLoginUser = ()=>  {
              setResponse(data)
              return setErrorResponse(null)
             }
+
             setErrorResponse(data)
         }
     })
