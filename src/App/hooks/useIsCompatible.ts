@@ -3,7 +3,7 @@ import {  useNavigate,  } from "react-router-dom"
 
 
 const useIsCompatible = (path: string)=>{
-    let [isCompatible, setIsCompatible] =  useState<boolean | null>(null)
+    let [isCompatible, setIsCompatible] =  useState<boolean | null>(true)
     const navigate =  useNavigate()
 
 

@@ -22,8 +22,8 @@ const loginUser = async (userPayload: Omit<TUserPayload, "fullname">)=>{
     try{
         let  existingUser  = {email: userPayload.email, password: userPayload.password}
  let response = await axiosInstance.post(`${ENDPOINT.login}`, existingUser)
- console.log(response.data)
-return response.data as TLoginResponse
+ let  res = {...response.data, token: response.headers.authorization }
+return res as TLoginResponse
     }
     catch(e: any){
         let errorObj = {...e.response.data, status: "404"}

@@ -29,15 +29,15 @@ const useIsUserRegistered = (isCompatible: boolean | null)=>{
             localStorage.removeItem("userDayCareInfo")
             
             localStorage.setItem("DayCareuserLoginInfo", JSON.stringify(userLoginInfo))
-  
-            navigate("/home")
+            
           }
         }, [userLoginInfo, isCompatible, navigate])
         
         useEffect(()=>{
          let user =  localStorage.getItem("userDayCareInfo")
          if(user){ 
-          let parsedUserObj = JSON.parse(user) as TResponse
+          let parsedUserObj = JSON.parse(user) as TResponse 
+          navigate("/home")
           setUserInfo(parsedUserObj)
          }
         },[])
@@ -47,6 +47,7 @@ const useIsUserRegistered = (isCompatible: boolean | null)=>{
           let user =  localStorage.getItem("DayCareuserLoginInfo")
           if(user){ 
            let parsedUserObj = JSON.parse(user) as TLoginResponse
+     
            setUserLoginInfo(parsedUserObj)
           }
          },[])

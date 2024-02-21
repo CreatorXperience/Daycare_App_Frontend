@@ -1,9 +1,11 @@
-import { useState } from "react"
+import {useState } from "react"
 import useRegisterUser from "../Signup/hooks/useRegisterUser"
 import useLoginUser from "../Login/hooks/useLoginUser"
+import useRedirect from "../../../App/hooks/useRedirect"
 
 const useAuth = ()=> {
-
+  
+    useRedirect()
     const [userPayload,setUserPayload] = useState({
         password: "",
         email: "",
@@ -12,6 +14,7 @@ const useAuth = ()=> {
 
       let {mutateUserData, response,errorResponse} = useRegisterUser()
       let {errorResponse:LoginError, mutateUserData:mutateUserLoginData, response: LoginResponse} = useLoginUser()
+
 
 
       const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false)

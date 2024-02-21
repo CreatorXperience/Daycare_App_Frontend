@@ -18,7 +18,8 @@ const PRODENDPOINT = {
 const ENDPOINT = {
     signup: "/signup",
     login: "/auth",
-    verify: "verify-email"
+    verify: "verify-email",
+    getChildCares:  "/locate-childcares"
 }
 
 export {URL,ENDPOINT}

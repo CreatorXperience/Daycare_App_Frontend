@@ -72,8 +72,8 @@ const ICONS = {
     promoIcon: ()=>(
         <img src={promo} alt="promo"></img>  
     ),
-    starIcon: ()=>(
-        <img src={star} alt="star icon"></img>  
+    starIcon: (i?:number)=>(
+        <img src={star} alt="star icon" key={i}></img>  
     ),
     trashCanIcon: ()=>(
         <img src={trashCan} alt="trash can"></img>  
