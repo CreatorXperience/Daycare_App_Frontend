@@ -2,10 +2,12 @@ import { GoSearch } from "react-icons/go";
 import ICONS from "../../constants/icons";
 import LocationNavWrapper from "./HelloUserWrapper";
 import useLocation from "./hooks/useLocation";
+import { TLocation } from "./type";
 
 
-const LocationNav = () => {
-    const  {currentLocation,handleSetCurrentLocation} =  useLocation()
+
+const LocationNav = ({setLocation}:TLocation) => {
+    const  {currentLocation,handleSetCurrentLocation} =  useLocation(setLocation)
     return ( 
         <LocationNavWrapper>
             <div className="location-nav-wrapper">

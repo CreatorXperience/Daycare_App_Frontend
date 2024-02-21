@@ -2,7 +2,7 @@ import { Outlet} from "react-router-dom"
 import HomeWrapper from "./HomeWrapper"
 import LocationNav from "../../components/LocationHeader"
 import SafetyCard from "../../components/SafetyCard"
-import { useContext, useEffect, useMemo, useState } from "react"
+import {useEffect, useMemo, useState } from "react"
 import OwnADayCare from "../../components/OwnADayCare"
 import ChildCareCard from "../../components/ChildCareCard"
 import List from "../../components/List"
@@ -17,8 +17,10 @@ const Home = ()=>{
     })
     
 
+    const [location, setLocation] = useState<string>()
     const {setCoordinates,data, coordinates} =  useGetDaycares()
     const {getPositionCallback, PositionMemo} =  useGetPosition()
+    
 
     
     const positionValue  = useMemo(()=>{
@@ -53,7 +55,7 @@ const Home = ()=>{
         <HomeWrapper>
         <div className="home-container">
         <div className="body">
-        <LocationNav />
+        <LocationNav setLocation={setLocation}/>
         <SafetyCard data={childData} />
         <List right="View all" left="Around you" />
         <ChildCareCard data={data}  coordinates={coordinates}/>

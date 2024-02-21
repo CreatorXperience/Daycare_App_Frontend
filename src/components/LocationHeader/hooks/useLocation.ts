@@ -1,7 +1,9 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-const useLocation  = ()=>{
+
+const useLocation  = (setLocation:React.Dispatch<React.SetStateAction<string | undefined>>)=>{
     let  [currentLocation, setCurrentLocation] = useState<string| null>(null)
+
     
     const handleSetCurrentLocation = (e: React.ChangeEvent<HTMLSelectElement>)=>{
         e.preventDefault()
