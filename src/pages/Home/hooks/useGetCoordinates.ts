@@ -3,6 +3,7 @@ import { useQuery } from "react-query"
 import axios from "axios"
 
 type TValue = {city: string, country: string}
+type TCordinates = {longitude: number, latitude: number}
 
 const useGetCoordinates = ()=>{
     const [value, setValue] =  useState<TValue>()
@@ -13,11 +14,11 @@ const useGetCoordinates = ()=>{
 
             let response = await axios.get(`https://api.api-ninjas.com/v1/geocoding?city=${value.city}&country=${value.country}`, {
                 headers: {
-                    "X-Api-Key": process.env.REACT_API_KEY
+                    "X-Api-Key": process.env.REACT_APP_API_KEY
                 }
             })
             
-            return response
+            return response.data as TCordinates[]
         }
         catch(e){
             console.log(e)

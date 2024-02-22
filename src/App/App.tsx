@@ -7,7 +7,7 @@ import { QueryClient } from "react-query";
 import { QueryClientProvider } from "react-query";
 import { TUserContext, TUserLoginContext } from "./type";
 import useIsUserRegistered from "./hooks/useIsUserRegistered";
-import useGetPosition from "./hooks/useGetPosition";
+import useGetCurrentPosition from "./hooks/useGetPosition";
 
 export  const UserContext = createContext<TUserContext | null>(null)
 export const UserLoginContext = createContext<TUserLoginContext | null>(null)

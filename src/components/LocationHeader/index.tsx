@@ -3,18 +3,23 @@ import ICONS from "../../constants/icons";
 import LocationNavWrapper from "./HelloUserWrapper";
 import useLocation from "./hooks/useLocation";
 import { TLocation } from "./type";
+import useGetStates from "./hooks/useGetState";
 
 
 
 const LocationNav = ({setLocation}:TLocation) => {
     const  {currentLocation,handleSetCurrentLocation} =  useLocation(setLocation)
+    const {data} = useGetStates()
+
     return ( 
         <LocationNavWrapper>
             <div className="location-nav-wrapper">
                 <div className="location-header">
                     <div className="location">Location<select onChange={(e)=> handleSetCurrentLocation(e)}> 
                         <option value={""}>none</option>
-                        <option value="Lagos">Lagos</option>
+                        {data && data.map((item)=>{
+                            return <option value={item.name} key={item.id}>{item.name}</option>
+                        })}
                         </select></div>
                     <div className="user">{currentLocation === null  ? "Change your location": currentLocation}</div>
                 </div>

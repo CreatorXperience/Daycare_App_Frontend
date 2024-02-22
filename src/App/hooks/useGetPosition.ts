@@ -1,6 +1,6 @@
 import {useCallback, useMemo, useState} from "react"   
 
-const useGetPosition = ()=> {
+const useGetCurrentPosition = ()=> {
 
   const  [isPositionActive, setIsPositionActive] =  useState<boolean>(false)
 
@@ -31,4 +31,4 @@ const useGetPosition = ()=> {
     return  {getPositionCallback,  isPositionActive, setIsPositionActive,PositionMemo}
 }
 
-export default useGetPosition
+export default useGetCurrentPosition
