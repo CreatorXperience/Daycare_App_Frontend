@@ -1,10 +1,26 @@
-import ICONS from "../../constants/icons"
+import { useNavigate, useLocation } from "react-router-dom"
+import { TChildCare, TCoordinates } from "../../pages/Home/type"
+import calculateDistance from "../../utils/locationAlgo"
 import CardWrapper from "./CardWrapper"
+import useHandleData from "./hooks/useHandleData"
 
-const Card = ()=>{
+
+type TCardProps = {
+    data: TChildCare,
+    coordinates: TCoordinates | undefined
+}
+
+const Card = ({data, coordinates}: TCardProps)=>{
+
+  const {coordinatesPayload, getStars} = useHandleData(coordinates,data)
+  const  navigate = useNavigate()
+  const history = useLocation()
+//   history.pathname = `/details/${data._id}`
+  
+
     return (
         <CardWrapper>
-        <div className="card">
+        <div className="card" onClick={()=> navigate(`/details/${data._id}`)}>
 
         <div className="image">
         
@@ -12,15 +28,12 @@ const Card = ()=>{
 
         <div className="info">
             <div className="childcare-name">
-            <div>ChildCare</div>
-            <div>Distance(3km)</div>
+            <div>{data.title}</div>
+            <div>Distance {calculateDistance(coordinatesPayload)}km</div>
             </div>
 
             <div className="stars">
-                {ICONS.starIcon()}
-                {ICONS.starIcon()}
-                {ICONS.starIcon()}
-                {ICONS.starIcon()}
+             {getStars(data.rating)}
             </div>
         </div>
         </div>

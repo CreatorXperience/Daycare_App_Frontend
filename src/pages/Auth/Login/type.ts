@@ -3,9 +3,11 @@ type TLoginResponse = {
         day_care_owner: boolean,
         favorite: [],
         isVerified: boolean,
-        _id: string
+        _id: string,
+        token: string
     },
-    status: string
+    status: string,
+    token: string
 }
 
 export type {TLoginResponse}

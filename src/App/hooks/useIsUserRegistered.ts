@@ -7,11 +7,12 @@ const useIsUserRegistered = (isCompatible: boolean | null)=>{
     const navigate = useNavigate()
     const [userInfo, setUserInfo] =  useState<TResponse>()
     const [userLoginInfo, setUserLoginInfo] = useState<TLoginResponse>()
+    const [isModalOpen, setIsModalOpen]  = useState<boolean>(false)
 
 
     const userSignupContextValue =  useMemo(()=>{
-        return {setUserInfo, userInfo}
-        }, [userInfo])
+        return {setUserInfo, userInfo, isModalOpen, setIsModalOpen}
+        }, [userInfo, isModalOpen])
 
 
     const userLoginContextValue = useMemo(()=>{
@@ -29,29 +30,30 @@ const useIsUserRegistered = (isCompatible: boolean | null)=>{
             localStorage.removeItem("userDayCareInfo")
             
             localStorage.setItem("DayCareuserLoginInfo", JSON.stringify(userLoginInfo))
-  
-            navigate("/home")
+            
           }
         }, [userLoginInfo, isCompatible, navigate])
         
         useEffect(()=>{
          let user =  localStorage.getItem("userDayCareInfo")
          if(user){ 
-          let parsedUserObj = JSON.parse(user) as TResponse
+          let parsedUserObj = JSON.parse(user) as TResponse 
+          navigate("/home")
           setUserInfo(parsedUserObj)
          }
-        },[])
+        },[navigate])
 
 
         useEffect(()=>{
           let user =  localStorage.getItem("DayCareuserLoginInfo")
           if(user){ 
            let parsedUserObj = JSON.parse(user) as TLoginResponse
+     
            setUserLoginInfo(parsedUserObj)
           }
          },[])
 
-        return {UserContextValue: userSignupContextValue, userLoginContextValue}
+        return {UserContextValue: userSignupContextValue, userLoginContextValue, isModalOpen}
 }
 
 export default useIsUserRegistered

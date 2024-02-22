@@ -7,6 +7,7 @@ import ROUTE from "../constants/routes";
 import Login from "../pages/Auth/Login/Login";
 import Signup from "../pages/Auth/Signup/Signup";
 import Verification from "../pages/Verification";
+import Details from "../pages/Details";
 
 
 let router = createBrowserRouter([{
@@ -37,6 +38,10 @@ let router = createBrowserRouter([{
 },{
     path: ROUTE.verify,
     element: <Verification />
+},
+{
+    path: ROUTE.details,
+    element: <Details />
 }
     ]
 }])

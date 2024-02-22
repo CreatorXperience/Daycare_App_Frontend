@@ -18,7 +18,7 @@ const LocationNavWrapper =styled.div`
                     background-color: white ;
                     outline: none;
                     border: none;
-                    width: 10px;
+                    width: 20px;
                     color: ${colors.primary.yellow}
 
                     option{

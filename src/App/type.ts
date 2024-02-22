@@ -3,7 +3,9 @@ import { TResponse } from "../pages/Auth/Signup/type"
 
 type TUserContext =  {
     setUserInfo: React.Dispatch<React.SetStateAction<TResponse | undefined>>,
-    userInfo: TResponse | undefined
+    userInfo: TResponse | undefined,
+    setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>,
+    isModalOpen: boolean
   }
 
   type TUserLoginContext  = {

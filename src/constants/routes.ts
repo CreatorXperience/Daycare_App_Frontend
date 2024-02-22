@@ -4,8 +4,8 @@ const ROUTE = {
     home: "/home",
     login: "/login",
     signup: "/signup",
-    verify: "/verify"
-
+    verify: "/verify",
+    details: "/details/:id"
 }
 
 export default ROUTE
