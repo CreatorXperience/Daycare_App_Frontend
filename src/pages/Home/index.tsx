@@ -7,11 +7,12 @@ import ChildCareCard from "../../components/ChildCareCard"
 import List from "../../components/List"
 import useHomeLogic from "./hooks/useHandleDaycares"
 
-
 const Home = ()=>{
 
     
     const {coordinates,data,setLocation,childData} = useHomeLogic()
+
+
 
     return (
         <HomeWrapper>

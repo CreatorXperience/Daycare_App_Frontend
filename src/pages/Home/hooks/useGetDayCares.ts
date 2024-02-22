@@ -36,12 +36,12 @@ const useGetDaycares = ()=>{
     }
 
 
-    const  {data} = useQuery([coordinates?.long],()=> getDayCares(coordinates?.long as number, coordinates?.lat as number), {
+    const  {data, isLoading} = useQuery([coordinates?.long, coordinates?.lat],()=> getDayCares(coordinates?.long as number, coordinates?.lat as number), {
         staleTime: 5000,
         cacheTime: 5000,
         enabled: coordinates ? true : false
     })
-    return {data, setCoordinates, coordinates}
+    return {data, setCoordinates, coordinates, isLoading}
 }
 
 export default useGetDaycares

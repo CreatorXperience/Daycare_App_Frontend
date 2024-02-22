@@ -16,10 +16,11 @@ const Signup = ()=>{
     setIsPasswordVisible, 
     isPasswordVisible,
     userPayload,
-    errorResponse,
+    errorResponse
   } =  useAuth()
 
 
+ 
 
   return (
     <SignUpWrapper>

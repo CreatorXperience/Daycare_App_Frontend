@@ -32,6 +32,7 @@ const useGetCoordinates = ()=>{
         staleTime: 5000
     })
 
+
     return {data, setValue}
 
 }

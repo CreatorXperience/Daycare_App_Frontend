@@ -1,35 +1,37 @@
-import { useEffect, useMemo, useState } from "react"
+import { useContext, useEffect, useMemo, useState } from "react"
 import useGetDaycares from "./useGetDayCares"
 import useGetCurrentPosition from "../../../App/hooks/useGetPosition"
 import useGetCoordinates from "./useGetCoordinates"
 import { TLoginResponse } from "../../Auth/Login/type"
+import { UserContext } from "../../../App/App"
 
 const useHomeLogic = ()=>{
 
     const [location, setLocation] = useState<string>()
-    const {setCoordinates,data, coordinates} =  useGetDaycares()
+    const {setCoordinates,data, coordinates,isLoading} =  useGetDaycares()
     const {getPositionCallback, PositionMemo} =  useGetCurrentPosition()
     const {data:cordinatesData,setValue} = useGetCoordinates()
+    const user = useContext(UserContext)
+
 
     const [childData] = useState({
         percentage: "99%"
     })
-
 
     useEffect(()=>{
         if(location){
             let locationPaylod =   {city: location, country: "Nigeria"}
             setValue(locationPaylod)
         }
-    },[location])
+    },[location, setValue])
 
 
     useEffect(()=>{
-        if(cordinatesData){
+        if(cordinatesData &&  cordinatesData.length > 0){
             let pos = {lat: cordinatesData[0].latitude, long: cordinatesData[0].longitude}
             setCoordinates(pos)
         }
-    },[cordinatesData])
+    },[cordinatesData, setCoordinates])
     
 
     
@@ -44,11 +46,11 @@ const useHomeLogic = ()=>{
 
     useEffect(()=>{
         getPositionCallback()
-      },[])
+      },[getPositionCallback])
 
     useEffect(()=>{
             setCoordinates(positionValue)
-    },[positionValue])
+    },[positionValue, setCoordinates])
 
 
 
@@ -61,6 +63,16 @@ const useHomeLogic = ()=>{
         }
         }
     },[])
+
+
+  
+    useEffect(()=> {
+        if(isLoading){
+          return  user?.setIsModalOpen(true)
+        }else{
+            user?.setIsModalOpen(false)
+        }
+    }, [isLoading, user])
 
 
      return {setLocation, coordinates, data, childData}

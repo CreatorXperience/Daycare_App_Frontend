@@ -1,7 +1,8 @@
-import {useState } from "react"
+import {useContext, useEffect, useState } from "react"
 import useRegisterUser from "../Signup/hooks/useRegisterUser"
 import useLoginUser from "../Login/hooks/useLoginUser"
 import useRedirect from "../../../App/hooks/useRedirect"
+import { UserContext } from "../../../App/App"
 
 const useAuth = ()=> {
   
@@ -12,12 +13,34 @@ const useAuth = ()=> {
         fullname: ""
       })
 
-      let {mutateUserData, response,errorResponse} = useRegisterUser()
-      let {errorResponse:LoginError, mutateUserData:mutateUserLoginData, response: LoginResponse} = useLoginUser()
+      let {mutateUserData, response,errorResponse,isLoading} = useRegisterUser()
 
+      let {errorResponse:LoginError, mutateUserData:mutateUserLoginData, response: LoginResponse, isLoading:isLoginLoading} = useLoginUser()
+
+      const user = useContext(UserContext)
 
 
       const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false)
+
+      useEffect(()=>{
+        if(isLoginLoading){
+          return user?.setIsModalOpen(true)
+          }
+          else{
+            user?.setIsModalOpen(false)
+          }
+      }, [isLoginLoading, user])
+
+
+      useEffect(()=>{
+        if(isLoading){
+        return   user?.setIsModalOpen(true)
+        }
+        else{
+          user?.setIsModalOpen(false)
+        }
+      }, [isLoading, user])
+
 
     const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>)=>{
     e.preventDefault()
@@ -60,7 +83,7 @@ const useAuth = ()=> {
                 response,
                 errorResponse,
                 LoginResponse,
-                LoginError
+                LoginError,
               }
 }
 

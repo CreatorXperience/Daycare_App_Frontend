@@ -11,7 +11,7 @@ import { TUserPayload } from "../../Signup/type"
 const useLoginUser = ()=>  {
     const [response, setResponse] =  useState<TLoginResponse>()
     const [errorResponse, setErrorResponse] =  useState<{message: any} | null>()
-    const {mutate} =  useMutation("register-user",  loginUser)
+    const {mutate, isLoading} =  useMutation("register-user",  loginUser)
     const navigate =  useNavigate()
     const  user = useContext(UserLoginContext)
 
@@ -37,7 +37,7 @@ const useLoginUser = ()=>  {
     })
 }
 
-return {response, mutateUserData,errorResponse}
+return {response, mutateUserData,errorResponse, isLoading}
 }
 
 export default useLoginUser

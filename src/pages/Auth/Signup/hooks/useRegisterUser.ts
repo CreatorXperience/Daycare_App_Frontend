@@ -10,7 +10,7 @@ import { UserContext } from "../../../../App/App"
 const useRegisterUser = ()=>  {
     const [response, setResponse] =  useState<TResponse>()
     const [errorResponse, setErrorResponse] =  useState<{message: string} | null>()
-    const {mutate} =  useMutation("register-user", registerUser)
+    const {mutate, isLoading} =  useMutation("register-user", registerUser)
     const navigate =  useNavigate()
     const  user = useContext(UserContext)
 
@@ -36,7 +36,7 @@ const useRegisterUser = ()=>  {
     })
 }
 
-return {response, mutateUserData,errorResponse}
+return {response, mutateUserData,errorResponse,isLoading}
 }
 
 export default useRegisterUser
