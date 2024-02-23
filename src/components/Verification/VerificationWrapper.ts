@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
 const VerificationWrapper = styled.div`
+width: 100%;
+display: flex;
+justify-content: center;
+margin-top: 10px;
+
   .verify-container {
-    width: 100%;
+    width: 88%;
     display: flex;
     justify-content: space-between;
   }
@@ -10,11 +15,12 @@ const VerificationWrapper = styled.div`
     display: flex;
     text-align: center;
   }
-  .image img {
+  .icons-wrapper img {
     width: 20px;
   }
   .verify-rate p {
-    font-size: 20px;
+    font-size: 14px;
+    font-weight: 900;
   }
 `;
 

@@ -1,7 +1,7 @@
 import ICONS from "../../constants/icons";
 import HeaderWrapper from "./MapDetailsWrapper";
 
-const Header = () => {
+const MapDetailsNotification = () => {
   return (
     <HeaderWrapper>
       <div className="map-details-container">
@@ -14,6 +14,6 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default MapDetailsNotification;
 
 
