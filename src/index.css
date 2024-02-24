@@ -9,3 +9,20 @@
 
 ::-webkit-scrollbar{width:2px;border-left:1px solid ; height: 2px; }
 ::-webkit-scrollbar-thumb{background-color:rgba(217, 217, 217, 0.26);}
+
+
+.react {
+position: relative;
+}
+
+#root {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+}
+
+#modal-root {   
+    width: 100%;
+    height: 100vh;
+    top: 0;
+}

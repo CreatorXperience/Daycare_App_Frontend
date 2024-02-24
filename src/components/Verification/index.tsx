@@ -3,7 +3,12 @@ import ICONS from "../../constants/icons";
 import VerificationWrapper from "./VerificationWrapper";
 import { colors } from "../../constants/colors";
 
-const ProfileDetailsVerification = () => {
+
+type TVerification = {
+  rating: number,
+  isVerified?: string
+}
+const ProfileDetailsVerification = ({isVerified,rating}: TVerification) => {
   return (
     <VerificationWrapper>
       <div className="verify-container">
@@ -11,7 +16,7 @@ const ProfileDetailsVerification = () => {
           <div className="icons-wrapper">
            <GoStar size="20px" color={colors.primary.yellow}/>
           </div>
-          <p>4,8</p>
+          <p>{rating}</p>
         </div>
         <div className="verify-rate">
           <div className="icons-wrapper">

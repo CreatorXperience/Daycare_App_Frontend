@@ -1,15 +1,17 @@
 type TChildCare = {
     _id: string, 
     title: string,
-    amount: string,
+    amount: number,
     perDuration: string,
     rating: 5,
     image: string,
     isOpen: boolean,
     location: {type: string, _id: string, coordinates: string[]},
     owner: string,
-    phoneNumber: string,
-    userId: string
+    phonenumber: string,
+    userId: string,
+    description: string,
+    isVerified: string
 }
 
 

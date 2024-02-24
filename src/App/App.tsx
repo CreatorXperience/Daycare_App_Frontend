@@ -23,14 +23,14 @@ const {screenRef} =  useResizeObeserver(setIsCompatible)
 const {UserContextValue,userLoginContextValue, isModalOpen} =  useIsUserRegistered(isCompatibleMemo)
 
 
-
+console.log(isModalOpen)
   return (
     <QueryClientProvider client= {client}>
     <UserContext.Provider value={UserContextValue}>
       <UserLoginContext.Provider value={userLoginContextValue}>
-    <AppWrapper>
-    { isModalOpen && <Modal><div>  </div></Modal> }
+    <AppWrapper isModalOpen={isModalOpen}>
     <div className="App" ref={screenRef}>
+      { isModalOpen &&  <Modal isModalOpen={isModalOpen}><div>  </div></Modal>}
 
     <Outlet />
     </div>

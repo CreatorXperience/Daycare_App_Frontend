@@ -1,15 +1,17 @@
 import { ReactNode } from "react"
 import styled from "styled-components"
 import { colors } from "../../constants/colors"
+import { useNavigate } from "react-router-dom"
 
 type THeader = {
     children: [ReactNode,ReactNode]
 }
 const Header = ({children}: THeader)=>{
+    const navigate = useNavigate()
     return (
         <HeaderWrapper>
             <div className="header-container"> 
-            <div className="icon-left">{children[0]}</div>
+            <div className="icon-left" onClick={()=> navigate("/home")}>{children[0]}</div>
             <div className="page-title">Details</div>
             <div className="icon-right"> {children[1]} </div>
             </div>

@@ -2,7 +2,11 @@ import { useState } from "react"
 import styled from "styled-components"
 import { colors } from "../../constants/colors"
 
-const DetailsDescription = ()=>{
+
+type TDescription  = {
+    desc: string;
+}
+const DetailsDescription = ({desc}: TDescription)=>{
     const [isExpand, setIsExpand] =  useState<boolean>(false)
     
     const handleExpand = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>)=>{
@@ -13,14 +17,7 @@ const DetailsDescription = ()=>{
         <DetailsDescriptionWrapper isExpand={isExpand}>
         <div className="details-container">
         <span>
-        Hello How afahscnaascnlcnascacacasc
-        aacasjcascnacacsdfghjskd,;m;msdv;sdvsdmvsdv;sdmvsdv svsvmsmvs;dvmsvmksdlvsd vslv;sdmvsd;vmsd;lvsd
-        vsv sdmvsd;vmsd;vms;dv
-        svsm;vsvsv;ca;'csv
-        vs vlnsjlvns;vonw[snvsjvs
-        kvnsovsd;v;sn[svs spv
-        ldnfifjefjvona'
-        acancacj
+        {desc}
             </span> 
         <span className="expand" onClick={(e)=> handleExpand(e)}>{isExpand ? "Read less": "Read more"}</span>
         </div>
@@ -47,15 +44,16 @@ margin-top: 20px;
 
         .expand {
             position: absolute;
-            margin-left: 10px;
+            margin-left: 20px;
             bottom: 0;
             margin-top: 10px;
             color: ${colors.primary.cyan};
             font-weight: bolder;
             z-index: 20;
             background-color: ${colors.primary.white};
-           font-weight: bolder;
-            width: 200px;
+            font-weight: bolder;
+            width: 100%;
+            padding-left: 10px;
         }
 
         span:first-child {
