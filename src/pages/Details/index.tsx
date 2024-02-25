@@ -6,26 +6,25 @@ import ProfileDetailsTitle from "../../components/ChildCard"
 import ProfileDetailsVerification from "../../components/Verification"
 import DetailsDescription from "../../components/DetailsDescription"
 import GoogleMap from "../../components/Map"
-import styled from "styled-components"
 import DetailsAction from "../../components/DetailsAction"
 import useGetDayCare from "./hooks/useGetDaycare"
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../../App/App"
+import Alert from "../../components/Alert"
+import DetailsWrapper from "./DetailsWrapper"
 
 const Details = ()=>{
     const {id} =  useParams()
     const {data,setId,isLoading} = useGetDayCare()
     const user = useContext(UserContext)
+    const [isCopied, setIsCopied] = useState<boolean>(false)
 
   
 
     useEffect(()=>{
         if(id){
-         
             setId(id)
         }
-
-      
     },[id])
     
     
@@ -41,8 +40,8 @@ const Details = ()=>{
     
 
     return (
-
   <DetailsWrapper>
+   { isCopied ? <Alert /> : ""}
 <Header>
 <GoChevronLeft size="30px" />
 <GoKebabHorizontal size="30px" />
@@ -52,7 +51,7 @@ const Details = ()=>{
 {data?.title && <ProfileDetailsTitle  title={data?.title} isOpen={data.isOpen} amount={data.amount}/>}
 {data?.rating && <ProfileDetailsVerification rating={data?.rating} isVerified={data?.isVerified} />}
 {data?.description && <DetailsDescription desc={data?.description} />}
-<DetailsAction content={{owner: data?.owner as string, phoneNumber: data?.phonenumber}}  />
+<DetailsAction content={{owner: data?.owner as string, phoneNumber: data?.phonenumber, setIsCopied:setIsCopied}}   />
 <GoogleMap />
 </div>
 </DetailsWrapper>
@@ -61,12 +60,3 @@ const Details = ()=>{
 
 export default Details
 
-const DetailsWrapper = styled.div`
-    width: 100%;
-    border: 1px solid red;
-    display: flex;
-    flex-direction: column;
-    z-index: -1;
-    overflow-y: hidden;
-    height: 100vh;
-`

@@ -1,5 +1,5 @@
 import GoogleMapReact from 'google-map-react';
-import styled from 'styled-components';
+import GoogleMapWrapper from './GoogleMapWrapper';
 
 type TAny = {
     lat:number,
@@ -37,16 +37,3 @@ const GoogleMap  = ()=>{
 
 export default GoogleMap
 
-const GoogleMapWrapper = styled.div`
-    width: 100%;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-
-    .map-container {
-        width: 90%;
-        border-radius: 40px;
-        overflow: hidden;
-    }
-`

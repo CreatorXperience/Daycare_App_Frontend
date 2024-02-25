@@ -1,13 +1,10 @@
-import { GoClock, GoClockFill, GoStar, GoVerified } from "react-icons/go";
-import ICONS from "../../constants/icons";
+import { GoClock,GoStar, GoVerified } from "react-icons/go";
 import VerificationWrapper from "./VerificationWrapper";
 import { colors } from "../../constants/colors";
+import { TVerification } from "./type";
 
 
-type TVerification = {
-  rating: number,
-  isVerified?: string
-}
+
 const ProfileDetailsVerification = ({isVerified,rating}: TVerification) => {
   return (
     <VerificationWrapper>
