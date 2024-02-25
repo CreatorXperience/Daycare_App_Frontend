@@ -22,8 +22,6 @@ const {setIsCompatible,isCompatibleMemo} = useIsCompatible(path)
 const {screenRef} =  useResizeObeserver(setIsCompatible)
 const {UserContextValue,userLoginContextValue, isModalOpen} =  useIsUserRegistered(isCompatibleMemo)
 
-
-console.log(isModalOpen)
   return (
     <QueryClientProvider client= {client}>
     <UserContext.Provider value={UserContextValue}>
