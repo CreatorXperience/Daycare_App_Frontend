@@ -15,7 +15,7 @@ const ProfileDetailsTitle = ({title, isOpen, amount}: TTitle) => {
           </p>
         </div>
         <div className="child-card-btn">
-          <input type="button" value={isOpen? "Open": "Close"} className="btn"/>
+          <input type="button" value={isOpen? "Open": "Close"} className="btn" />
         </div>
       </div>
     </ChildCardWrapper>
