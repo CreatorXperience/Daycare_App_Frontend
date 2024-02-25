@@ -19,7 +19,7 @@ const GoogleMap  = ()=>{
         <GoogleMapWrapper>
         <div className="map-container" style={{ height: '200px', borderRadius: "10px" }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyBKURk-fB0f1-rEuA6nlOjXo5qZrAkEV5U" }}
+          bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_CONSENT_SCREEN as string}}
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}
 
