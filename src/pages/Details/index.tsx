@@ -25,7 +25,7 @@ const Details = ()=>{
         if(id){
             setId(id)
         }
-    },[id])
+    },[id, setId])
     
     
     useEffect(()=>{
