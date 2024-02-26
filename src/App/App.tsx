@@ -8,7 +8,6 @@ import { QueryClientProvider } from "react-query";
 import { TUserContext, TUserLoginContext } from "./type";
 import useIsUserRegistered from "./hooks/useIsUserRegistered";
 import Modal from "../components/Modal";
-import UserInputData from "../pages/UserInputData";
 
 export const UserContext = createContext<TUserContext | null>(null);
 export const UserLoginContext = createContext<TUserLoginContext | null>(null);
@@ -27,7 +26,6 @@ function App() {
       <UserContext.Provider value={UserContextValue}>
         <UserLoginContext.Provider value={userLoginContextValue}>
           <AppWrapper>
-            <UserInputData />
             {isModalOpen && (
               <Modal>
                 <div> </div>

@@ -5,7 +5,8 @@ const ROUTE = {
     login: "/login",
     signup: "/signup",
     verify: "/verify",
-    details: "/details/:id"
+    details: "/details/:id",
+    userProfile: "/userprofile"
 }
 
 export default ROUTE
