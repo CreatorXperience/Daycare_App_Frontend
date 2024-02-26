@@ -17,12 +17,12 @@ const useGetStates = ()=>{
             console.log(e)
         }
     }
-    const {data} = useQuery("state", getState, {
+    const {data, isFetching} = useQuery("state", getState, {
         staleTime: 5000,
         cacheTime: 5000,
     })
 
-    return {data}
+    return {data, isFetching}
 }
 
 export default useGetStates

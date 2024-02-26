@@ -10,7 +10,9 @@ let colors = {
         lightGray: "rgba(153, 155, 157, 0.20)",
         shadow: "0px 2px 8px 0px rgba(0, 0, 0, 0.10)",
         cyan: "rgba(23, 118, 202, 0.83)",
-        textGray: "rgba(153, 155, 157)"
+        textGray: "rgba(153, 155, 157)",
+        lightCyan: "#C2EDFF",
+        red: "#FFC0CC"
 
     }
 }

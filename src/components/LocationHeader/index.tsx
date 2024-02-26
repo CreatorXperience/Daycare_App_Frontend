@@ -4,12 +4,17 @@ import LocationNavWrapper from "./HelloUserWrapper";
 import useLocation from "./hooks/useLocation";
 import { TLocation } from "./type";
 import useGetStates from "./hooks/useGetState";
+import { useEffect } from "react";
 
 
 
-const LocationNav = ({setLocation}:TLocation) => {
+const LocationNav = ({setLocation,setIsCoordinatesLoading}:TLocation) => {
     const  {currentLocation,handleSetCurrentLocation} =  useLocation(setLocation)
-    const {data} = useGetStates()
+    const {data, isFetching} = useGetStates()
+
+    useEffect(()=>{
+        setIsCoordinatesLoading(isFetching)
+    },[isFetching,setIsCoordinatesLoading])
 
     return ( 
         <LocationNavWrapper>

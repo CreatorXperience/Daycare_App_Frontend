@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
 const ChildCardWrapper = styled.div`
+width: 100%;
+display: flex;
+justify-content: center;
+
   .child-card-container {
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     padding: 10px 0px;
@@ -15,25 +19,22 @@ const ChildCardWrapper = styled.div`
 
   .child-card-timing p {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 900;
     padding-left: 5px;
   }
   .child-card-timing span {
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 400;
   }
   .btn {
     padding: 5px  0px;
-    width: 80px;
-    font-size: 20px;
+    width: 60px;
+    font-size: 18px;
     color: white;
-    background: linear-gradient(
-      180deg,
-      #72b5f1 0%,
-      rgba(23, 118, 202, 0.83) 131.58%
-    );
+    background: linear-gradient(180deg, #B5FFBC 0%, rgba(5, 200, 10, 0.74) 100%);
     border: none;
     border-radius: 10px;
+    font-weight: 900;
   }
 `;
 

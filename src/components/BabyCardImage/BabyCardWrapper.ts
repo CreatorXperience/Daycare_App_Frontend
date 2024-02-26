@@ -7,8 +7,8 @@ const BabyCardWrapper = styled.div`
     justify-content: center;
   }
   .card-img {
-    background-image: url("https://www.momooze.com/wp-content/uploads/short-haircuts-for-little-girls-6.jpg.webp");
-    width: 300px;
+    background-image: url("https://i.pinimg.com/736x/22/14/a3/2214a38b161a1247d2d59cb292476eb1.jpg");
+    width: 90%;
     height: 200px;
     background-size: cover;
     border-radius: 10px;

@@ -1,23 +1,28 @@
-import ICONS from "../../constants/icons";
+import { GoClock,GoStar, GoVerified } from "react-icons/go";
 import VerificationWrapper from "./VerificationWrapper";
+import { colors } from "../../constants/colors";
+import { TVerification } from "./type";
 
-const Verification = () => {
+
+
+const ProfileDetailsVerification = ({isVerified,rating}: TVerification) => {
   return (
     <VerificationWrapper>
       <div className="verify-container">
         <div className="verify-rate">
-          <div className="image">
-            {ICONS.starIcon()}
+          <div className="icons-wrapper">
+           <GoStar size="20px" color={colors.primary.yellow}/>
           </div>
-          <p>4,8</p>
+          <p>{rating}</p>
         </div>
         <div className="verify-rate">
-          <div className="image">
-          {ICONS.starIcon()}
+          <div className="icons-wrapper">
+            <GoClock  color={colors.primary.cyan}/>
           </div>
           <p>7PM - 10AM</p>
         </div>
         <div className="verify-rate">
+        <GoVerified  color={colors.primary.darkGreen}/>
           <p>Verified</p>
         </div>
       </div>
@@ -25,6 +30,6 @@ const Verification = () => {
   );
 };
 
-export default Verification;
+export default ProfileDetailsVerification;
 
 

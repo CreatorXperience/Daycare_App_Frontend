@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from "react-router-dom"
+import { useNavigate} from "react-router-dom"
 import { TChildCare, TCoordinates } from "../../pages/Home/type"
 import calculateDistance from "../../utils/locationAlgo"
 import CardWrapper from "./CardWrapper"
@@ -14,9 +14,6 @@ const Card = ({data, coordinates}: TCardProps)=>{
 
   const {coordinatesPayload, getStars} = useHandleData(coordinates,data)
   const  navigate = useNavigate()
-  const history = useLocation()
-//   history.pathname = `/details/${data._id}`
-  
 
     return (
         <CardWrapper>

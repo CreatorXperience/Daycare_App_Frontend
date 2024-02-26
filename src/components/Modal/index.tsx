@@ -3,12 +3,13 @@ import styled from "styled-components"
 import  ReactDOM  from "react-dom"
 import { colors } from "../../constants/colors"
 type TModalProps = {
-    children: ReactNode
+    children: ReactNode,
+    isModalOpen: boolean
 }
 
-const Modal = ({children}: TModalProps)=>{
+const Modal = ({children, isModalOpen}: TModalProps)=>{
     return ReactDOM.createPortal(
-        <ModalWrapper>
+        <ModalWrapper isModalOpen={isModalOpen}>
         <div className="modal-container">
         <span className="loader"></span>
             {children}
@@ -22,9 +23,10 @@ const Modal = ({children}: TModalProps)=>{
 
 export default Modal
 
-const ModalWrapper = styled.div`
+const ModalWrapper = styled.div<{isModalOpen: boolean}>`
 width: 100%;
 height: 100vh;
+
     .modal-container {
         width: 100%;
         height: 100%;
