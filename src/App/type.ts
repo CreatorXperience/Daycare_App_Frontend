@@ -4,8 +4,14 @@ import { TResponse } from "../pages/Auth/Signup/type"
 type TUserContext =  {
     setUserInfo: React.Dispatch<React.SetStateAction<TResponse | undefined>>,
     userInfo: TResponse | undefined,
+    isSearchModalOpen: boolean,
     setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>,
-    isModalOpen: boolean
+    setIsSearchModalOpen: React.Dispatch<React.SetStateAction<boolean>>,
+    isModalOpen: boolean,
+    setSeen: React.Dispatch<React.SetStateAction<string[] | undefined>>,
+    seen: string[] | undefined,
+    search: string[] | undefined,
+    setLastSearch: React.Dispatch<React.SetStateAction<string[] | undefined>>
   }
 
   type TUserLoginContext  = {

@@ -7,7 +7,7 @@ const DetailsDescription = ({desc}: TDescription)=>{
     const {handleExpand,isExpand} = useExpand()
  
     return (
-        <DetailsDescriptionWrapper isExpand={isExpand}>
+        <DetailsDescriptionWrapper isexpand={JSON.stringify(isExpand)}>
         <div className="details-container">
         <span>
         {desc}

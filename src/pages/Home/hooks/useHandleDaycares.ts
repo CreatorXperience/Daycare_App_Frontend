@@ -76,6 +76,9 @@ const useHomeLogic = ()=>{
     }, [isLoading, user, isCoordinatesLoading])
 
 
+
+
+
      return {setLocation, coordinates, data, childData, setIsCoordinatesLoading}
 }
 

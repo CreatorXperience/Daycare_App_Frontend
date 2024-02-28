@@ -42,7 +42,7 @@ const Details = ()=>{
     return (
   <DetailsWrapper>
    { isCopied ? <Alert /> : ""}
-<Header>
+<Header title="Details">
 <GoChevronLeft size="30px" />
 <GoKebabHorizontal size="30px" />
 </Header>
@@ -52,7 +52,7 @@ const Details = ()=>{
 {data?.rating && <ProfileDetailsVerification rating={data?.rating} isVerified={data?.isVerified} />}
 {data?.description && <DetailsDescription desc={data?.description} />}
 <DetailsAction content={{owner: data?.owner as string, phoneNumber: data?.phonenumber, setIsCopied:setIsCopied}}   />
-<GoogleMap />
+<GoogleMap lat={data?.location.coordinates[1]} lng={data?.location.coordinates[0]}  />
 </div>
 </DetailsWrapper>
     )

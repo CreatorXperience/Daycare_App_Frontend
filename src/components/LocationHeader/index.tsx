@@ -4,17 +4,21 @@ import LocationNavWrapper from "./HelloUserWrapper";
 import useLocation from "./hooks/useLocation";
 import { TLocation } from "./type";
 import useGetStates from "./hooks/useGetState";
-import { useEffect } from "react";
+import {useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 
 const LocationNav = ({setLocation,setIsCoordinatesLoading}:TLocation) => {
     const  {currentLocation,handleSetCurrentLocation} =  useLocation(setLocation)
     const {data, isFetching} = useGetStates()
+    const navigate = useNavigate()
 
     useEffect(()=>{
         setIsCoordinatesLoading(isFetching)
     },[isFetching,setIsCoordinatesLoading])
+
+
 
     return ( 
         <LocationNavWrapper>
@@ -30,7 +34,7 @@ const LocationNav = ({setLocation,setIsCoordinatesLoading}:TLocation) => {
                 </div>
 
                 <div className="image">
-                    <GoSearch fontSize="20px" className="search"/>
+                    <GoSearch fontSize="20px" className="search" onClick={()=> navigate("/search")}/>
                     {ICONS.bellIcon()}
                 </div>
 </div>

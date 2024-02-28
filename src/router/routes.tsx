@@ -8,6 +8,7 @@ import Login from "../pages/Auth/Login/Login";
 import Signup from "../pages/Auth/Signup/Signup";
 import Verification from "../pages/Verification";
 import Details from "../pages/Details";
+import Search from "../pages/Search";
 
 
 let router = createBrowserRouter([{
@@ -42,6 +43,10 @@ let router = createBrowserRouter([{
 {
     path: ROUTE.details,
     element: <Details />
+},
+{
+    path: ROUTE.search,
+    element: <Search /> 
 }
     ]
 }])

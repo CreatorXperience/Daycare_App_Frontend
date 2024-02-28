@@ -8,11 +8,14 @@ const useIsUserRegistered = (isCompatible: boolean | null)=>{
     const [userInfo, setUserInfo] =  useState<TResponse>()
     const [userLoginInfo, setUserLoginInfo] = useState<TLoginResponse>()
     const [isModalOpen, setIsModalOpen]  = useState<boolean>(false)
+    const [isSearchModalOpen, setIsSearchModalOpen] = useState(false)
+    const [seen, setSeen] = useState<string[]>()
+    const [search, setLastSearch] = useState<string[]>()
 
 
     const userSignupContextValue =  useMemo(()=>{
-        return {setUserInfo, userInfo, isModalOpen, setIsModalOpen}
-        }, [userInfo, isModalOpen])
+        return {setUserInfo, userInfo, isModalOpen, setIsModalOpen, setSeen,seen, search, setLastSearch,isSearchModalOpen,setIsSearchModalOpen}
+        }, [userInfo, isModalOpen,setIsModalOpen,setSeen,seen,search,setLastSearch, isSearchModalOpen, setIsSearchModalOpen])
 
 
     const userLoginContextValue = useMemo(()=>{
@@ -53,7 +56,19 @@ const useIsUserRegistered = (isCompatible: boolean | null)=>{
           }
          },[])
 
-        return {UserContextValue: userSignupContextValue, userLoginContextValue, isModalOpen}
+         useEffect(()=>{
+          let seen = localStorage.getItem("lastSeen")
+          if(seen){
+            let parse = JSON.parse(seen)
+            setSeen(parse)
+          }
+         }, [])
+
+  
+
+
+
+        return {UserContextValue: userSignupContextValue, userLoginContextValue, isModalOpen, isSearchModalOpen}
 }
 
 export default useIsUserRegistered

@@ -14,7 +14,6 @@ const Home = ()=>{
     const {coordinates,data,setLocation,childData,setIsCoordinatesLoading} = useHomeLogic()
 
 
-
     return (
 
         <HomeWrapper>

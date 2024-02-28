@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../constants/colors";
 
-const DetailsDescriptionWrapper = styled.div<{isExpand: boolean}>`
+const DetailsDescriptionWrapper = styled.div<{isexpand?: string}>`
 width: 100%;
 display: flex;
 justify-content: center;
@@ -9,7 +9,7 @@ margin-top: 20px;
 
     .details-container {
         width: 90%;
-        height: ${(props)=> props.isExpand ? "auto": "40px" };
+        height: ${(props)=> props.isexpand === "true" ? "auto": "40px" };
         overflow-y: hidden ;
         position: relative;
         font-size: 14px;

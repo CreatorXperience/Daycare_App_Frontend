@@ -8,6 +8,7 @@ import { QueryClientProvider } from "react-query";
 import { TUserContext, TUserLoginContext } from "./type";
 import useIsUserRegistered from "./hooks/useIsUserRegistered";
 import Modal from "../components/Modal";
+import SearchModal from "../components/SearchModal";
 
 export  const UserContext = createContext<TUserContext | null>(null)
 export const UserLoginContext = createContext<TUserLoginContext | null>(null)
@@ -20,16 +21,17 @@ function App() {
 const [path] = useState<string>(window.location.pathname)
 const {setIsCompatible,isCompatibleMemo} = useIsCompatible(path)
 const {screenRef} =  useResizeObeserver(setIsCompatible)
-const {UserContextValue,userLoginContextValue, isModalOpen} =  useIsUserRegistered(isCompatibleMemo)
+const {UserContextValue,userLoginContextValue, isModalOpen, isSearchModalOpen} =  useIsUserRegistered(isCompatibleMemo)
+  
 
   return (
     <QueryClientProvider client= {client}>
     <UserContext.Provider value={UserContextValue}>
       <UserLoginContext.Provider value={userLoginContextValue}>
-    <AppWrapper isModalOpen={isModalOpen}>
+    <AppWrapper ismodalopen={JSON.stringify(isModalOpen)}>
     <div className="App" ref={screenRef}>
-      { isModalOpen &&  <Modal isModalOpen={isModalOpen}><div>  </div></Modal>}
-
+      { isModalOpen &&  <Modal ismodalopen={JSON.stringify(isModalOpen)}><div>  </div></Modal>}
+      {isSearchModalOpen && <SearchModal />}
     <Outlet />
     </div>
     </AppWrapper>

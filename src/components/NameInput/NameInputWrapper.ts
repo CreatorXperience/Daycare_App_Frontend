@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../constants/colors";
 
-const NameInputWrapper = styled.div`
+const NameInputWrapper = styled.div<{borderradius?: string, bg?:string}>`
   .input-wrapper {
     padding: 10px;
     width: 100%;
@@ -19,7 +19,7 @@ const NameInputWrapper = styled.div`
     font-weight: 700;
     border: 2px solid ${colors.primary.lightGray};
     outline: 0;
-    border-radius: 10px;
+    border-radius: ${props => props.borderradius ? props.borderradius : "10px"};
     margin-top: 10px;
     display: flex;
     justify-content: space-between;

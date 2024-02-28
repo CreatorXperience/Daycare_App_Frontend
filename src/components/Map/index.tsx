@@ -6,11 +6,16 @@ type TAny = {
     lng: number,
     text: string
 }
-const GoogleMap  = ()=>{
+
+type TMap = {
+  lat?: string,
+  lng?: string
+}
+const GoogleMap  = ({lat,lng}: TMap)=>{
     const defaultProps = {
         center: {
-          lat: 10.99835602,
-          lng: 77.01502627
+          lat: lat ? +lat: 0,
+          lng: lng ? +lng: 0
         },
         zoom: 11
       };
@@ -19,7 +24,7 @@ const GoogleMap  = ()=>{
         <GoogleMapWrapper>
         <div className="map-container" style={{ height: '200px', borderRadius: "10px" }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_CONSENT_SCREEN as string}}
+          bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_CONSENT_KEY as string}}
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}
 
