@@ -6,7 +6,8 @@ const ROUTE = {
     signup: "/signup",
     verify: "/verify",
     details: "/details/:id",
-    search: "/search"
+    search: "/search",
+    result: "/result"
 }
 
 export default ROUTE
