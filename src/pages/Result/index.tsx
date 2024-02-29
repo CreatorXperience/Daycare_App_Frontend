@@ -4,11 +4,23 @@ import Header from "../../components/Header"
 import { GoBell, GoChevronLeft, GoSearch } from "react-icons/go"
 import NameInput from "../../components/NameInput"
 import FilterSlider from "../../components/Filterslider"
-import { Outlet } from "react-router-dom"
+import { Outlet, useSearchParams, } from "react-router-dom"
 import ResultCard from "../../components/ResultCard"
 
+import useSearchDayCares from "./hooks/useSearchDaycare"
+import { useEffect } from "react"
+
 const Result = ()=>{
-    
+    let [search] = useSearchParams()
+    let {data, setTerm} = useSearchDayCares()
+
+
+        useEffect(()=>{
+            if(search.get("term")){
+                setTerm(search.get("term") as string)
+            }
+        }, [search])
+        
     return (
         <ResultWrapper>
         <div className="result-cont">
@@ -30,9 +42,10 @@ const Result = ()=>{
 
             <FilterSlider />
 
-            <ResultCard />
-
-            <ResultCard />
+{data && data.map((item)=>{
+    return     <ResultCard />
+})}
+        
         </div>
  
         <div className="result-footer">
@@ -57,7 +70,7 @@ const ResultWrapper = styled.div`
 
    .result-cont {
     width: 98%;
-    height: 80%;
+    height: 90%;
 
         display: flex;
         flex-flow: column;

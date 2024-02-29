@@ -19,7 +19,8 @@ const ENDPOINT = {
     signup: "/signup",
     login: "/auth",
     verify: "verify-email",
-    getChildCares:  "/locate-childcares"
+    getChildCares:  "/locate-childcares",
+    searchChildcares: "/search-childcares"
 }
 
 export {URL,ENDPOINT}

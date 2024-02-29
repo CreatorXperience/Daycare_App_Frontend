@@ -22,8 +22,8 @@ const NavBarIconWrapper = styled.div`
     height: 100%;
   }
   .image p {
-    color: ${colors.primary.cyan};
-    font-weight: 900;
+    color: ${colors.primary.textGray};
+    font-weight: bolder;
     font-size: 14px;
   }
   .image img {

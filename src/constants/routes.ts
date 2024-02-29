@@ -9,5 +9,4 @@ const ROUTE = {
     search: "/search",
     result: "/result"
 }
-
 export default ROUTE
