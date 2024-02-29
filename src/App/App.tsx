@@ -30,7 +30,12 @@ const {UserContextValue,userLoginContextValue, isModalOpen, isSearchModalOpen} =
       <UserLoginContext.Provider value={userLoginContextValue}>
     <AppWrapper ismodalopen={JSON.stringify(isModalOpen)}>
     <div className="App" ref={screenRef}>
-      { isModalOpen &&  <Modal ismodalopen={JSON.stringify(isModalOpen)}><div>  </div></Modal>}
+      { isModalOpen &&  <Modal ismodalopen={JSON.stringify(isModalOpen)}>
+        <div className="loader-container">
+        <span className="loader"></span>
+        </div>
+
+        </Modal>}
       {isSearchModalOpen && <SearchModal />}
     <Outlet />
     </div>

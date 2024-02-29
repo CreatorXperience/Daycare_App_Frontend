@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { colors } from "../../constants/colors";
 
 const NavBarIconWrapper = styled.div`
+  width: 100%;
+  height: 60px;
 
   .nav-wrapper {
     width: 100%;

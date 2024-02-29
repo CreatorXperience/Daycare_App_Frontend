@@ -1,21 +1,49 @@
 import { FaDollarSign } from "react-icons/fa"
 import styled from "styled-components"
 import { colors } from "../../constants/colors"
+import { TChildCare } from "../../pages/Home/type"
+import { useNavigate } from "react-router-dom"
+import calculateDistance, { TDistanceProps } from "../../utils/locationAlgo"
+import useGetCurrentPosition from "../../App/hooks/useGetPosition"
+import { useEffect, useState } from "react"
+import { GoLocation } from "react-icons/go"
 
-const ResultCard = ()=>{
+
+
+
+const ResultCard = ({amount,perDuration,title, _id, location}:Partial<TChildCare>)=>{
+    const navigate = useNavigate()
+    const {PositionMemo,getPositionCallback} = useGetCurrentPosition()
+    let [position, setPosition] = useState<TDistanceProps>()
+
+    useEffect(()=>{
+        getPositionCallback()
+    },[getPositionCallback])
+
+    useEffect(()=>{
+        if(PositionMemo && location){
+            setPosition({
+                lat1: PositionMemo.position?.coords.latitude as number,
+                lat2: +location?.coordinates[1]  as number,
+                lon1: PositionMemo.position?.coords.longitude as number,
+                lon2: +location?.coordinates[0] as number
+            })
+        }
+    },[PositionMemo])
+
     return (
-        <ResultCardWrapper>
+        <ResultCardWrapper onClick={()=> navigate(`/details/${_id}`)}>
             <div className="result-card-cont">
                 <div className="result-image">
 
                 </div>
                 <div className="result-details">
                     <div className="details">
-                        <p className="title">Kudo Childcare</p>
-                        <p>location</p>
+                        <p className="title">{title}</p>
+                        <p><GoLocation color={colors.primary.cyan} />{calculateDistance(position)}km</p>
                     </div>
 
-                    <div className="amount"><FaDollarSign  color={colors.primary.yellow}/><span className="digit">5</span> <span className="duration">/1hr</span></div>
+                    <div className="amount"><FaDollarSign  color={colors.primary.yellow}/><span className="digit">{amount}</span> <span className="duration">/{perDuration}hr</span></div>
                 </div>
             </div>
         </ResultCardWrapper>

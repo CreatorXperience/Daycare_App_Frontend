@@ -2,14 +2,24 @@ import { GoFilter } from "react-icons/go"
 import styled from "styled-components"
 import { colors } from "../../constants/colors"
 
-const FilterSlider = ()=>{
+
+
+type TFilter = {
+    setFilter: React.Dispatch<React.SetStateAction<string>>,
+    setIsFilterClicked: React.Dispatch<React.SetStateAction<boolean>>
+}
+const FilterSlider = ({setFilter, setIsFilterClicked}: TFilter)=>{
+
+
+    const handleClick = (term: string)=>{
+        setFilter(term)
+    }
 return (
     <FilterSliderWrapper>
         <div className="filter-cont">
-        <button className="filter"><GoFilter /> <span>Filter</span></button>
-        <button className="normal"><span>Rating</span></button>
-        <button className="normal"><span>Highest</span></button>
-        <button className="normal"><span>Lowest</span></button>
+        <button className="filter" onClick={()=> setIsFilterClicked(true)}><GoFilter /> <span>Filter</span></button>
+        <button className="normal" onClick={()=> handleClick("rating")}><span>Rating</span></button>
+        <button className="normal"  onClick={()=> handleClick("amount")}><span>Amount</span></button>
         </div>
     </FilterSliderWrapper>
 )
@@ -28,12 +38,11 @@ const FilterSliderWrapper = styled.div`
     .filter-cont{
         width: 90%;
         height: auto;
-        border: 1px solid red;
         overflow-x: auto;
         display: flex;
 
 
-        .filter, .normal {
+        .filter, .normal , .normal_sec{
             padding: 8px;
             width: 120px;
             border-radius: 10px;
@@ -53,6 +62,11 @@ const FilterSliderWrapper = styled.div`
         }
 
         .normal {
+            color: ${colors.primary.cyan};
+            background-color: ${colors.primary.grayishWhite};
+        }
+
+          .normal_sec {
             color: ${colors.primary.cyan};
             background-color: ${colors.primary.grayishWhite};
         }

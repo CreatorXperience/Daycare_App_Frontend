@@ -7,7 +7,7 @@ const Modal = ({children, ismodalopen}: TModalProps)=>{
     return ReactDOM.createPortal(
         <ModalWrapper ismodalopen={ismodalopen}>
         <div className="modal-container">
-        <span className="loader"></span>
+     
             {children}
         </div>
         </ModalWrapper>,

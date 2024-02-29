@@ -15,12 +15,12 @@ import DetailsWrapper from "./DetailsWrapper"
 
 const Details = ()=>{
     const {id} =  useParams()
+
     const {data,setId,isLoading} = useGetDayCare()
     const user = useContext(UserContext)
     const [isCopied, setIsCopied] = useState<boolean>(false)
 
   
-
     useEffect(()=>{
         if(id){
             setId(id)
@@ -52,7 +52,7 @@ const Details = ()=>{
 {data?.rating && <ProfileDetailsVerification rating={data?.rating} isVerified={data?.isVerified} />}
 {data?.description && <DetailsDescription desc={data?.description} />}
 <DetailsAction content={{owner: data?.owner as string, phoneNumber: data?.phonenumber, setIsCopied:setIsCopied}}   />
-<GoogleMap lat={data?.location.coordinates[1]} lng={data?.location.coordinates[0]}  />
+{data &&  data.location && <GoogleMap lat={data?.location.coordinates[1]} lng={data?.location.coordinates[0]}  />}
 </div>
 </DetailsWrapper>
     )

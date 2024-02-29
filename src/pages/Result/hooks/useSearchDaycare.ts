@@ -11,7 +11,7 @@ const useSearchDayCares = ()=>{
         cacheTime: 10000,
         enabled: term ? true : false
     })
-    return {data,setTerm,isLoading}
+    return {data,setTerm,isLoading, term}
 }
 
 export default useSearchDayCares

@@ -40,7 +40,7 @@ const Search = ()=>{
          <p className="clear" onClick={()=> handleClearAll()}>Clear all</p>
          </div>
 
-         <Recent term={searchTerm}/>
+         <Recent />
         </div>
         </SearchWrapper>
     )
