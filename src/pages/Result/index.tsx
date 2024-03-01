@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { colors } from "../../constants/colors"
 import Header from "../../components/Header"
-import { GoBell, GoChevronLeft, GoSearch } from "react-icons/go"
+import { GoBell, GoChevronLeft, GoFilter, GoLocation, GoSearch } from "react-icons/go"
 import NameInput from "../../components/NameInput"
 import FilterSlider from "../../components/Filterslider"
 import { Outlet, } from "react-router-dom"
@@ -44,12 +44,41 @@ const Result = ()=>{
             return     <ResultCard title={item.title} amount={item.amount} perDuration={item.perDuration} _id={item._id} key={i} location={item.location}/>
         })}
 
+        {data && data?.length < 1 && <p className="no-data">sorry we don't have a daycare for the specified search term, try search  with different keywords</p>}
+
         {isLoading &&  <p className="loader"></p>}
 
         {isFilterClicked && <Modal ismodalopen={JSON.stringify(isLoading)}>
             <div className="filter-container">
                 <div className="overlay"></div>
-        <div className="main-container"></div>
+        <div className="main-container">
+            <div className="close"></div>
+            <div className="title">Filter</div>
+            <div className="sort-title">Sort by</div>
+            <div className="button-container">
+            <button className="relevant" ><span>Relevant</span></button>
+        <button className="normal" ><span>Rating</span></button>
+        <button className="normal"><span>Amount</span></button>
+
+        <form className="form-container">
+            <label htmlFor="location" className="location">Location</label>
+            <div className="box">
+                <GoLocation size={"20px"} color={colors.primary.textGray} />
+            <select id="location" value={"hi"}>
+        <option value={"hi"}> Hi </option>
+            </select>
+            </div>
+            <label htmlFor="price" className="price">Price</label>
+
+            <div className="input-container">
+            <input type="number" placeholder="Max price"  id="price"/>
+            <input type="number" placeholder="Min price" id="price"  />
+            </div>
+          
+            <button className="continue">Continue</button>
+        </form>
+            </div>
+        </div>
             </div>
             </Modal>}
         
@@ -81,9 +110,15 @@ const ResultWrapper = styled.div`
     flex-flow: column;
     overflow-y: auto;
 
-    
-
-
+    .no-data{
+        position: relative;
+        transform: translate(-50%,-50%);
+        top: 30%;
+        left: 50%;
+        text-align: center;
+        font-size: 14px;
+        padding: 12px;
+    }
 
      .loader {
         width: 60px;
@@ -93,7 +128,7 @@ const ResultWrapper = styled.div`
         animation: rotate 1s linear infinite;
         position: relative;
         transform: translate(-50%,-50%);
-        top: 50%;
+        top: 40%;
         left: 50%
       }
       .loader::before , .loader::after {
