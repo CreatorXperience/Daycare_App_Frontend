@@ -1,4 +1,4 @@
-import { startTransition, useContext, useEffect, useMemo, useState } from "react"
+import { useContext, useEffect, useMemo, useState } from "react"
 import { useQueries } from "react-query"
 import axiosInstance from "../../../services/Axios/axiosInstance"
 import { ENDPOINT } from "../../../constants/endpoints"
@@ -6,15 +6,12 @@ import { TLoginResponse } from "../../Auth/Login/type"
 import { UserContext } from "../../../App/App"
 import { AxiosResponse } from "axios"
 import { TChildCare } from "../../Home/type"
+import { TQuery } from "../type"
 
-type TQuery = {
-    queryKey: string;
-    queryFn: () => Promise<AxiosResponse<any, any> | undefined>;
-}[] 
+
 const useGetLastSeen = ()=>{
     const user = useContext(UserContext)
     let [seen, setSeen] = useState<string[]>([])
-    const [data, setData] = useState<TChildCare[]>([])
     const FetchDayCares = async(id: string)=>{
         let user =  localStorage.getItem("DayCareuserLoginInfo")
         if(user){ 

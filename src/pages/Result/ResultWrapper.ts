@@ -1,46 +1,50 @@
 import styled from "styled-components";
 import { colors } from "../../constants/colors";
 
-const ModalWrapper = styled.div<{ismodalopen: string}>`
-width: 100%;
-height: 100vh;
+const ResultWrapper = styled.div`
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+   background-color: ${colors.primary.white};
+   position: relative;
 
+   .result-cont {
+    width: 98%;
+    height: 90%;
+    display: flex;
+    flex-flow: column;
+    overflow-y: auto;
 
-    .modal-container {
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .no-data{
         position: relative;
-        
-     
+        transform: translate(-50%,-50%);
+        top: 30%;
+        left: 50%;
+        text-align: center;
+        font-size: 14px;
+        padding: 12px;
+    }
 
-
-        .loader-container{
-          width: 100%;
-          height: 100%;
-          background-color: ${colors.primary.black};
-          opacity: 0.2;
-          display: flex;
-        justify-content: center;
-        align-items: center;
-
-             .loader {
+     .loader {
         width: 60px;
         height: 60px;
         border-radius: 50%;
         position: relative;
-        animation: rotate 1s linear infinite
+        animation: rotate 1s linear infinite;
+        position: relative;
+        transform: translate(-50%,-50%);
+        top: 40%;
+        left: 50%
       }
-
-       .loader::before , .loader::after {
+      .loader::before , .loader::after {
         content: "";
         box-sizing: border-box;
         position: absolute;
         inset: 0px;
         border-radius: 50%;
-        border: 5px solid #FFF;
+        border: 5px solid   ${colors.primary.cyan};
         animation: prixClipFix 2s linear infinite ;
       }
       .loader::after{
@@ -49,7 +53,7 @@ height: 100vh;
         inset: 6px;
       }
 
-       @keyframes rotate {
+      @keyframes rotate {
         0%   {transform: rotate(0deg)}
         100%   {transform: rotate(360deg)}
       }
@@ -60,12 +64,14 @@ height: 100vh;
           50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
           75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
           100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
-      }
-
-        }
       
+   }
+}
 
-    }
+   .result-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+   }
 `
-
-export default ModalWrapper
+export default ResultWrapper

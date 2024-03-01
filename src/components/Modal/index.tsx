@@ -5,7 +5,7 @@ import ModalWrapper from "./ModalWrapper"
 
 const Modal = ({children, ismodalopen}: TModalProps)=>{
     return ReactDOM.createPortal(
-        <ModalWrapper ismodalopen={ismodalopen}>cd
+        <ModalWrapper ismodalopen={ismodalopen}>
         <div className="modal-container">
             {children}
         </div>

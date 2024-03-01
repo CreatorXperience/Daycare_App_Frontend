@@ -21,4 +21,8 @@ type TCoordinates = {
     lat: number
 }
 
-export type {TChildCare, TCoordinates}
+type TValue = {city: string, country: string}
+
+type TCordinates = {longitude: number, latitude: number}
+
+export type {TChildCare, TCoordinates, TValue,TCordinates}

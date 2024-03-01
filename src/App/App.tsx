@@ -8,7 +8,6 @@ import { QueryClientProvider } from "react-query";
 import { TUserContext, TUserLoginContext } from "./type";
 import useIsUserRegistered from "./hooks/useIsUserRegistered";
 import Modal from "../components/Modal";
-import SearchModal from "../components/SearchModal";
 
 export  const UserContext = createContext<TUserContext | null>(null)
 export const UserLoginContext = createContext<TUserLoginContext | null>(null)
@@ -21,7 +20,7 @@ function App() {
 const [path] = useState<string>(window.location.pathname)
 const {setIsCompatible,isCompatibleMemo} = useIsCompatible(path)
 const {screenRef} =  useResizeObeserver(setIsCompatible)
-const {UserContextValue,userLoginContextValue, isModalOpen, isSearchModalOpen} =  useIsUserRegistered(isCompatibleMemo)
+const {UserContextValue,userLoginContextValue, isModalOpen} =  useIsUserRegistered(isCompatibleMemo)
   
 
   return (
@@ -36,7 +35,6 @@ const {UserContextValue,userLoginContextValue, isModalOpen, isSearchModalOpen} =
         </div>
 
         </Modal>}
-      {isSearchModalOpen && <SearchModal />}
     <Outlet />
     </div>
     </AppWrapper>
