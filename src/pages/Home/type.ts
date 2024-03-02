@@ -11,7 +11,8 @@ type TChildCare = {
     phonenumber: string,
     userId: string,
     description: string,
-    isVerified: string
+    isVerified: string,
+    exactLocation: string
 }
 
 

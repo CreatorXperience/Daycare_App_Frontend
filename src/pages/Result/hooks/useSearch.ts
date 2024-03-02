@@ -6,7 +6,7 @@ import useLastSearch from "../../Search/hooks/useLastSearch"
 const useSearch  = ()=>{
 
     let [search, setSearchParams] = useSearchParams()
-    let {data, setTerm, isLoading} = useSearchDayCares()
+    let {data, setTerm, isLoading, setData} = useSearchDayCares()
     const [input, setInput] = useState<string>()
     let [filter, setFilter] = useState("amount")
     let [isFilterClicked, setIsFilterClicked]= useState<boolean>(false)
@@ -31,7 +31,7 @@ const useSearch  = ()=>{
         setInput(e.target.value)
     }
 
-    return {onSearchTermChanged, handleInput, filter,setFilter,data,input,isLoading, isFilterClicked,setIsFilterClicked}
+    return {onSearchTermChanged, handleInput, filter,setFilter,data,input,isLoading, isFilterClicked,setIsFilterClicked,setData}
 }
 
 export default useSearch

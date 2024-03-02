@@ -1,6 +1,6 @@
 import { Outlet} from "react-router-dom"
 import HomeWrapper from "./HomeWrapper"
-import LocationNav from "../../components/LocationHeader"
+import LocationNav from "../../components/LocationNav"
 import SafetyCard from "../../components/SafetyCard"
 import OwnADayCare from "../../components/OwnADayCare"
 import ChildCareCard from "../../components/ChildCareCard"

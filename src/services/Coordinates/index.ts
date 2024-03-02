@@ -10,7 +10,7 @@ const getCordinates = async (value: TValue | undefined)=>{
                 "X-Api-Key": process.env.REACT_APP_API_KEY
             }
         })
-        
+        console.log(response)
         return response.data as TCordinates[]
     }
     catch(e){

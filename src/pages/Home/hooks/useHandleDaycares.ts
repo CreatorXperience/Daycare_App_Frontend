@@ -20,7 +20,8 @@ const useHomeLogic = ()=>{
 
     useEffect(()=>{
         if(location){
-            let locationPaylod =   {city: location, country: "Nigeria"}
+            let  [city, country] = location.trim().split(",")
+            let locationPaylod =   {city, country}
             setValue(locationPaylod)
         }
     },[location, setValue])

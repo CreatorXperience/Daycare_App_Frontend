@@ -9,12 +9,24 @@ import useSearch from "./hooks/useSearch"
 import Modal from "../../components/Modal"
 import Filter from "../../components/Filter"
 import ResultWrapper from "./ResultWrapper"
+import {useState } from "react"
+import { TChildCare } from "../Home/type"
+import { TFiltered } from "./type"
 
 
 const Result = ()=>{
 
-    const {data,filter,handleInput,onSearchTermChanged,setFilter, input,isLoading, setIsFilterClicked,isFilterClicked} = useSearch()
-        
+    const {data,filter,handleInput,onSearchTermChanged,setFilter, input,isLoading, setIsFilterClicked,isFilterClicked,setData} = useSearch()
+    const [isFilterLoading, setIsFilterLoading] = useState<boolean>(false)
+    const [filtered, setFiltered] = useState<TFiltered>({location:"", minp:0, maxp: 600})
+
+    let filterData = (data: TChildCare[])=>{
+        let  filt =  data.filter((item)=> item.amount <= filtered.maxp)
+        .filter((item)=> item.amount >= filtered.minp)
+        .filter((item)=> item.exactLocation.includes(filtered.location))
+        return filt
+    }
+
     return (
         <ResultWrapper>
         <div className="result-cont">
@@ -36,20 +48,20 @@ const Result = ()=>{
 
             <FilterSlider setFilter = {setFilter} setIsFilterClicked={setIsFilterClicked}/>
 
-        {data && filter === "amount" && data.sort((a,b)=>  Number(a["amount"])-Number(b["amount"])).reverse().map((item, i)=>{
+        {data && filter === "amount" && filterData(data).sort((a,b)=>  Number(a["amount"])-Number(b["amount"])).reverse().map((item, i)=>{
             return     <ResultCard title={item.title} amount={item.amount} perDuration={item.perDuration} _id={item._id} key={i} location={item.location}/>
         })}
 
-        {data && filter === "rating" && data.sort((a,b)=>  Number(a["rating"])-Number(b["rating"])).reverse().map((item, i)=>{
+        {data && filter === "rating" && filterData(data).sort((a,b)=>  Number(a["rating"])-Number(b["rating"])).reverse().map((item, i)=>{
             return     <ResultCard title={item.title} amount={item.amount} perDuration={item.perDuration} _id={item._id} key={i} location={item.location}/>
         })}
 
         {data && data?.length < 1 && <p className="no-data">sorry we don't have a daycare for the specified search term, try search  with different keywords</p>}
 
-        {isLoading &&  <p className="loader"></p>}
+        {(isLoading || isFilterLoading ) &&  <p className="loader"></p>}
 
         {isFilterClicked && <Modal ismodalopen={JSON.stringify(isLoading)}>
-            <Filter setFilter={setFilter} setIsFilterClicked={setIsFilterClicked} />
+            <Filter setFiltered={setFiltered}  data={data}  setIsFilterLoading={setIsFilterLoading} setFilter={setFilter} setIsFilterClicked={setIsFilterClicked} />
             </Modal>}
         </div>
  
