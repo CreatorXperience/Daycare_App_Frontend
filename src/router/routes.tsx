@@ -10,6 +10,7 @@ import Verification from "../pages/Verification";
 import Details from "../pages/Details";
 import Search from "../pages/Search";
 import Result from "../pages/Result";
+import ChildCareProfile from "../pages/UserInputData";
 
 
 let router = createBrowserRouter([{
@@ -58,6 +59,9 @@ let router = createBrowserRouter([{
             element: <NavBarIcon />
         }
     ]
+},{
+    path: ROUTE.profile,
+    element: <ChildCareProfile />
 }
     ]
 }])
