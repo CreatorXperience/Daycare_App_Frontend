@@ -9,7 +9,7 @@ const useLocation  = (setLocation:React.Dispatch<React.SetStateAction<string | u
     if(currentLocation){
         setLocation(currentLocation)
     }
-    },[currentLocation])
+    },[currentLocation, setLocation])
 
     
     const handleSetCurrentLocation = (e: React.ChangeEvent<HTMLSelectElement>)=>{

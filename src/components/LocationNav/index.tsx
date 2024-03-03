@@ -4,12 +4,24 @@ import LocationNavWrapper from "./HelloUserWrapper";
 import useLocation from "./hooks/useLocation";
 import { TLocation } from "./type";
 import useGetStates from "./hooks/useGetState";
+import {useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 
-const LocationNav = ({setLocation}:TLocation) => {
+const LocationNav = ({setLocation,setIsCoordinatesLoading}:TLocation) => {
     const  {currentLocation,handleSetCurrentLocation} =  useLocation(setLocation)
-    const {data} = useGetStates()
+    const {data, isFetching} = useGetStates()
+    const navigate = useNavigate()
+
+    useEffect(()=>{
+        setIsCoordinatesLoading(isFetching)
+    },[isFetching,setIsCoordinatesLoading])
+
+
+
+    
+
 
     return ( 
         <LocationNavWrapper>
@@ -17,15 +29,15 @@ const LocationNav = ({setLocation}:TLocation) => {
                 <div className="location-header">
                     <div className="location">Location<select onChange={(e)=> handleSetCurrentLocation(e)}> 
                         <option value={""}>none</option>
-                        {data && data.map((item)=>{
-                            return <option value={item.name} key={item.id}>{item.name}</option>
+                        {data && data.map((item,i)=>{
+                            return <option value={`${item.city},${item.country}`} key={i}>{`${item.city},${item.country}`}</option>
                         })}
                         </select></div>
                     <div className="user">{currentLocation === null  ? "Change your location": currentLocation}</div>
                 </div>
 
                 <div className="image">
-                    <GoSearch fontSize="20px" className="search"/>
+                    <GoSearch fontSize="20px" className="search" onClick={()=> navigate("/search")}/>
                     {ICONS.bellIcon()}
                 </div>
 </div>

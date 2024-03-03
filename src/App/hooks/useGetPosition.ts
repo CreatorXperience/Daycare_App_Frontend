@@ -20,7 +20,7 @@ const useGetCurrentPosition = ()=> {
 
     const PositionMemo = useMemo(()=>{
       return {position,setPositionObj,getPositionCallback}
-    }, [position])
+    }, [position,getPositionCallback])
     
 
     const onerror = (positionError: GeolocationPositionError)=>{

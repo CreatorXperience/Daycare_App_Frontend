@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Route, createBrowserRouter } from "react-router-dom";
 import App from "../App/App";
 import NavBarIcon from "../components/NavBarIcons";
 import Home from "../pages/Home";
@@ -9,6 +9,9 @@ import Signup from "../pages/Auth/Signup/Signup";
 import Verification from "../pages/Verification";
 import Details from "../pages/Details";
 import UserInputData from "../pages/UserInputData";
+import Search from "../pages/Search";
+import Result from "../pages/Result";
+
 
 
 let router = createBrowserRouter([{
@@ -47,6 +50,19 @@ let router = createBrowserRouter([{
 {
     path:  ROUTE.userProfile,
     element: <UserInputData />
+},{
+    path: ROUTE.search,
+    element: <Search /> 
+},
+{
+    path: ROUTE.result,
+    element: <Result />,
+    children: [
+        {
+            path: ROUTE.result,
+            element: <NavBarIcon />
+        }
+    ]
 }
     ]
 }])

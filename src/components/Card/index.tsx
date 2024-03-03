@@ -1,8 +1,9 @@
-import { useNavigate, useLocation } from "react-router-dom"
+import { useNavigate} from "react-router-dom"
 import { TChildCare, TCoordinates } from "../../pages/Home/type"
 import calculateDistance from "../../utils/locationAlgo"
 import CardWrapper from "./CardWrapper"
 import useHandleData from "./hooks/useHandleData"
+import useSeen from "./hooks/useSeen"
 
 
 type TCardProps = {
@@ -13,14 +14,11 @@ type TCardProps = {
 const Card = ({data, coordinates}: TCardProps)=>{
 
   const {coordinatesPayload, getStars} = useHandleData(coordinates,data)
-  const  navigate = useNavigate()
-  const history = useLocation()
-//   history.pathname = `/details/${data._id}`
-  
+  const {handleNavigateAndSaveLastSeen} = useSeen()
 
     return (
         <CardWrapper>
-        <div className="card" onClick={()=> navigate(`/details/${data._id}`)}>
+        <div className="card" onClick={()=> handleNavigateAndSaveLastSeen(data._id) }>
 
         <div className="image">
         

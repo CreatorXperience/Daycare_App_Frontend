@@ -1,6 +1,6 @@
 import BabyCardWrapper from "./BabyCardWrapper";
 
-const BabyCardImage = () => {
+const ProfileDetailsImage = () => {
   return (
     <BabyCardWrapper>
       <div className="card-wrapper">
@@ -10,4 +10,4 @@ const BabyCardImage = () => {
   );
 };
 
-export default BabyCardImage;
+export default ProfileDetailsImage;

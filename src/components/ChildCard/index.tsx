@@ -1,21 +1,26 @@
+import { colors } from "../../constants/colors";
 import ChildCardWrapper from "./ChildcardWrapper";
-const ChildCard = () => {
+import {FaDollarSign}  from "react-icons/fa"
+import { TTitle } from "./type";
+
+const ProfileDetailsTitle = ({title, isOpen, amount}: TTitle) => {
   return (
     <ChildCardWrapper>
       <div className="child-card-container">
         <div className="child-card-timing">
-          <h1 className="title">Childcard</h1>
+          <h1 className="title">{title}</h1>
           <p>
-            5.59 <span>/1 Hours</span>
+            <FaDollarSign color={colors.primary.yellow} />
+           {amount} <span>/1 Hours</span>
           </p>
         </div>
         <div className="child-card-btn">
-          <input type="button" value="Open" className="btn"/>
+          <input type="button" value={isOpen? "Open": "Close"} className="btn" />
         </div>
       </div>
     </ChildCardWrapper>
   );
 };
 
-export default ChildCard;
+export default ProfileDetailsTitle;
 

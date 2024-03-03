@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { colors } from "../../constants/colors";
 
 const NavBarIconWrapper = styled.div`
+  width: 100%;
+  height: 60px;
 
   .nav-wrapper {
     width: 100%;
@@ -22,8 +24,8 @@ const NavBarIconWrapper = styled.div`
     height: 100%;
   }
   .image p {
-    color: ${colors.primary.cyan};
-    font-weight: 900;
+    color: ${colors.primary.textGray};
+    font-weight: bolder;
     font-size: 14px;
   }
   .image img {

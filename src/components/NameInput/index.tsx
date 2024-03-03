@@ -8,11 +8,14 @@ type TNameInputIcon = {
   onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>)=> void,
   isPasswordVisible?: boolean;
   pass?: string,
-  setIsPasswordVisible?: React.Dispatch<React.SetStateAction<boolean>>
+  setIsPasswordVisible?: React.Dispatch<React.SetStateAction<boolean>>,
+  borderradius?: string,
+  bg?: string,
+  value?:string
 }
-const NameInput = ({children, label,placeholder, onChangeHandler, isPasswordVisible,pass,setIsPasswordVisible}: TNameInputIcon) => {
+const NameInput = ({children, label,placeholder, onChangeHandler, isPasswordVisible,pass,setIsPasswordVisible, borderradius,bg,value}: TNameInputIcon) => {
     return (
-      <NameInputWrapper>
+      <NameInputWrapper borderradius={borderradius} bg={bg}>
         <div className="input-wrapper" onClick={()=> {
             if(setIsPasswordVisible)
             setIsPasswordVisible(!isPasswordVisible)
@@ -24,7 +27,7 @@ const NameInput = ({children, label,placeholder, onChangeHandler, isPasswordVisi
 
           <div className="input-container" >
             <div className="input">         
-             {label.toLocaleLowerCase() !== "password" && <input  type="text" id="name" placeholder={placeholder} onChange={(e)=> onChangeHandler(e)}/>}
+             {label.toLocaleLowerCase() !== "password" && <input value={value ? value: ""}  type="text" id="name" placeholder={placeholder} onChange={(e)=> onChangeHandler(e)}/>}
              {label.toLocaleLowerCase() === "password" && isPasswordVisible && <input value={pass}  type="text" id="name" placeholder={placeholder} autoFocus={true} onChange={(e)=> onChangeHandler(e)}/>}
               {label.toLocaleLowerCase() === "password" && !isPasswordVisible &&
                <div className="dot-container">

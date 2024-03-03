@@ -8,11 +8,11 @@ import { UserContext } from "../../../App/App"
 const useHomeLogic = ()=>{
 
     const [location, setLocation] = useState<string>()
+    const [isCoordinatesLoading, setIsCoordinatesLoading] = useState<boolean>(false)
     const {setCoordinates,data, coordinates,isLoading} =  useGetDaycares()
     const {getPositionCallback, PositionMemo} =  useGetCurrentPosition()
     const {data:cordinatesData,setValue} = useGetCoordinates()
     const user = useContext(UserContext)
-
 
     const [childData] = useState({
         percentage: "99%"
@@ -20,7 +20,8 @@ const useHomeLogic = ()=>{
 
     useEffect(()=>{
         if(location){
-            let locationPaylod =   {city: location, country: "Nigeria"}
+            let  [city, country] = location.trim().split(",")
+            let locationPaylod =   {city, country}
             setValue(locationPaylod)
         }
     },[location, setValue])
@@ -67,15 +68,19 @@ const useHomeLogic = ()=>{
 
   
     useEffect(()=> {
-        if(isLoading){
-          return  user?.setIsModalOpen(true)
+        if(isLoading || isCoordinatesLoading){
+            user?.setIsModalOpen(true)
+          return 
         }else{
             user?.setIsModalOpen(false)
         }
-    }, [isLoading, user])
+    }, [isLoading, user, isCoordinatesLoading])
 
 
-     return {setLocation, coordinates, data, childData}
+
+
+
+     return {setLocation, coordinates, data, childData, setIsCoordinatesLoading}
 }
 
 

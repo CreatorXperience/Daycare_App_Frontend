@@ -15,29 +15,30 @@ export const UserLoginContext = createContext<TUserLoginContext | null>(null);
 let client = new QueryClient();
 
 function App() {
-  const [path] = useState<string>(window.location.pathname);
-  const { setIsCompatible, isCompatibleMemo } = useIsCompatible(path);
-  const { screenRef } = useResizeObeserver(setIsCompatible);
-  const { UserContextValue, userLoginContextValue, isModalOpen } =
-    useIsUserRegistered(isCompatibleMemo);
+const [path] = useState<string>(window.location.pathname)
+const {setIsCompatible,isCompatibleMemo} = useIsCompatible(path)
+const {screenRef} =  useResizeObeserver(setIsCompatible)
+const {UserContextValue,userLoginContextValue, isModalOpen} =  useIsUserRegistered(isCompatibleMemo)
+  
 
   return (
-    <QueryClientProvider client={client}>
-      <UserContext.Provider value={UserContextValue}>
-        <UserLoginContext.Provider value={userLoginContextValue}>
-          <AppWrapper>
-            {isModalOpen && (
-              <Modal>
-                <div> </div>
-              </Modal>
-            )}
-            <div className="App" ref={screenRef}>
-              <Outlet />
-            </div>
-          </AppWrapper>
-        </UserLoginContext.Provider>
-      </UserContext.Provider>
-    </QueryClientProvider>
+    <QueryClientProvider client= {client}>
+    <UserContext.Provider value={UserContextValue}>
+      <UserLoginContext.Provider value={userLoginContextValue}>
+    <AppWrapper ismodalopen={JSON.stringify(isModalOpen)}>
+    <div className="App" ref={screenRef}>
+      { isModalOpen &&  <Modal ismodalopen={JSON.stringify(isModalOpen)}>
+        <div className="loader-container">
+        <span className="loader"></span>
+        </div>
+
+        </Modal>}
+    <Outlet />
+    </div>
+    </AppWrapper>
+      </UserLoginContext.Provider>
+    </UserContext.Provider>
+    </QueryClientProvider> 
   );
 }
 

@@ -1,10 +1,11 @@
-import styled from "styled-components"
+import AlertWrapper from "./AlertWrapper"
+
 
 const Alert = ()=>{
     return (
         <AlertWrapper>
         <div className="alert-container">
-
+        Phone number copied to clipboard 
         </div>
         </AlertWrapper>
     )
@@ -12,12 +13,3 @@ const Alert = ()=>{
 
 export default Alert
 
-const AlertWrapper = styled.div`
-width: 100%;
-height: auto;
-.alert-container {
-    width: 100%;
-    height: 80px;
-    
-}
-`
