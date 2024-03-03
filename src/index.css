@@ -5,15 +5,16 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Poppins, sans-serif;
+    /* color: rgba(184, 183, 183, 0.651); */
 }
 
 ::-webkit-scrollbar{width:2px;border-left:1px solid ; height: 2px; }
 ::-webkit-scrollbar-thumb{background-color:rgba(217, 217, 217, 0.26);}
 
-
+/* 
 .react {
-position: relative;
-}
+
+} */
 
 #root {
     position: absolute;
@@ -26,3 +27,4 @@ position: relative;
     height: 100vh;
     top: 0;
 }
+

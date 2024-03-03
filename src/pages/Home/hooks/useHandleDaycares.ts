@@ -20,7 +20,8 @@ const useHomeLogic = ()=>{
 
     useEffect(()=>{
         if(location){
-            let locationPaylod =   {city: location, country: "Nigeria"}
+            let  [city, country] = location.trim().split(",")
+            let locationPaylod =   {city, country}
             setValue(locationPaylod)
         }
     },[location, setValue])
@@ -74,6 +75,9 @@ const useHomeLogic = ()=>{
             user?.setIsModalOpen(false)
         }
     }, [isLoading, user, isCoordinatesLoading])
+
+
+
 
 
      return {setLocation, coordinates, data, childData, setIsCoordinatesLoading}

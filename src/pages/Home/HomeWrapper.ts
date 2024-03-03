@@ -21,7 +21,6 @@ position: relative;
 }
 
 .footer{
-    height: 12%;
     position: fixed;
     width: 100%;
     bottom: 0;

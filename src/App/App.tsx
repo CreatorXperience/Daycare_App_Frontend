@@ -21,15 +21,20 @@ const [path] = useState<string>(window.location.pathname)
 const {setIsCompatible,isCompatibleMemo} = useIsCompatible(path)
 const {screenRef} =  useResizeObeserver(setIsCompatible)
 const {UserContextValue,userLoginContextValue, isModalOpen} =  useIsUserRegistered(isCompatibleMemo)
+  
 
   return (
     <QueryClientProvider client= {client}>
     <UserContext.Provider value={UserContextValue}>
       <UserLoginContext.Provider value={userLoginContextValue}>
-    <AppWrapper isModalOpen={isModalOpen}>
+    <AppWrapper ismodalopen={JSON.stringify(isModalOpen)}>
     <div className="App" ref={screenRef}>
-      { isModalOpen &&  <Modal isModalOpen={isModalOpen}><div>  </div></Modal>}
+      { isModalOpen &&  <Modal ismodalopen={JSON.stringify(isModalOpen)}>
+        <div className="loader-container">
+        <span className="loader"></span>
+        </div>
 
+        </Modal>}
     <Outlet />
     </div>
     </AppWrapper>

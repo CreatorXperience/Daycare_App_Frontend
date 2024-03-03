@@ -3,4 +3,9 @@ type TLocation = {
     setIsCoordinatesLoading: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export type {TLocation}
+type TState = {
+    city: string,
+    country: string
+    }
+
+export type {TLocation, TState}

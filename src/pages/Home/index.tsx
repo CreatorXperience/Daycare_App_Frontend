@@ -1,6 +1,6 @@
 import { Outlet} from "react-router-dom"
 import HomeWrapper from "./HomeWrapper"
-import LocationNav from "../../components/LocationHeader"
+import LocationNav from "../../components/LocationNav"
 import SafetyCard from "../../components/SafetyCard"
 import OwnADayCare from "../../components/OwnADayCare"
 import ChildCareCard from "../../components/ChildCareCard"
@@ -9,16 +9,10 @@ import useHomeLogic from "./hooks/useHandleDaycares"
 
 
 const Home = ()=>{
-
-    
     const {coordinates,data,setLocation,childData,setIsCoordinatesLoading} = useHomeLogic()
 
-
-
     return (
-
         <HomeWrapper>
-      
         <div className="home-container">
         <div className="body">
         <LocationNav setLocation={setLocation} setIsCoordinatesLoading={setIsCoordinatesLoading}/>

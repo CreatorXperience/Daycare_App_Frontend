@@ -1,5 +1,7 @@
-import ICONS from "../../constants/icons";
+import { GoHomeFill, GoNote, GoPersonFill } from "react-icons/go";
 import NavBarIconWrapper from "./NavBarIconWrapper";
+import { colors } from "../../constants/colors";
+import { FaComment} from "react-icons/fa";
 
 const NavBarIcon = () => {
   return (
@@ -7,29 +9,29 @@ const NavBarIcon = () => {
       <div className="nav-wrapper">
         <div className="icon-wrapper">
           <div className="image">
-            {ICONS.homeIcon()}
+            <GoHomeFill color={colors.primary.cyan} size={"20px"} />
             <p>Home</p>
           </div>
       
         </div>
         <div className="icon-wrapper">
           <div className="image">
-           {ICONS.listIcon()}
-           <p>To-Do-List</p>
+       <GoNote color={colors.primary.cyan} size={"20px"} />
+           <p>Article</p>
           </div>
      
         </div>
         <div className="icon-wrapper">
           <div className="image">
-           {ICONS.locationIcon()}
-           <p>Map</p>
+           <FaComment color={colors.primary.cyan} size={"20px"} />
+           <p>Chat</p>
           </div>
     
         </div>
         <div className="icon-wrapper">
           <div className="image">
-            {ICONS.profileIcon()}
-            <p>User</p>
+            <GoPersonFill  color={colors.primary.cyan} size={"20px"}/>
+            <p>Profile</p>
           </div>
         </div>
       </div>

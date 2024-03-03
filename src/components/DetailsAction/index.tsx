@@ -28,7 +28,7 @@ const {handleCopyClick} = useCopy(phoneNumber, setIsCopied)
 
             <div className="action-button">
                 <div className="phone-container">
-                <input className="phone" value={phoneNumber} onClick={handleCopyClick} readOnly />
+                <input className="phone" value={phoneNumber ? phoneNumber : ""} onClick={handleCopyClick} readOnly />
                 <FaPhoneAlt className="phone-icon" size="20px" color="red"/>
                 </div>
                 
