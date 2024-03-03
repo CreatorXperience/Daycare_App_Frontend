@@ -1,5 +1,5 @@
-import {createContext, useState} from "react";
-import { Outlet} from "react-router-dom";
+import { createContext, useState } from "react";
+import { Outlet } from "react-router-dom";
 import useResizeObeserver from "./hooks/useResizeObserver";
 import useIsCompatible from "./hooks/useIsCompatible";
 import AppWrapper from "./AppWrapper";
@@ -9,12 +9,10 @@ import { TUserContext, TUserLoginContext } from "./type";
 import useIsUserRegistered from "./hooks/useIsUserRegistered";
 import Modal from "../components/Modal";
 
-export  const UserContext = createContext<TUserContext | null>(null)
-export const UserLoginContext = createContext<TUserLoginContext | null>(null)
+export const UserContext = createContext<TUserContext | null>(null);
+export const UserLoginContext = createContext<TUserLoginContext | null>(null);
 
-
-
-let client = new QueryClient()
+let client = new QueryClient();
 
 function App() {
 const [path] = useState<string>(window.location.pathname)
@@ -45,5 +43,3 @@ const {UserContextValue,userLoginContextValue, isModalOpen} =  useIsUserRegister
 }
 
 export default App;
-
-
