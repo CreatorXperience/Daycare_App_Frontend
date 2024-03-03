@@ -4,60 +4,13 @@ import FilterWrapper from "./FilterWrapper"
 import useCloseFilter from "./hooks/useCloseFilter"
 import type { TFilter } from "./type"
 import useGetStates from "../LocationNav/hooks/useGetState"
-import { useEffect, useState } from "react"
+import useCustomFilter from "./hooks/useCustomFIlter"
 
 
-type TFilterPayload = {
-    location: string,
-    maxp: string,
-    minp: string
-}
-const Filter = ({setIsFilterClicked, setFilter, setIsFilterLoading,data:filterData, setFiltered}:TFilter)=>{
+const Filter = ({setIsFilterClicked, setFilter, setFiltered}:TFilter)=>{
 const {handleFilter,handleSlideDown, ref} = useCloseFilter(setIsFilterClicked,setFilter)
 const {data} = useGetStates()
-const [filterPayload] = useState<TFilterPayload>({location: "Lagos , Nigeria", maxp: "", minp:""})
-
-
-useEffect(()=>{
-    setFiltered((filter)=> {
-        return {...filter,  location: filterPayload.location}
-    })
-},[])
-
-
-
-const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>)=>{
-    e.preventDefault()
-    setFiltered((filter)=> {
-        return {...filter,  location: e.target.value}
-    })
-
-}
-
-
-const handleChangeMaxPrice = (e: React.ChangeEvent<HTMLInputElement>)=>{
-    e.preventDefault()
-
-    setFiltered((filter)=> {
-        return {...filter,  maxp: +e.target.value}
-    })
-
-}
-
-const handleChangeMinPrice = (e: React.ChangeEvent<HTMLInputElement>)=>{
-    e.preventDefault()
-
-    setFiltered((filter)=> {
-        return {...filter,  minp: +e.target.value}
-    })
-
-}
-
-const handleSubmit = (e: React.FormEvent<HTMLFormElement>)=>{
-    e.preventDefault()
-    setIsFilterClicked(false)
-}
-
+const {handleChangeMaxPrice,handleChangeMinPrice,handleSelect,handleSubmit} = useCustomFilter(setFiltered,setIsFilterClicked)
 
     return (
         <FilterWrapper>
@@ -76,10 +29,9 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>)=>{
     <label htmlFor="location" className="location">Location</label>
     <div className="box">
         <GoLocation size={"20px"} color={colors.primary.textGray} />
-    <select id="location"  defaultValue="Pick a location" onChange={(e)=> handleSelect(e) }>
-     <option selected  value={"Lagos,Nigeria"}> {`Lagos , Nigeria`} </option>
+    <select id="location" onChange={(e)=> handleSelect(e) }>
         {data && data.map((item, i)=>{
-            return <option  value={item.city} key={i}> {`${item.city} , ${item.country}`} </option>
+            return <option  value={`${item.city} , ${item.country}`} key={i}>{`${item.city} , ${item.country}`}</option>
         })}
 
         {!data && <option  value={""} disabled> loading </option> }
