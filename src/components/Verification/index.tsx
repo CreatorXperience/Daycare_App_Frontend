@@ -23,7 +23,7 @@ const ProfileDetailsVerification = ({isVerified,rating}: TVerification) => {
         </div>
         <div className="verify-rate">
         <GoVerified  color={colors.primary.darkGreen}/>
-          <p>Verified</p>
+          <p>{isVerified ? "Verified": "not verified"}</p>
         </div>
       </div>
     </VerificationWrapper>

@@ -1,9 +1,9 @@
 type TChildCare = {
     _id: string, 
     title: string,
-    amount: number,
+    amount: string,
     perDuration: string,
-    rating: 5,
+    rating: number,
     image: string,
     isOpen: boolean,
     location: {type: string, _id: string, coordinates: string[]},
@@ -11,8 +11,12 @@ type TChildCare = {
     phonenumber: string,
     userId: string,
     description: string,
-    isVerified: string,
-    exactLocation: string
+    isVerified: boolean,
+    exactLocation: string,
+    from: string,
+    to: string,
+    role: string,
+    __v?: string 
 }
 
 

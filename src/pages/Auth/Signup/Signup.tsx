@@ -30,15 +30,15 @@ const Signup = ()=>{
     <LoginMessage title="Create Account"  message="Fill in  your Identity or continue with Google" />
         <div className="input-wrapper">
       <form onSubmit={(e)=> handleSubmitSignUpData(e)}>
-        <NameInput label="Name" placeholder="Enter Your Name" onChangeHandler={handleChangeName}>
+        <NameInput type="text" label="Name" placeholder="Enter Your Name" onChangeHandler={handleChangeName} value={userPayload.email}>
          <GoPerson className="eye" color={`${colors.primary.lightGray}`} fontSize="22px" />
          </NameInput>
 
-         <NameInput label="Email" placeholder="example@gmail.com" onChangeHandler={handleChangeEmail}>
+         <NameInput type="email" label="Email" placeholder="example@gmail.com" onChangeHandler={handleChangeEmail} value={userPayload.email}>
          <GoMail className="eye" color={`${colors.primary.lightGray}`} fontSize="22px" />
          </NameInput>
 
-         <NameInput  label="Password" placeholder="Enter Your Password" setIsPasswordVisible={setIsPasswordVisible} onChangeHandler={handleChangePassword} isPasswordVisible={isPasswordVisible} pass={userPayload.password}>
+         <NameInput type="password" label="Password" placeholder="Enter Your Password" setIsPasswordVisible={setIsPasswordVisible} onChangeHandler={handleChangePassword} isPasswordVisible={isPasswordVisible} pass={userPayload.password}>
          <GoEye className="eye" color={`${colors.primary.lightGray}`} onClick={()=> setIsPasswordVisible(!isPasswordVisible)} fontSize="22px" />
          </NameInput>
 

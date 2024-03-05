@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import NameInputWrapper from "./NameInputWrapper";
 
 type TNameInputIcon = {
-  children: ReactNode,
+  children?: ReactNode,
   label: string,
   placeholder: string,
   onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>)=> void,
@@ -11,9 +11,23 @@ type TNameInputIcon = {
   setIsPasswordVisible?: React.Dispatch<React.SetStateAction<boolean>>,
   borderradius?: string,
   bg?: string,
-  value?:string
+  value?:string | number,
+  type: string,
+  disabled?: boolean
 }
-const NameInput = ({children, label,placeholder, onChangeHandler, isPasswordVisible,pass,setIsPasswordVisible, borderradius,bg,value}: TNameInputIcon) => {
+const NameInput = ({
+  children,
+  label,
+  placeholder,
+  onChangeHandler, 
+  isPasswordVisible,pass,
+  setIsPasswordVisible,
+  type,
+  borderradius,
+  bg,
+  value,
+  disabled
+}: TNameInputIcon) => {
     return (
       <NameInputWrapper borderradius={borderradius} bg={bg}>
         <div className="input-wrapper" onClick={()=> {
@@ -27,8 +41,8 @@ const NameInput = ({children, label,placeholder, onChangeHandler, isPasswordVisi
 
           <div className="input-container" >
             <div className="input">         
-             {label.toLocaleLowerCase() !== "password" && <input value={value ? value: ""}  type="text" id="name" placeholder={placeholder} onChange={(e)=> onChangeHandler(e)}/>}
-             {label.toLocaleLowerCase() === "password" && isPasswordVisible && <input value={pass}  type="text" id="name" placeholder={placeholder} autoFocus={true} onChange={(e)=> onChangeHandler(e)}/>}
+             {label.toLocaleLowerCase() !== "password" && <input value={value ? value : ""}  type={type} id="name"  placeholder={placeholder} onChange={(e)=> onChangeHandler(e)} autoComplete="true" disabled={disabled ? true: false}/>}
+             {label.toLocaleLowerCase() === "password" && isPasswordVisible && <input value={pass}  type="text" id="name" placeholder={placeholder} autoFocus={true} onChange={(e)=> onChangeHandler(e)} autoComplete="true"/>}
               {label.toLocaleLowerCase() === "password" && !isPasswordVisible &&
                <div className="dot-container">
                   {
@@ -41,8 +55,9 @@ const NameInput = ({children, label,placeholder, onChangeHandler, isPasswordVisi
             </div>
   
           {children}
+                
           </div>
-
+         
         </div>
       </NameInputWrapper>
     );

@@ -19,17 +19,14 @@ const Verification = ()=>{
            
             <form onSubmit={(e)=> handleSubmitOtp(e)}>
                 {errorResponse ? <div className="error"> {errorResponse.message}</div>: ""}
-                <NameInput onChangeHandler={(e)=> handleChangeOtp(e)} label="" placeholder="Input six digits otp">
+                <NameInput type="number" onChangeHandler={(e)=> handleChangeOtp(e)} label="" placeholder="Input six digits otp">
                 <GoLock className="eye" color={`${colors.primary.lightGray}`} fontSize="22px" />
                 </NameInput>
-
-                    <button className="verifybtn" type="submit" disabled={isLoading ? true : false} style={{backgroundColor: `${isLoading? `${colors.primary.darkGreen}`: `${colors.primary.cyan}`}`}}>{isLoading ? "loading": "Verify"}</button>
-                    
+                    <button className="verifybtn" type="submit" disabled={isLoading ? true : false} style={{backgroundColor: `${isLoading? `${colors.primary.darkGreen}`: `${colors.primary.cyan}`}`}}>{isLoading ? "loading": "Verify"}</button>  
             </form>
              </div>
 
              <div className="message">
-                    
                     <div><GoMail className="eye" color={`${colors.primary.black}`} fontSize="22px" /> <span>we just sent
                         you a message via email with your authentication code . Enter the code in the form above to 
                         verify you identity

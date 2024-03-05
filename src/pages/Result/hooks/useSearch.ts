@@ -35,8 +35,8 @@ const useSearch  = ()=>{
     }
 
     let filterData = (data: TChildCare[])=>{
-        let  filt =  data.filter((item)=> item.amount <= filtered.maxp)
-        .filter((item)=> item.amount >= filtered.minp)
+        let  filt =  data.filter((item)=> +item.amount <= filtered.maxp)
+        .filter((item)=> +item.amount >= filtered.minp)
 
         if(filtered.location !== ""){
            return filt.filter((item)=> item.exactLocation.toLowerCase() === filtered.location.toLowerCase())
