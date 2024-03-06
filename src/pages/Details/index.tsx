@@ -49,7 +49,7 @@ const Details = ()=>{
 <div className="DetailsBody">
 <ProfileDetailsImage />
 {data?.title && <ProfileDetailsTitle  title={data?.title} isOpen={data.isOpen} amount={data.amount}/>}
-{data?.rating && <ProfileDetailsVerification rating={data?.rating} isVerified={data?.isVerified} />}
+{data?.rating && <ProfileDetailsVerification rating={data?.rating} time={{from: data.from, to: data.to}} isVerified={data?.isVerified} />}
 {data?.description && <DetailsDescription desc={data?.description} />}
 <DetailsAction content={{owner: data?.owner as string, phoneNumber: data?.phonenumber, setIsCopied:setIsCopied}}   />
 {data &&  data.location && <GoogleMap lat={data?.location.coordinates[1]} lng={data?.location.coordinates[0]}  />}

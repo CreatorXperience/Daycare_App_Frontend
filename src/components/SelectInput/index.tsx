@@ -1,16 +1,7 @@
 import SelectInputWrapper from "./SelectInputWrapper";
 
-type SelectOption = {
-  value: string;
-  label: string;
-};
+import { SelectInputProps } from "./type";
 
-type SelectInputProps = {
-  name: string;
-  id: string;
-  placeholder: string;
-  options: SelectOption[]; 
-};
 
 const SelectInput = ({ name, id, placeholder, options }: SelectInputProps) => {
   return (
@@ -31,4 +22,6 @@ const SelectInput = ({ name, id, placeholder, options }: SelectInputProps) => {
   );
 };
 
+
 export default SelectInput;
+

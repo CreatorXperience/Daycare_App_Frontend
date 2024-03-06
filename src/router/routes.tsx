@@ -1,4 +1,4 @@
-import { Route, createBrowserRouter } from "react-router-dom";
+import {createBrowserRouter } from "react-router-dom";
 import App from "../App/App";
 import NavBarIcon from "../components/NavBarIcons";
 import Home from "../pages/Home";
@@ -11,6 +11,7 @@ import Details from "../pages/Details";
 import UserInputData from "../pages/UserInputData";
 import Search from "../pages/Search";
 import Result from "../pages/Result";
+import ChildCareProfile from "../pages/ChildcareProfile";
 
 
 
@@ -63,6 +64,9 @@ let router = createBrowserRouter([{
             element: <NavBarIcon />
         }
     ]
+},{
+    path: ROUTE.profile,
+    element: <ChildCareProfile />
 }
     ]
 }])

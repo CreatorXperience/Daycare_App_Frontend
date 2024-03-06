@@ -20,7 +20,9 @@ const ENDPOINT = {
     login: "/auth",
     verify: "verify-email",
     getChildCares:  "/locate-childcares",
-    searchChildcares: "/search-childcares"
+    searchChildcares: "/search-childcares",
+    upload: "/upload/childcares",
+    createProfile: "/create-childcare-profile",
 }
 
 export {URL,ENDPOINT}

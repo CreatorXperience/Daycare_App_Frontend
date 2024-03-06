@@ -5,11 +5,11 @@ import useCloseFilter from "./hooks/useCloseFilter"
 import type { TFilter } from "./type"
 import useGetStates from "../LocationNav/hooks/useGetState"
 import useCustomFilter from "./hooks/useCustomFIlter"
+import LocationSelect from "../LocationSelect"
 
 
 const Filter = ({setIsFilterClicked, setFilter, setFiltered}:TFilter)=>{
 const {handleFilter,handleSlideDown, ref} = useCloseFilter(setIsFilterClicked,setFilter)
-const {data} = useGetStates()
 const {handleChangeMaxPrice,handleChangeMinPrice,handleSelect,handleSubmit} = useCustomFilter(setFiltered,setIsFilterClicked)
 
     return (
@@ -27,16 +27,7 @@ const {handleChangeMaxPrice,handleChangeMinPrice,handleSelect,handleSubmit} = us
 
 <form className="form-container" onSubmit={(e)=> handleSubmit(e) }>
     <label htmlFor="location" className="location">Location</label>
-    <div className="box">
-        <GoLocation size={"20px"} color={colors.primary.textGray} />
-    <select id="location" onChange={(e)=> handleSelect(e) }>
-        {data && data.map((item, i)=>{
-            return <option  value={`${item.city} , ${item.country}`} key={i}>{`${item.city} , ${item.country}`}</option>
-        })}
-
-        {!data && <option  value={""} disabled> loading </option> }
-    </select>
-    </div>
+    <LocationSelect handleSelect={handleSelect} />
     <label htmlFor="price" className="price">Price</label>
 
     <div className="input-container">

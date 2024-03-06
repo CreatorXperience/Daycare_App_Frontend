@@ -3,17 +3,24 @@ import { colors } from "../../constants/colors";
 
 const RadioInpputWrapper = styled.div`
   width: 100%;
-  padding: 10px;
-  .radio-cont {
-    border: 1px solid ${colors.primary.textGray};
-    width: 170px;
-    height: 60px;
-    /* padding: 10px 15px; */
-    border-radius: 10px;
+
+   padding: 10px;
+
+  .wrapper{
+    width: 100%;
+      .radio-cont {
+    border: 2px solid ${colors.primary.lightGray};
+    width: 80%;
+    /* height: 60px; */
+    padding: 8px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     font-size: 22px;
   }
+
+  }
+
   #gender {
     margin: 0px 20px 0px 20px;
   }
@@ -21,19 +28,27 @@ const RadioInpputWrapper = styled.div`
     width: 19px;
     height: 20px;
   }
+
+
+  .text{
+    font-size: 16px;
+    font-weight: bold;
+  }
   .active-text {
-    color: blue;
+    color: ${colors.primary.cyan};
+    background-color: ${colors.primary.lightCyan};
   }
   .radio-cont.active {
-    border: 1px solid blue;
-    width: 170px;
-    height: 60px;
-    /* padding: 10px 15px; */
+    border: 2px solid ${colors.primary.cyan};
+
     border-radius: 10px;
     display: flex;
     align-items: center;
     font-size: 22px;
+
+    background-color: ${colors.primary.lightCyan};
   }
 `;
 
 export default RadioInpputWrapper;
+

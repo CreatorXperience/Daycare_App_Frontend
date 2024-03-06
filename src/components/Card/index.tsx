@@ -17,7 +17,7 @@ const Card = ({data, coordinates}: TCardProps)=>{
   const {handleNavigateAndSaveLastSeen} = useSeen()
 
     return (
-        <CardWrapper>
+        <CardWrapper id={data.image}>
         <div className="card" onClick={()=> handleNavigateAndSaveLastSeen(data._id) }>
 
         <div className="image">

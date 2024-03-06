@@ -15,7 +15,7 @@ const {
   isPasswordVisible, 
   setIsPasswordVisible, 
   userPayload,
-  LoginError
+  LoginError,
 } = useAuth()
 
   return (
@@ -26,12 +26,12 @@ const {
     <LoginMessage title="Welcome Back"  message="Fill in  your email and password or continue with google" />
         <div className="input-wrapper">
         <form onSubmit={(e)=> handleSubmitLoginData(e)}>
-         <NameInput label="Email" placeholder="example@gmail.com" onChangeHandler={handleChangeEmail}>
+         <NameInput type="email" label="Email" placeholder="example@gmail.com" onChangeHandler={handleChangeEmail} value={userPayload.email}>
          <GoMail className="eye" color={`${colors.primary.lightGray}`} fontSize="22px" />
          </NameInput>
 
 
-         <NameInput label="Password" placeholder="Enter Your Password" setIsPasswordVisible={setIsPasswordVisible} onChangeHandler={handleChangePassword} isPasswordVisible={isPasswordVisible} pass={userPayload.password} >
+         <NameInput type="password" label="Password" placeholder="Enter Your Password" setIsPasswordVisible={setIsPasswordVisible} onChangeHandler={handleChangePassword} isPasswordVisible={isPasswordVisible} pass={userPayload.password} >
          <GoEye className="eye" color={`${colors.primary.lightGray}`} fontSize="22px" />
          </NameInput>
 

@@ -31,7 +31,6 @@ const {UserContextValue,userLoginContextValue, isModalOpen} =  useIsUserRegister
         <div className="loader-container">
         <span className="loader"></span>
         </div>
-
         </Modal>}
     <Outlet />
     </div>

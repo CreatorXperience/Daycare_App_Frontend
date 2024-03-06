@@ -68,5 +68,24 @@ const searchDayCares = async (term?: string)=>{
 }
 
 
+const getDaycareProfile = async (id: string | undefined)=>{
+    let user =  localStorage.getItem("DayCareuserLoginInfo")
+    if(user &&  id){ 
+        try{
+            let parsedUserObj = JSON.parse(user) as TLoginResponse
+         
+                let  response = await axiosInstance.get(`${ENDPOINT.getChildCares}/user?id=${id}`, {
+                    headers: {
+                authorization: parsedUserObj.token
+            }
+         })
+         return response.data as TChildCare
+            
+    }catch(e){
+        console.log(e)
+    }
+}
+}
 
-export {fetchDaycare, getDayCares, searchDayCares}
+
+export {fetchDaycare, getDayCares, searchDayCares,getDaycareProfile}

@@ -23,7 +23,9 @@ const Result = ()=>{
             </Header>
             <form onSubmit={(e)=> onSearchTermChanged(e)}>
 
-        <NameInput label="" 
+        <NameInput 
+        type="text"
+        label="" 
         placeholder="search by name or location" 
         onChangeHandler={(e)=>  handleInput(e)}
         borderradius="15px"

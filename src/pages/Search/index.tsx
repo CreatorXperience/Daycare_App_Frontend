@@ -22,7 +22,9 @@ const Search = ()=>{
             </Header>
             <form onSubmit={(e)=> onSearch(e)}>
 
-        <NameInput label="" 
+        <NameInput
+        type="text"
+         label="" 
         placeholder="search by name or location" 
         onChangeHandler={(e)=>  onInput(e)}
         borderradius="15px"

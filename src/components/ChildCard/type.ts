@@ -2,7 +2,7 @@
 type TTitle = {
     title: string,
     isOpen: boolean | undefined,
-    amount: number
+    amount: string
   }
 
   export type {TTitle}
