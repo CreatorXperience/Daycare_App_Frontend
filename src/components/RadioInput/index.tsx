@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import RadioInpputWrapper from "./RadioInputWrapper";
 import { TRadioInput } from "./type";
@@ -40,8 +41,11 @@ setForm((prev)=> ({...prev, isOpen: searchParams.get("label") !== "Open" ? true 
         </p>
       </div>
       </div>
+
     </RadioInpputWrapper>
   );
 };
 
+
 export default RadioInput;
+
