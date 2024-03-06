@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../constants/colors";
 import { URL } from "../../constants/endpoints";
-import { url } from "inspector";
 
 const UserInputDataWrapper = styled.div<{id?: string}>`
   width: 100%;
@@ -11,9 +10,39 @@ const UserInputDataWrapper = styled.div<{id?: string}>`
 
   .profile-wrapper {
     width: 100%;
-    padding: 12px;
     padding-top: 20px;
     overflow-y: scroll;
+    position: relative;
+    padding: 8px;
+
+
+    form{
+      height: 80vh;
+      overflow-y: auto;
+    }
+
+    .btnwrapper{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      position: fixed;
+      bottom: 20px;
+      background-color: ${colors.primary.white};
+      padding: 5px;
+
+
+
+   .save-btn{
+      width: 90%;
+      padding: 12px;
+      border: none;
+      background-color: ${colors.primary.cyan};
+      font-size: 16px;
+      color: ${colors.primary.white};
+      border-radius: 10px;
+    }
+    }
+ 
 
     .image-container{
       position: relative;
@@ -22,7 +51,7 @@ const UserInputDataWrapper = styled.div<{id?: string}>`
       border-radius: 12px;
       border: 2px solid ${colors.primary.grayishWhite};
       margin: 0 auto;
-      background-image: url(${props=> props.id ? `${URL().endpoint}/upload/${props.id}`: ""});
+      background-image: url(${props=> props.id ? `${URL().endpoint}/upload/${props.id}`:"https://i.pinimg.com/564x/f1/8c/2d/f18c2db587a424b237257922f36bd1b5.jpg"});
       background-size: cover;
 
     .loader {

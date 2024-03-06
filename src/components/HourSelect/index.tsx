@@ -1,27 +1,14 @@
-import { GoClock, GoPencil } from "react-icons/go"
+import { GoClock } from "react-icons/go"
 import { colors } from "../../constants/colors"
-import styled from "styled-components"
-import { ReactNode } from "react"
+import { THourProp } from "./type"
+import HourSelectWrapper from "./HourSelectWrapper"
+import getTime from "../../utils/getTime"
 
-
-type THourProp = {
-    disabled?: boolean,
-    userClosingHour?: number,
-    userOpeningHour?:number,
-    children?: ReactNode,
-    onTimeChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
-}
 const HourSelect = ({disabled, userClosingHour,userOpeningHour, children, onTimeChange}: THourProp)=>{
     let hours = [
         1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24
     ]
 
-    const getTime = (hour: number) => {
-        if(hour > 11){
-            return `${hour} PM`
-        }
-        return `${hour} AM`
-    }
         return (
             <HourSelectWrapper>
         <div className="box">
@@ -42,29 +29,3 @@ const HourSelect = ({disabled, userClosingHour,userOpeningHour, children, onTime
 
 export default HourSelect
 
-const HourSelectWrapper = styled.div`
-    width: 100%;
-
-.box {
-               width: 100%;
-               height: 60px;
-               border: 1px solid red;
-               display: flex;
-               justify-content: space-between;
-               align-items: center;
-               margin-top: 8px;
-               border: 2px solid ${colors.primary.lightGray};
-               border-radius: 12px;
-               padding: 12px;
-               margin-bottom: 30px;
-
-               select {
-               width: 95%;
-               height: 40px;
-               background-color: ${colors.primary.white};
-               border: none;
-               padding: 8px;
-               outline: none;
-             }
-             }
-`

@@ -1,4 +1,4 @@
-import { TChild, TExtendChildcare } from "../../pages/UserInputData/type";
+import { TChild, TExtendChildcare } from "../../pages/ChildcareProfile/type";
 
 type TRadioInput = {
     name: string;

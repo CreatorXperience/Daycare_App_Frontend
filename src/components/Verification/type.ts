@@ -1,6 +1,10 @@
 type TVerification = {
     rating: number,
-    isVerified?: boolean
+    isVerified?: boolean,
+  time: {
+      from: string,
+      to: string
+    }
   }
 
   export type {TVerification}

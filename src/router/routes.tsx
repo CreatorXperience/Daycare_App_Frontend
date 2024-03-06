@@ -10,7 +10,7 @@ import Verification from "../pages/Verification";
 import Details from "../pages/Details";
 import Search from "../pages/Search";
 import Result from "../pages/Result";
-import ChildCareProfile from "../pages/UserInputData";
+import ChildCareProfile from "../pages/ChildcareProfile";
 
 
 let router = createBrowserRouter([{
