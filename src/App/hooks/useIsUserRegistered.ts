@@ -13,8 +13,8 @@ const useIsUserRegistered = (isCompatible: boolean | null)=>{
 
 
     const userSignupContextValue =  useMemo(()=>{
-        return {setUserInfo, userInfo, isModalOpen, setIsModalOpen, setSeen,seen, search, setLastSearch}
-        }, [userInfo, isModalOpen,setIsModalOpen,setSeen,seen,search,setLastSearch])
+        return{userInfo, isModalOpen,seen, search, }
+        }, [userInfo, isModalOpen,seen,search,])
 
 
     const userLoginContextValue = useMemo(()=>{
@@ -67,7 +67,7 @@ const useIsUserRegistered = (isCompatible: boolean | null)=>{
 
 
 
-        return {UserContextValue: userSignupContextValue, userLoginContextValue, isModalOpen}
+        return {UserContextValue: userSignupContextValue, userLoginContextValue, isModalOpen, setLastSearch, setIsModalOpen, setSeen,setUserInfo, }
 }
 
 export default useIsUserRegistered

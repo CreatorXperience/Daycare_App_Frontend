@@ -3,17 +3,21 @@ import { colors } from "../../constants/colors"
 import useCopy from "./hooks/useCopy"
 import type { TDetails } from "./type"
 import DetailsActionWrapper from "./DetailsActionWrapper"
+import { memo, useState } from "react"
+import Modal from "../Modal"
+import Prompt from "../Prompt"
+import useChatClick from "./hooks/useChatClick"
 
 
 
-const DetailsAction = ({content: {owner,phoneNumber,setIsCopied}}: TDetails)=>{
-
+const DetailsAction = ({content: {owner,phoneNumber,setIsCopied, id}}: TDetails)=>{
 const {handleCopyClick} = useCopy(phoneNumber, setIsCopied)
+const {handleChatClick,isChatClick} =  useChatClick()
 
     return (
         <DetailsActionWrapper>
             <div className="action-container">
-                
+                {isChatClick ? <Modal> <Prompt handleChatClick={handleChatClick}  id= {id} message="are you sure you wanna chat with this guy" /> </Modal>: ""}
                 <div className="info-cont">
                 <div className="profile"></div>
             <div className="name">
@@ -33,7 +37,7 @@ const {handleCopyClick} = useCopy(phoneNumber, setIsCopied)
                 </div>
                 
 
-                    <div className="comment">
+                    <div className="comment" onClick={()=> handleChatClick(true)} >
                     <FaComment size="20px" color={colors.primary.cyan}  />
                     </div>
              
@@ -44,5 +48,5 @@ const {handleCopyClick} = useCopy(phoneNumber, setIsCopied)
     )
 }
 
-export default DetailsAction
+export default memo(DetailsAction)
 

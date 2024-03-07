@@ -11,6 +11,7 @@ import Details from "../pages/Details";
 import Search from "../pages/Search";
 import Result from "../pages/Result";
 import ChildCareProfile from "../pages/ChildcareProfile";
+import Messages from "../pages/Messages";
 
 
 let router = createBrowserRouter([{
@@ -62,6 +63,10 @@ let router = createBrowserRouter([{
 },{
     path: ROUTE.profile,
     element: <ChildCareProfile />
+},
+{
+    path: ROUTE.chats,
+    element: <Messages />
 }
     ]
 }])

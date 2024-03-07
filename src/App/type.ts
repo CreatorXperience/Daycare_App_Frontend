@@ -1,3 +1,4 @@
+import { TCreatedChatResponse } from "../components/Prompt/types"
 import { TLoginResponse } from "../pages/Auth/Login/type"
 import { TResponse } from "../pages/Auth/Signup/type"
 
@@ -17,4 +18,9 @@ type TUserContext =  {
     setUserLoginInfo: React.Dispatch<React.SetStateAction<TLoginResponse | undefined>>
   }
 
-  export type {TUserContext,TUserLoginContext}
+  type TChatContext = {
+    userChat:TCreatedChatResponse | undefined,
+    updateUserChat: React.Dispatch<React.SetStateAction<TCreatedChatResponse | undefined>>
+    }
+
+  export type {TUserContext,TUserLoginContext,TChatContext}

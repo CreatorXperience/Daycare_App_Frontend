@@ -3,7 +3,8 @@ type TDetails = {
         owner: string,
         role?: string,
         phoneNumber?: string,
-        setIsCopied:  React.Dispatch<React.SetStateAction<boolean>>
+        setIsCopied:  React.Dispatch<React.SetStateAction<boolean>>,
+        id?: string
     }
 }
 

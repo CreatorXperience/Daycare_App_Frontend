@@ -23,6 +23,8 @@ const ENDPOINT = {
     searchChildcares: "/search-childcares",
     upload: "/upload/childcares",
     createProfile: "/create-childcare-profile",
+    chats: "/chat",
+    users:"/users"
 }
 
 export {URL,ENDPOINT}
