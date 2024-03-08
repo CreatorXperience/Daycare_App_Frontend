@@ -10,6 +10,6 @@ const ROUTE = {
     result: "/result",
     profile: "/profile",
     chats: "/chats",
-    messages: "/messages"
+    messages: "/messages/:chatId/:id"
 }
 export default ROUTE

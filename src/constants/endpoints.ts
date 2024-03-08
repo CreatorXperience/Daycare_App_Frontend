@@ -24,7 +24,8 @@ const ENDPOINT = {
     upload: "/upload/childcares",
     createProfile: "/create-childcare-profile",
     chats: "/chat",
-    users:"/users"
+    users:"/users",
+    message: "/message"
 }
 
 export {URL,ENDPOINT}
