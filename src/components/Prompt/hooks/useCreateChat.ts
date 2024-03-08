@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useMutation } from "react-query"
 import { TCreatedChatResponse } from "../types"
-import createChat from "../../../services/Chat"
+import {createChat}from "../../../services/Chat"
 
 
 

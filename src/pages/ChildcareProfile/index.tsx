@@ -11,7 +11,6 @@ import useUploadEffect from "./hooks/useUploadEffect";
 
 
 
-
 const ChildCareProfile = () => {
 const {form,
   handleMimicUpload,
@@ -49,7 +48,7 @@ const {form,
       <div className="profile-wrapper">
        <Header title="Profile">
         <GoChevronLeft />
-        <GoKebabHorizontal />
+        <GoKebabHorizontal  />
        </Header>
 
        <form onSubmit={(e)=> onSubmit(e)}>

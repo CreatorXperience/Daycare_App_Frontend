@@ -1,6 +1,9 @@
 import ChatCardWrapper from "./ChatCardWrapper"
+import { TChatProp } from "./type"
 
-const ChatCard = ()=>{
+
+
+const ChatCard = ({content}: TChatProp)=>{
     return (
         <ChatCardWrapper>
             <div className="action-container">
@@ -8,9 +11,8 @@ const ChatCard = ()=>{
                 <div className="info-cont">
                 <div className="profile"></div>
             <div className="name">
-                <p className="user-name">Peter Chukwudi</p>
+                <p className="user-name">{content?.fullname}</p>
                 <p className="user-role">
-                   Teacher
                 </p>
 
             </div>

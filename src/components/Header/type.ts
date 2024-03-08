@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 
 type THeader = {
-    children: [ReactNode,ReactNode],
+    children: ReactNode[],
     title: string
 }
 
