@@ -9,4 +9,11 @@ type TMessagePayload = {
   token: string | undefined
 }
 
-export type {TChatPayload, TMessagePayload}
+type TMessage = {
+  _id: string,
+  message: string,
+  senderId: string,
+  chatId: string
+}
+
+export type {TChatPayload, TMessagePayload, TMessage}

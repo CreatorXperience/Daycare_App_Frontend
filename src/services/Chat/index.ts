@@ -10,10 +10,9 @@ const createChat = async (data: TChatPayload)=>{
     if(user){
         let parsedUser =  JSON.parse(user) as TLoginResponse
         try{
-            console.log(parsedUser.token)
             let response = await axiosInstance.post(`${ENDPOINT.chats}/${data.id}`, {}, {
                 headers: {
-                    authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWQ3ODVhZWYwYjJhMDIxNzdhYTZmODIiLCJpYXQiOjE3MDk4MDg3NDR9.lhCQP1_7OzDm1_QhXwc0tbQckrfb1SjFAKqSltOhaMs"
+                    authorization: parsedUser.token
                 }
             })
             return response.data  as TCreatedChatResponse

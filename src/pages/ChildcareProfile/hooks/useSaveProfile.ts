@@ -37,7 +37,7 @@ const useSaveProfile = ()=> {
             setErrorResponse(errorObj)
         }
     }
-    const {mutate, isLoading} =  useMutation("upload-profile",  saveProfile)
+    const {mutate, isLoading, isSuccess} =  useMutation("upload-profile",  saveProfile)
 
     const mutateProfile = (userPayload: Partial<TExtendChildcare<TChild & {location:string},"_id">>)=> {
     mutate(userPayload, {
@@ -48,6 +48,6 @@ const useSaveProfile = ()=> {
     })
 }
 
-return {response, mutateProfile,errorResponse, isLoading}
+return {response, mutateProfile,errorResponse, isLoading, isSuccess}
 }
 export default useSaveProfile

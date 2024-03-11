@@ -30,7 +30,7 @@ const Signup = ()=>{
     <LoginMessage title="Create Account"  message="Fill in  your Identity or continue with Google" />
         <div className="input-wrapper">
       <form onSubmit={(e)=> handleSubmitSignUpData(e)}>
-        <NameInput type="text" label="Name" placeholder="Enter Your Name" onChangeHandler={handleChangeName} value={userPayload.email}>
+        <NameInput type="text" label="Name" placeholder="Enter Your Name" onChangeHandler={handleChangeName} value={userPayload.fullname}>
          <GoPerson className="eye" color={`${colors.primary.lightGray}`} fontSize="22px" />
          </NameInput>
 

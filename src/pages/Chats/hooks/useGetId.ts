@@ -8,6 +8,7 @@ const useGetIds = ()=>{
     const {user} = useGetuserInfoFromStorage()
     const {setChats,response} =  useGetAllUser()
 
+    console.log(data)
     const recipientIds = useMemo(()=> {
         if(data){
         return  data.chat.map((item)=>{

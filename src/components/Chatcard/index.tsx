@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import ChatCardWrapper from "./ChatCardWrapper"
 import { TChatProp } from "./type"
-import ROUTE from "../../constants/routes"
 import useGetuserInfoFromStorage from "../../utils/useGetUserInfoFromStorage"
 
 
@@ -14,7 +13,7 @@ const ChatCard = ({content}: TChatProp)=>{
     console.log(content)
     return (
         <ChatCardWrapper>
-            <div className="action-container" onClick={()=> navigate(`${ROUTE.messages}/${content?.chatId}/${user?.message._id}`)}>
+            <div className="action-container" onClick={()=> navigate(`/messages/${content?.chatId}/${user?.message._id}/${content?._id}`)}>
                 <div className="info-cont">
                 <div className="profile"></div>
             <div className="name">

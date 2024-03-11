@@ -11,6 +11,8 @@ import useHomeLogic from "./hooks/useHandleDaycares"
 const Home = ()=>{
     const {coordinates,data,setLocation,childData,setIsCoordinatesLoading} = useHomeLogic()
 
+
+
     return (
         <HomeWrapper>
         <div className="home-container">

@@ -23,4 +23,9 @@ type TUserContext =  {
     updateUserChat: React.Dispatch<React.SetStateAction<TCreatedChatResponse | undefined>>
     }
 
-  export type {TUserContext,TUserLoginContext,TChatContext}
+
+type TOnlineUsers = {
+  userId: string,
+  socketId: string
+}
+  export type {TUserContext,TUserLoginContext,TChatContext, TOnlineUsers}
