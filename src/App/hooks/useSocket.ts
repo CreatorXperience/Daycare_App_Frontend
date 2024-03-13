@@ -4,12 +4,14 @@ import { TMessage } from "../../pages/Messages/type"
 import { TOnlineUsers } from "../type"
 import { Socket, io } from "socket.io-client"
 import { URL } from "../../constants/endpoints"
+import { TCreatedChatResponse } from "../../components/Prompt/types"
 
 const useSocket = ()=>{
     const [messages, setMesssages] =  useState<TMessage[]>()
 
-    const [onLineUsers, setOnlineUsers] = useState<TOnlineUsers | null>(null)
+    const [onLineUsers, setOnlineUsers] = useState<TOnlineUsers[] | null>(null)
     const [socket, setSocket] = useState<Socket | null>(null)
+    const [notification, setNotification] = useState<{chatId: string, message: string}[]>([])
     
     
     
@@ -31,11 +33,16 @@ const useSocket = ()=>{
           socket?.on("onlineUsers",  (online)=>{
           setOnlineUsers(online)
           })
+
+          socket?.on("newMessageNotification", (data: {message: string, chatId: string})=> {
+            setNotification((prev)=> ([...prev,data]))
+          })
+
     
           return ()=>{
             socket?.off("onlineUsers")
           }
-    },[socket])
+    },[socket, user?.message._id])
     
     useEffect(()=> {
       socket?.on("getMessage", (message) => {
@@ -52,7 +59,9 @@ const useSocket = ()=>{
       }
     },[socket])
 
-    return {messages, setMesssages, onLineUsers, socket}
+    console.log(notification)
+
+    return {messages, setMesssages, onLineUsers, socket, notification, setNotification}
 }
 
 export default useSocket

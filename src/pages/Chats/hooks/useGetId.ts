@@ -8,19 +8,18 @@ const useGetIds = ()=>{
     const {user} = useGetuserInfoFromStorage()
     const {setChats,response} =  useGetAllUser()
 
-    console.log(data)
     const recipientIds = useMemo(()=> {
         if(data){
         return  data.chat.map((item)=>{
             return  {usrId: item.members.filter((member)=> member !== user?.message._id)[0], chatId: item._id }
             }).filter((obj)=> obj.usrId !== undefined)     
         }
-    }, [data])
+    }, [data, user?.message._id])
 
     useEffect(()=>{
         if(recipientIds)
         setChats(recipientIds)
-    }, [recipientIds])
+    }, [recipientIds, setChats])
 
     return {response}
     

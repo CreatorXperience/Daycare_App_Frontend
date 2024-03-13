@@ -15,7 +15,6 @@ const useGetAllUser = ()=>{
 
     let response = results.filter((data)=> data.data &&  data.data._doc !== undefined).map((data, i)=> ({...data.data._doc, chatId: chats[i].chatId}) ) as TChats[]
 
-    console.log(results)
     return {response, setChats}
 }
 

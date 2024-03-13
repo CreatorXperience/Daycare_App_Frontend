@@ -9,7 +9,7 @@ const useHandleSendMessage = ()=>{
     const {mutateMessage} = useSendMessages()
     const socket =  useContext(SocketContext)
     const [message, setMessage]  =  useState<string | null>(null)
-    const {chatId, id, reciever} =  useParams()
+    const {chatId, id, reciever, user} =  useParams()
     const messages = useContext(MessageContext)
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>)=>{
@@ -42,7 +42,7 @@ const useHandleSendMessage = ()=>{
         e.preventDefault()
         setMessage(e.target.value)
     }
-    return {handleSubmit, handleInputChange, chatId,messages}
+    return {handleSubmit, handleInputChange, chatId,messages, reciever, user}
 }
 
 export default useHandleSendMessage

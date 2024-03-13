@@ -88,4 +88,5 @@ const getDaycareProfile = async (id: string | undefined)=>{
 }
 
 
+
 export {fetchDaycare, getDayCares, searchDayCares,getDaycareProfile}

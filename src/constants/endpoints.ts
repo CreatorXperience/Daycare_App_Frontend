@@ -25,7 +25,8 @@ const ENDPOINT = {
     createProfile: "/create-childcare-profile",
     chats: "/chat",
     users:"/users",
-    message: "/message"
+    message: "/message",
+    register: "/register"
 }
 
 export {URL,ENDPOINT}

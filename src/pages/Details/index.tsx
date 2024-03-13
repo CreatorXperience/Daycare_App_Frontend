@@ -12,6 +12,7 @@ import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../../App/App"
 import Alert from "../../components/Alert"
 import DetailsWrapper from "./DetailsWrapper"
+import useRegister from "./hooks/useRegisterDayCare"
 
 const Details = ()=>{
     const {id} =  useParams()
@@ -19,6 +20,7 @@ const Details = ()=>{
     const {data,setId,isLoading} = useGetDayCare()
     const user = useContext(UserContext)
     const [isCopied, setIsCopied] = useState<boolean>(false)
+    const {response, mutateChat} = useRegister()
 
   
     useEffect(()=>{
@@ -37,15 +39,20 @@ const Details = ()=>{
     },[isLoading,user])
 
 
+    console.log(response)
+
     
 
     return (
   <DetailsWrapper>
    { isCopied ? <Alert /> : ""}
-<Header title="Details">
+   <div className="details-header">
+   <Header title="Details">
 <GoChevronLeft size="30px" />
 <GoKebabHorizontal size="30px" />
 </Header>
+   </div>
+
 <div className="DetailsBody">
 <ProfileDetailsImage />
 {data?.title && <ProfileDetailsTitle  title={data?.title} isOpen={data.isOpen} amount={data.amount}/>}
@@ -53,6 +60,9 @@ const Details = ()=>{
 {data?.description && <DetailsDescription desc={data?.description} />}
 <DetailsAction content={{owner: data?.owner as string, id: data?.userId, phoneNumber: data?.phonenumber, setIsCopied:setIsCopied}}   />
 {data &&  data.location && <GoogleMap lat={data?.location.coordinates[1]} lng={data?.location.coordinates[0]}  />}
+</div>
+<div className="btn-container">
+<button type="submit" onClick={()=> mutateChat(data?._id)} className="register">Register</button>
 </div>
 </DetailsWrapper>
     )

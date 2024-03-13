@@ -1,52 +1,25 @@
-import styled from "styled-components"
-import { colors } from "../../constants/colors"
+import { useContext } from "react"
+import { OnlineUsersContext } from "../../App/App"
+import MessageHeaderWrapper from "./MessageWrapper"
+import { TMessageHeader } from "./type"
 
 
-const MessageHeader = ()=>{
+
+const MessageHeader = ({id,chat}: TMessageHeader)=>{
+const onlineUsers =  useContext(OnlineUsersContext)
+
 return (
-    <MessageWrapper>
+    <MessageHeaderWrapper>
     <div className="circle-cont">
-        <div className="circle"></div>
+        <div className="circle"><span className={`${onlineUsers?.some((item)=> item.userId === id ) ? "online": "offline"}`}></span></div>
         <div className="info">
-        <div className="username">Sofia</div>
-        <div className="status">online</div>
+        <div className="username">{chat}</div>
+        <div className="status">{onlineUsers?.some((item)=> item.userId === id ) ? "online": "offline"}</div>
         </div>
     </div>
-    </MessageWrapper>
+    </MessageHeaderWrapper>
 )
 }
 
 export default MessageHeader
 
-const MessageWrapper  = styled.div`
-width: 100%;
-
-
-
-.circle-cont {
-    width: 100%;
-    height: auto;
-    display: flex;
-
-    .circle {
-        width:40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: ${colors.primary.textGray};
-        margin-left: 20px;
-    }
-
-    .info {
-        margin-left: 20px;
-        
-        .username {
-            font-size: 18px;
-            font-weight: bolder;
-        }
-        .status {
-            font-size: 12px;
-        }
-    }
-}
-
-`
