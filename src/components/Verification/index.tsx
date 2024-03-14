@@ -6,7 +6,7 @@ import getTime from "../../utils/getTime";
 
 
 
-const ProfileDetailsVerification = ({isVerified,rating,time}: TVerification) => {
+const ProfileDetailsVerification = ({rating,time}: TVerification) => {
   return (
     <VerificationWrapper>
       <div className="verify-container">
@@ -24,7 +24,7 @@ const ProfileDetailsVerification = ({isVerified,rating,time}: TVerification) => 
         </div>
         <div className="verify-rate">
         <GoVerified  color={colors.primary.darkGreen}/>
-          <p>{isVerified ? "Verified": "not verified"}</p>
+          <p>Verified </p>
         </div>
       </div>
     </VerificationWrapper>

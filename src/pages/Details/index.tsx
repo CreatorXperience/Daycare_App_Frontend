@@ -7,22 +7,26 @@ import ProfileDetailsVerification from "../../components/Verification"
 import DetailsDescription from "../../components/DetailsDescription"
 import GoogleMap from "../../components/Map"
 import DetailsAction from "../../components/DetailsAction"
-import useGetDayCare from "./hooks/useGetDaycare"
 import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../../App/App"
 import Alert from "../../components/Alert"
 import DetailsWrapper from "./DetailsWrapper"
-import useRegister from "./hooks/useRegisterDayCare"
+import useHandleRegister from "./hooks/useHandleRegister"
 
 const Details = ()=>{
     const {id} =  useParams()
-
-    const {data,setId,isLoading} = useGetDayCare()
     const user = useContext(UserContext)
     const [isCopied, setIsCopied] = useState<boolean>(false)
-    const {response, mutateChat} = useRegister()
+    const {onMutateRegister,
+        loggedInUser,
+        registrationLoading,
+        registered,
+        data,
+        setId, 
+        isLoading} =  useHandleRegister()
 
-  
+
+
     useEffect(()=>{
         if(id){
             setId(id)
@@ -39,9 +43,8 @@ const Details = ()=>{
     },[isLoading,user])
 
 
-    console.log(response)
 
-    
+
 
     return (
   <DetailsWrapper>
@@ -54,7 +57,7 @@ const Details = ()=>{
    </div>
 
 <div className="DetailsBody">
-<ProfileDetailsImage />
+<ProfileDetailsImage id={data?.image}/>
 {data?.title && <ProfileDetailsTitle  title={data?.title} isOpen={data.isOpen} amount={data.amount}/>}
 {data?.rating && <ProfileDetailsVerification rating={data?.rating} time={{from: data.from, to: data.to}} isVerified={data?.isVerified} />}
 {data?.description && <DetailsDescription desc={data?.description} />}
@@ -62,7 +65,8 @@ const Details = ()=>{
 {data &&  data.location && <GoogleMap lat={data?.location.coordinates[1]} lng={data?.location.coordinates[0]}  />}
 </div>
 <div className="btn-container">
-<button type="submit" onClick={()=> mutateChat(data?._id)} className="register">Register</button>
+<button type="submit" onClick={()=>  onMutateRegister(data?._id)} className="register">{ registered && loggedInUser?.message._id &&  registered?.registered.includes(loggedInUser?.message._id) ?  "Already Enrolled" : "Enroll" }</button>
+{registrationLoading && <button type="submit" className="register">Loading</button>}
 </div>
 </DetailsWrapper>
     )

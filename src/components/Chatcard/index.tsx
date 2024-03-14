@@ -2,21 +2,21 @@ import { useNavigate } from "react-router-dom"
 import ChatCardWrapper from "./ChatCardWrapper"
 import { TChatProp } from "./type"
 import useGetuserInfoFromStorage from "../../utils/useGetUserInfoFromStorage"
-import { useContext } from "react"
+import { memo, useContext } from "react"
 import { NotificationContext } from "../../App/App"
+import pierceWord from "../../utils/pieceWord"
 
 
 
-const ChatCard = ({content}: TChatProp)=>{
+const ChatCard = memo(({content}: TChatProp)=>{
     const navigate = useNavigate()
     const {user} =  useGetuserInfoFromStorage()
     const notification  = useContext(NotificationContext)
-    console.log(notification)
     return (
         <ChatCardWrapper>
             <div className="action-container" onClick={()=> navigate(`/messages/${content?.chatId}/${user?.message._id}/${content?._id}/${content?.fullname}`)}>
                 <div className="info-cont">
-                <div className="profile"></div>
+                <div className="profile">{ content?.fullname && pierceWord({name: content.fullname})}</div>
             <div className="name">
                 <p className="user-name">{content?.fullname}</p>
                 <p className="user-role">
@@ -35,17 +35,17 @@ const ChatCard = ({content}: TChatProp)=>{
                     return ""
                 })} */}
 
-            {notification && notification.notification &&   <div className="status">   {
+            {notification && notification.notification && notification.notification.length !== 0 &&   <div className="status">   {
                        notification && notification.notification && notification.notification.length
                 }
                 </div>}
             </div>
             </div>
-            { notification && notification.notification && 
+            { notification && notification.notification && notification.notification[notification.notification.length-1] &&
                     <div className="newMessage">{notification.notification[notification.notification.length-1].message}</div>
                 }
         </ChatCardWrapper>
     )
-}
+})
 
 export default ChatCard

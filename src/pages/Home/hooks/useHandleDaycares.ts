@@ -85,7 +85,7 @@ const useHomeLogic = ()=>{
 
 
 
-     return {setLocation, coordinates, data, childData, setIsCoordinatesLoading}
+     return {setLocation, coordinates, data, childData, setIsCoordinatesLoading,isLoading}
 }
 
 

@@ -39,7 +39,7 @@ const {form,
   return (
     <UserInputDataWrapper id={form.image}>
       <div className="profile-wrapper">
-       <Header title="Profile">
+       <Header title="Create Profile">
         <GoChevronLeft />
         <GoKebabHorizontal  />
        </Header>

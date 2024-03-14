@@ -4,7 +4,7 @@ import { TMessage } from "../../pages/Messages/type"
 import { TOnlineUsers } from "../type"
 import { Socket, io } from "socket.io-client"
 import { URL } from "../../constants/endpoints"
-import { TCreatedChatResponse } from "../../components/Prompt/types"
+
 
 const useSocket = ()=>{
     const [messages, setMesssages] =  useState<TMessage[]>()
@@ -59,7 +59,7 @@ const useSocket = ()=>{
       }
     },[socket])
 
-    console.log(notification)
+
 
     return {messages, setMesssages, onLineUsers, socket, notification, setNotification}
 }

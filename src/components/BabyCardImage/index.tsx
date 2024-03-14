@@ -1,8 +1,11 @@
+import { memo } from "react";
 import BabyCardWrapper from "./BabyCardWrapper";
+import { TProfileProps } from "./type";
 
-const ProfileDetailsImage = () => {
+
+const ProfileDetailsImage = ({id}: TProfileProps) => {
   return (
-    <BabyCardWrapper>
+    <BabyCardWrapper id={id}>
       <div className="card-wrapper">
         <div className="card-img"></div>
       </div>
@@ -10,4 +13,4 @@ const ProfileDetailsImage = () => {
   );
 };
 
-export default ProfileDetailsImage;
+export default memo(ProfileDetailsImage);

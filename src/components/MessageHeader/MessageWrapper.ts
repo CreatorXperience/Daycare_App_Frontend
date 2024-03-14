@@ -13,9 +13,14 @@ width: 100%;
         width:40px;
         height: 40px;
         border-radius: 50%;
-        background-color: ${colors.primary.textGray};
+        background-color: ${colors.primary.cyan};
         margin-left: 20px;
         position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: 900;
 
         .online, .offline {
             width: 15px;

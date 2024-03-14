@@ -36,7 +36,7 @@ const useProfileForm = ()=> {
                   localStorage.setItem("DayCareuserLoginInfo",  JSON.stringify(user))
                 }
               }
-            }, [isSuccess])
+            }, [isSuccess,errorResponse,form, user])
 
             useEffect(()=>{
               let profile = localStorage.getItem("profileData")
@@ -46,7 +46,7 @@ const useProfileForm = ()=> {
                   setForm(parseProfile)
                 }
               }
-            },[])
+            },[user?.message._id])
       
 
             useEffect(()=>{

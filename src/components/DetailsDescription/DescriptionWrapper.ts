@@ -23,7 +23,7 @@ margin-top: 20px;
             margin-top: 10px;
             color: ${colors.primary.cyan};
             font-weight: bolder;
-            z-index: 20;
+            z-index: 10;
             background-color: ${colors.primary.white};
             font-weight: bolder;
             width: 100%;

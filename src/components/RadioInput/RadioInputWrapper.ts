@@ -42,6 +42,7 @@ const RadioInpputWrapper = styled.div`
     align-items: center;
     font-size: 22px;
     background-color: ${colors.primary.lightCyan};
+    accent-color: linear-gradient(180deg, #72B5F1 0%, rgba(23, 118, 202, 0.83) 131.58%);
   }
 `;
 

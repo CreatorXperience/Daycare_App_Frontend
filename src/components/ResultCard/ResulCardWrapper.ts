@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { URL } from "../../constants/endpoints";
 
-const ResultCardWrapper = styled.div`
+const ResultCardWrapper = styled.div<{image?: string}>`
     width: 100%;
     height: auto;
     display: flex;
@@ -14,7 +15,7 @@ const ResultCardWrapper = styled.div`
     }
 
     .result-image {
-        background-image: url("https://i.pinimg.com/736x/37/38/1c/37381c0e7e5831bfb27159a5f42f310a.jpg");
+        background-image: url(${props => props.image ? URL().endpoint+/upload/+props.image: "https://i.pinimg.com/564x/f1/8c/2d/f18c2db587a424b237257922f36bd1b5.jpg"});
         background-size: cover;
         width: 100%;
         height: 90%;

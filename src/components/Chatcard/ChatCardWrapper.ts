@@ -4,12 +4,13 @@ import { colors } from "../../constants/colors";
 const ChatCardWrapper = styled.div`
     width:95%;
     height: 60px;
-    display: flex;
-    justify-content: center;
     margin-top: 20px;
     border-bottom: 2px solid ${colors.primary.lightGray};
     padding-bottom: 10px;
     margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
 
     .action-container {
         width: 90%;
@@ -28,8 +29,13 @@ const ChatCardWrapper = styled.div`
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background-image: url("https://i.pinimg.com/564x/99/03/34/9903345b0d415013d2a840842451e6d0.jpg");
+            background-color: ${colors.primary.cyan};
             background-size: contain;
+            color: white;
+            font-size: 20px;
+            display: flex;
+            justify-content:  center;
+            align-items: center;
         }
 
         .name {
@@ -65,6 +71,9 @@ const ChatCardWrapper = styled.div`
                 color: ${colors.primary.white}
             }
         }
+    }
+    .newMessage {
+        padding: 12px;
     }
 `
 

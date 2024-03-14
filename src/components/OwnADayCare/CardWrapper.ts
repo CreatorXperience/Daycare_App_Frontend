@@ -50,6 +50,11 @@ const CardWrapper = styled.div`
       line-height: normal;
       width: 100%;
     }
+
+    .text a {
+      color:white;
+      margin-top: 20px;
+    }
     .percent-text {
       color: #fff;
       font-family: Poppins;
