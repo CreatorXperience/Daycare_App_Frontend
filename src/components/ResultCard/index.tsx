@@ -8,7 +8,7 @@ import ResultCardWrapper from "./ResulCardWrapper"
 
 
 
-const ResultCard = ({amount,perDuration,title, _id, location,image, exactLocation}:Partial<TChildCare>)=>{
+const ResultCard = ({amount,perDuration,title, _id,image, exactLocation}:Partial<TChildCare>)=>{
     const navigate = useNavigate()
 
     return (

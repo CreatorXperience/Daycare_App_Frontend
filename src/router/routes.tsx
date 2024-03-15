@@ -1,4 +1,4 @@
-import {createBrowserRouter } from "react-router-dom";
+import {Route, createBrowserRouter } from "react-router-dom";
 import App from "../App/App";
 import NavBarIcon from "../components/NavBarIcons";
 import Home from "../pages/Home";
@@ -14,6 +14,8 @@ import ChildCareProfile from "../pages/ChildcareProfile";
 import Chats from "../pages/Chats";
 import Message from "../pages/Messages";
 import ViewAll from "../pages/ViewAll";
+import SplashScreen from "../pages/SplashScreen";
+import Position from "../pages/Position";
 
 
 let router = createBrowserRouter([{
@@ -75,6 +77,12 @@ let router = createBrowserRouter([{
 },{
     path: ROUTE.viewall,
     element: <ViewAll />
+},{
+    path: ROUTE.root,
+    element: <SplashScreen />
+},{
+    path: ROUTE.position,
+    element: <Position />
 }
     ]
 }])

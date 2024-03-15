@@ -46,7 +46,7 @@ const ICONS = {
         <img src={brand3} alt="brand"></img>  
     ),
     brandIcon4: ()=>(
-        <img src={brand4} alt="brand4"></img>  
+        <img src={"https://i.pinimg.com/564x/97/97/01/9797011341510278dd9f4046654375c7.jpg"} width="300px" alt="brand4"></img>  
     ),
     inputIcon: ()=>(
         <img src={input} alt="input"></img>  

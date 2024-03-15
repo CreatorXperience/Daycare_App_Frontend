@@ -26,7 +26,6 @@ let {isError, isSuccess,isFetching} = useQuery(["messages", chatId],() =>  fetch
     },
     isDataEqual(oldData, newData) {
         if(oldData === newData){
-            console.log("data is equals")
             return true
         }
         return false

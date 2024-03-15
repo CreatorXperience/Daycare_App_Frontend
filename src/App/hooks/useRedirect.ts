@@ -10,7 +10,7 @@ const useRedirect =()=>{
         if(user){ 
             let parsedUserObj = JSON.parse(user) as TLoginResponse
              if(parsedUserObj){
-               navigate("/home")
+               navigate("/position")
              }
            }
     })

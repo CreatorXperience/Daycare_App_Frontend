@@ -2,9 +2,10 @@ type TLoginResponse = {
     message: {
         day_care_owner: boolean,
         favorite: [],
-        isVerified: boolean,
+        is_verified: boolean,
         _id: string,
-        token: string
+        token: string,
+        email: string
     },
     status: string,
     token: string

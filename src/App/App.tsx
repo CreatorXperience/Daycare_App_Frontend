@@ -31,7 +31,7 @@ function App() {
 const [path] = useState<string>(window.location.pathname)
 const {setIsCompatible,isCompatibleMemo} = useIsCompatible(path)
 const {screenRef} =  useResizeObeserver(setIsCompatible)
-const {UserContextValue,userLoginContextValue, isModalOpen,setIsModalOpen,setLastSearch,setSeen,setUserInfo} =  useIsUserRegistered(isCompatibleMemo)
+const {UserContextValue,userLoginContextValue, isModalOpen,setIsModalOpen,setLastSearch,setSeen,setUserInfo,setUserLoginInfo} =  useIsUserRegistered(isCompatibleMemo)
 const [chat, setChat] = useState<TCreatedChatResponse | undefined>()
 const {messages,onLineUsers,setMesssages,socket, notification, setNotification} =  useSocket()
 const chatMemo = useMemo(()=>{
@@ -46,7 +46,7 @@ const chatMemo = useMemo(()=>{
   return (
     <QueryClientProvider client= {client}>
     <UserContext.Provider value={{...UserContextValue,setIsModalOpen,setLastSearch,setSeen,setUserInfo}}>
-      <UserLoginContext.Provider value={userLoginContextValue}>
+      <UserLoginContext.Provider value={{...userLoginContextValue, setUserLoginInfo}}>
       <ChatContext.Provider value={{userChat: chatMemo, updateUserChat: setChat}}>
         <SocketContext.Provider value={socket}>
           <MessageContext.Provider value={{messages, setMesssages}}>
@@ -54,11 +54,6 @@ const chatMemo = useMemo(()=>{
       <NotificationContext.Provider value={{notification: notification, setNotification: setNotification}}>
     <AppWrapper ismodalopen={JSON.stringify(isModalOpen)}>
     <div className="App" ref={screenRef}>
-      { isModalOpen &&  <Modal ismodalopen={JSON.stringify(isModalOpen)}>
-        <div className="loader-container">
-        <span className="loader"></span>
-        </div>
-        </Modal>}
     <Outlet />
     </div>
     </AppWrapper>

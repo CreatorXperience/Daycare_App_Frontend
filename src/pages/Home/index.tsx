@@ -6,14 +6,20 @@ import OwnADayCare from "../../components/OwnADayCare"
 import ChildCareCard from "../../components/ChildCareCard"
 import List from "../../components/List"
 import useHomeLogic from "./hooks/useHandleDaycares"
+import Modal from "../../components/Modal"
 
 
 const Home = ()=>{
-    const {coordinates,data,setLocation,childData,setIsCoordinatesLoading} = useHomeLogic()
+    const {coordinates,data,setLocation,childData,setIsCoordinatesLoading, user} = useHomeLogic()
 
 
     return (
         <HomeWrapper>
+             { user?.isModalOpen &&  <Modal ismodalopen={JSON.stringify(user.isModalOpen)}>
+        <div className="loader-container">
+        <span className="loader"></span>
+        </div>
+        </Modal>}
         <div className="home-container">
         <div className="body">
         <LocationNav setLocation={setLocation} setIsCoordinatesLoading={setIsCoordinatesLoading}/>

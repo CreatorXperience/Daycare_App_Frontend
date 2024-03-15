@@ -43,7 +43,7 @@ const Signup = ()=>{
          </NameInput>
 
           <div className="error">{errorResponse?.message ? errorResponse.message : ""}</div>
-         <FormAction text="Create Account" />
+         <FormAction text="Create Account"  link="Login"/>
       </form>
         </div>
     </div>

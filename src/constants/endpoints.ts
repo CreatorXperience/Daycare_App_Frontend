@@ -26,7 +26,8 @@ const ENDPOINT = {
     chats: "/chat",
     users:"/users",
     message: "/message",
-    register: "/register"
+    register: "/register",
+    resendOtp: "/otp"
 }
 
 export {URL,ENDPOINT}

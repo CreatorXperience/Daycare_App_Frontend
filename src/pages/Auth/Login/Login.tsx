@@ -37,7 +37,7 @@ const {
 
          <div className="error">{LoginError?.message ? LoginError.message : ""}</div>
          
-         <FormAction text="Login" />
+         <FormAction text="Login" link="Signup"/>
 
          </form>
         </div>

@@ -1,5 +1,4 @@
-import { GoSearch } from "react-icons/go";
-import ICONS from "../../constants/icons";
+import { GoKebabHorizontal, GoSearch } from "react-icons/go";
 import LocationNavWrapper from "./HelloUserWrapper";
 import useLocation from "./hooks/useLocation";
 import { TLocation } from "./type";
@@ -19,10 +18,6 @@ const LocationNav = ({setLocation,setIsCoordinatesLoading}:TLocation) => {
     },[isFetching,setIsCoordinatesLoading])
 
 
-
-    
-
-
     return ( 
         <LocationNavWrapper>
             <div className="location-nav-wrapper">
@@ -38,7 +33,6 @@ const LocationNav = ({setLocation,setIsCoordinatesLoading}:TLocation) => {
 
                 <div className="image">
                     <GoSearch fontSize="20px" className="search" onClick={()=> navigate("/search")}/>
-                    {ICONS.bellIcon()}
                 </div>
 </div>
         </LocationNavWrapper>

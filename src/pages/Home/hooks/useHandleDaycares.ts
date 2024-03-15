@@ -2,9 +2,9 @@ import { useContext, useEffect, useMemo, useState } from "react"
 import useGetDaycares from "./useGetDayCares"
 import useGetCurrentPosition from "../../../App/hooks/useGetPosition"
 import useGetCoordinates from "./useGetCoordinates"
-// import { TLoginResponse } from "../../Auth/Login/type"
+import { TLoginResponse } from "../../Auth/Login/type"
 import { UserContext } from "../../../App/App"
-// import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const useHomeLogic = ()=>{
 
@@ -14,7 +14,7 @@ const useHomeLogic = ()=>{
     const {getPositionCallback, PositionMemo} =  useGetCurrentPosition()
     const {data:cordinatesData,setValue} = useGetCoordinates()
     const user = useContext(UserContext)
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const [childData] = useState({
         percentage: "99%"
@@ -57,18 +57,17 @@ const useHomeLogic = ()=>{
 
 
 
-    // useEffect(()=>{
-    //     let user =  localStorage.getItem("DayCareuserLoginInfo")
-    //     if(user){ 
-    //      let parsedUserObj = JSON.parse(user) as TLoginResponse
-    //     if(!parsedUserObj.message.isVerified){
-    //         return navigate("/verify")
-    //     }
-
-    //     return 
-    //     }
-    //     navigate("/login")
-    // },[])
+    useEffect(()=>{
+        let user =  localStorage.getItem("DayCareuserLoginInfo")
+        if(user){ 
+         let parsedUserObj = JSON.parse(user) as TLoginResponse
+        if(!parsedUserObj.message.is_verified){
+            return navigate("/verify")
+        }
+        return 
+        }
+        navigate("/login")
+    },[])
 
 
   
@@ -85,7 +84,7 @@ const useHomeLogic = ()=>{
 
 
 
-     return {setLocation, coordinates, data, childData, setIsCoordinatesLoading,isLoading}
+     return {setLocation, coordinates, data, childData, setIsCoordinatesLoading,isLoading, user}
 }
 
 

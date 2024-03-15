@@ -18,7 +18,7 @@ const useIsUserRegistered = (isCompatible: boolean | null)=>{
 
 
     const userLoginContextValue = useMemo(()=>{
-        return {userLoginInfo,setUserLoginInfo}
+        return {userLoginInfo}
     },[userLoginInfo])
         
         useEffect(()=>{
@@ -40,7 +40,7 @@ const useIsUserRegistered = (isCompatible: boolean | null)=>{
          let user =  localStorage.getItem("userDayCareInfo")
          if(user){ 
           let parsedUserObj = JSON.parse(user) as TResponse 
-          navigate("/home")
+          navigate("/login")
           setUserInfo(parsedUserObj)
          }
         },[navigate])
@@ -67,7 +67,7 @@ const useIsUserRegistered = (isCompatible: boolean | null)=>{
 
 
 
-        return {UserContextValue: userSignupContextValue, userLoginContextValue, isModalOpen, setLastSearch, setIsModalOpen, setSeen,setUserInfo, }
+        return {UserContextValue: userSignupContextValue, userLoginContextValue, setUserLoginInfo, isModalOpen, setLastSearch, setIsModalOpen, setSeen,setUserInfo, }
 }
 
 export default useIsUserRegistered
