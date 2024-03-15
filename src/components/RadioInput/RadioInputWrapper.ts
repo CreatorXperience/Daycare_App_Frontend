@@ -3,6 +3,7 @@ import { colors } from "../../constants/colors";
 
 const RadioInpputWrapper = styled.div`
   width: 100%;
+
    padding: 10px;
 
   .wrapper{
@@ -17,6 +18,7 @@ const RadioInpputWrapper = styled.div`
     align-items: center;
     font-size: 22px;
   }
+
   }
 
   #gender {
@@ -26,6 +28,7 @@ const RadioInpputWrapper = styled.div`
     width: 19px;
     height: 20px;
   }
+
 
   .text{
     font-size: 16px;
@@ -37,13 +40,16 @@ const RadioInpputWrapper = styled.div`
   }
   .radio-cont.active {
     border: 2px solid ${colors.primary.cyan};
+
     border-radius: 10px;
     display: flex;
     align-items: center;
     font-size: 22px;
+
     background-color: ${colors.primary.lightCyan};
     accent-color: linear-gradient(180deg, #72B5F1 0%, rgba(23, 118, 202, 0.83) 131.58%);
   }
 `;
 
 export default RadioInpputWrapper;
+

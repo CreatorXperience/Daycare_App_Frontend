@@ -1,5 +1,7 @@
+
 import {createContext, useMemo, useState} from "react";
 import { Outlet} from "react-router-dom";
+
 import useResizeObeserver from "./hooks/useResizeObserver";
 import useIsCompatible from "./hooks/useIsCompatible";
 import AppWrapper from "./AppWrapper";
@@ -24,8 +26,7 @@ export const MessageContext = createContext<TMessageContext | null>(null)
 export const NotificationContext = createContext<TChatNotification | null>(null)
 
 
-
-let client = new QueryClient()
+let client = new QueryClient();
 
 function App() {
 const [path] = useState<string>(window.location.pathname)
@@ -69,5 +70,3 @@ const chatMemo = useMemo(()=>{
 }
 
 export default App;
-
-
