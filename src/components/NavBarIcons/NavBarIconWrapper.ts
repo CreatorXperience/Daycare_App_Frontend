@@ -23,6 +23,10 @@ const NavBarIconWrapper = styled.div`
   .image {
     height: 100%;
   }
+
+  a {
+    text-decoration: none;
+  }
   .image p {
     color: ${colors.primary.textGray};
     font-weight: bolder;

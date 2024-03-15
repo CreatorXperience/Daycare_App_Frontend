@@ -7,20 +7,26 @@ import ProfileDetailsVerification from "../../components/Verification"
 import DetailsDescription from "../../components/DetailsDescription"
 import GoogleMap from "../../components/Map"
 import DetailsAction from "../../components/DetailsAction"
-import useGetDayCare from "./hooks/useGetDaycare"
 import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../../App/App"
 import Alert from "../../components/Alert"
 import DetailsWrapper from "./DetailsWrapper"
+import useHandleRegister from "./hooks/useHandleRegister"
 
 const Details = ()=>{
     const {id} =  useParams()
-
-    const {data,setId,isLoading} = useGetDayCare()
     const user = useContext(UserContext)
     const [isCopied, setIsCopied] = useState<boolean>(false)
+    const {onMutateRegister,
+        loggedInUser,
+        registrationLoading,
+        registered,
+        data,
+        setId, 
+        isLoading} =  useHandleRegister()
 
-  
+
+
     useEffect(()=>{
         if(id){
             setId(id)
@@ -37,22 +43,30 @@ const Details = ()=>{
     },[isLoading,user])
 
 
-    
+
+
 
     return (
   <DetailsWrapper>
    { isCopied ? <Alert /> : ""}
-<Header title="Details">
+   <div className="details-header">
+   <Header title="Details">
 <GoChevronLeft size="30px" />
 <GoKebabHorizontal size="30px" />
 </Header>
+   </div>
+
 <div className="DetailsBody">
-<ProfileDetailsImage />
+<ProfileDetailsImage id={data?.image}/>
 {data?.title && <ProfileDetailsTitle  title={data?.title} isOpen={data.isOpen} amount={data.amount}/>}
 {data?.rating && <ProfileDetailsVerification rating={data?.rating} time={{from: data.from, to: data.to}} isVerified={data?.isVerified} />}
 {data?.description && <DetailsDescription desc={data?.description} />}
-<DetailsAction content={{owner: data?.owner as string, phoneNumber: data?.phonenumber, setIsCopied:setIsCopied}}   />
+<DetailsAction content={{owner: data?.owner as string, id: data?.userId, phoneNumber: data?.phonenumber, setIsCopied:setIsCopied}}   />
 {data &&  data.location && <GoogleMap lat={data?.location.coordinates[1]} lng={data?.location.coordinates[0]}  />}
+</div>
+<div className="btn-container">
+<button type="submit" onClick={()=>  onMutateRegister(data?._id)} className="register">{ registered && loggedInUser?.message._id &&  registered?.registered.includes(loggedInUser?.message._id) ?  "Already Enrolled" : "Enroll" }</button>
+{registrationLoading && <button type="submit" className="register">Loading</button>}
 </div>
 </DetailsWrapper>
     )

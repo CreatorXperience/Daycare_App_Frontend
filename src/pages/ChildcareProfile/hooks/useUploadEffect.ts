@@ -63,7 +63,6 @@ const useUploadEffect  = ()=>{
         }
       },[setUserId])
 
-      console.log(form)
       return {
         handleSelect,
         onAmountChanged,

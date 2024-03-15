@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ICONS from "../../constants/icons";
 import CardWrapper from "./CardWrapper";
 
@@ -7,8 +8,8 @@ const OwnADayCare = () => {
       <div className="card">
         <div className="circled-img">{ICONS.promoIcon()}</div>
         <div className="text">
-          <p>Own a Day Care ? </p>
-          <div className="percent-text">Create a profile now!</div>
+          <p>Own a Child Care ? </p>
+          <Link to={"/profile"}><div className="percent-text">Create a child care profile now!</div></Link>
         </div>
       </div>
     </CardWrapper>

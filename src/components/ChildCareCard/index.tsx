@@ -8,9 +8,13 @@ const ChildCareCard  = ({data, coordinates}: TChildCardProps)=>{
         <ChildCareCardWrapper>
         <div className="card-wrapper">
             {data ? data.map((item, index)=>{
-                return   <Card data={item} key={index}  coordinates={coordinates} />
-            }): [1,2].map((item,i)=>{
-                return  <div className="card-skeleton" key={i}>
+                if(index < 6) {
+                    return   <Card data={item} key={index}  coordinates={coordinates} />
+                }
+                return ""
+               
+            }): [1,2].map((item)=>{
+                return  <div className="card-skeleton" key={item}>
                     <div className="card-light"></div>
                 </div>
 

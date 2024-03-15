@@ -6,9 +6,7 @@ import Header from "../../components/Header";
 import RadioInput from "../../components/RadioInput";
 import LocationSelect from "../../components/LocationSelect";
 import HourSelect from "../../components/HourSelect";
-import Modal from "../../components/Modal";
 import useUploadEffect from "./hooks/useUploadEffect";
-
 
 
 
@@ -17,7 +15,6 @@ const {form,
   handleMimicUpload,
   handleSelect,
   isDaycareOwner,
-  isProfileLoading,
   isUpdateLoading,
   onAmountChanged,
   onClosingTimeChange,
@@ -41,15 +38,10 @@ const {form,
 
   return (
     <UserInputDataWrapper id={form.image}>
-      {isProfileLoading ? <Modal ismodalopen={JSON.stringify(isProfileLoading)}>
-      <div className="loader-container">
-        <span className="loader"></span>
-        </div>
-      </Modal>:""}
       <div className="profile-wrapper">
-       <Header title="Profile">
+       <Header title="Create Profile">
         <GoChevronLeft />
-        <GoKebabHorizontal />
+        <GoKebabHorizontal  />
        </Header>
 
        <form onSubmit={(e)=> onSubmit(e)}>
@@ -65,12 +57,12 @@ const {form,
        {error ?  <div>{error.message}</div> : ""}
 
         <div className="username-wrapper">
-
+          
           <NameInput
             type="text"
             label="Daycare's name"
             placeholder="Enter the name of your daycare "
-            onChangeHandler={(e)=> onTitleChange(e)}
+            onChangeHandler={onTitleChange}
             value={form.title}
             disabled={isDaycareOwner && label.get("activeInput") !== "Daycare's name"  ? true : false}
           >
@@ -85,7 +77,7 @@ const {form,
             type="number"
             label="Phone number"
             placeholder="Enter your mobile number"
-            onChangeHandler={(e)=> onMobileNumberChange(e)}
+            onChangeHandler={onMobileNumberChange}
             value={form.phonenumber}
             disabled={isDaycareOwner && label.get("activeInput") !== "Phone number"  ? true : false}
           >
@@ -136,7 +128,7 @@ const {form,
             type="number"
             label="Charges per hour ($)"
             placeholder="How much do you charge per hour"
-            onChangeHandler={(e)=> onAmountChanged(e)}
+            onChangeHandler={onAmountChanged}
             value={form.amount}
             disabled={isDaycareOwner && label.get("activeInput") !== "per-hour"  ? true : false}
           >
@@ -153,7 +145,7 @@ const {form,
             type="text"
             label="Role"
             placeholder="e.g Daycare owner , Teacher"
-            onChangeHandler={(e)=> onRoleChange(e)}
+            onChangeHandler={onRoleChange}
             value={form.role}
             disabled={isDaycareOwner && label.get("activeInput") !== "role"  ? true : false}
           >

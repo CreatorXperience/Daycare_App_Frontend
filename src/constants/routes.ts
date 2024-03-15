@@ -9,6 +9,10 @@ const ROUTE = {
     userProfile: "/userprofile",
     search: "/search",
     result: "/result",
-    profile: "/profile"
+    profile: "/profile",
+    chats: "/chats",
+    messages: "/messages/:chatId/:id/:reciever/:user",
+    viewall: "/viewall",
+    position: "/position"
 }
 export default ROUTE

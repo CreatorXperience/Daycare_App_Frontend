@@ -1,7 +1,7 @@
 import { useMutation } from "react-query"
 import { useCallback, useState } from "react"
 import type { TOtpPayload, TOtpResponse } from "../type"
-import sendOtp from "../../../services/Otp"
+import {sendOtp} from "../../../services/Otp"
 
 
 
@@ -17,6 +17,7 @@ const mutateOtp = (otpPayload:  TOtpPayload)=>{
     mutate(otpPayload, {
         onSuccess: (data)=>{
             if(data.status !== "404"){
+                setErrorResponse(undefined)
               return   setResponse(data)
             }
             setErrorResponse(data)

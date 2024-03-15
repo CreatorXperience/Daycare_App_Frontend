@@ -58,6 +58,13 @@ overflow-y: auto;
                 border: none;
                 font-size: 20px;
                 font-weight: 800;
+                margin-top: 20px;
+            }
+
+            .resend {
+            color: ${colors.primary.darkGreen};
+            font-size: 14px;
+            padding: 12px;
             }
             }
 

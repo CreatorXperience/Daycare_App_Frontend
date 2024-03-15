@@ -4,11 +4,16 @@ import { GoLock, GoMail } from "react-icons/go"
 import ICONS from "../../constants/icons"
 import VerificationWrapper from "./VerificationWrapper"
 import useOtp from "./hooks/useOtp"
+import useResendOtp from "./hooks/useResendOtp"
 
 
 const Verification = ()=>{
-    const {handleChangeOtp,handleSubmitOtp,errorResponse,isLoading} = useOtp()
+    const {handleChangeOtp,handleSubmitOtp,errorResponse,isLoading,otp, userOtp} = useOtp()
+    const {setOtpPayload,isFetching, isError} = useResendOtp()
 
+    const handleResendOtp = ()=>{
+        setOtpPayload({email: userOtp?.email, id: userOtp?.id})
+    }
  
     return (
         <VerificationWrapper>
@@ -19,10 +24,12 @@ const Verification = ()=>{
            
             <form onSubmit={(e)=> handleSubmitOtp(e)}>
                 {errorResponse ? <div className="error"> {errorResponse.message}</div>: ""}
-                <NameInput type="number" onChangeHandler={(e)=> handleChangeOtp(e)} label="" placeholder="Input six digits otp">
+                <NameInput type="number" value={otp} onChangeHandler={(e)=> handleChangeOtp(e)} label="" placeholder="Input six digits otp">
                 <GoLock className="eye" color={`${colors.primary.lightGray}`} fontSize="22px" />
                 </NameInput>
                     <button className="verifybtn" type="submit" disabled={isLoading ? true : false} style={{backgroundColor: `${isLoading? `${colors.primary.darkGreen}`: `${colors.primary.cyan}`}`}}>{isLoading ? "loading": "Verify"}</button>  
+                    <div className="resend"  onClick={()=> handleResendOtp()}>{isFetching ? "sending": "Resend otp"}</div>  
+                    {isError && <div className="error">error occured while resending one time passcode</div>}
             </form>
              </div>
 

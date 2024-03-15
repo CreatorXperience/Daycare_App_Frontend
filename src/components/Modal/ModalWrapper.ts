@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../constants/colors";
 
-const ModalWrapper = styled.div<{ismodalopen: string}>`
+const ModalWrapper = styled.div<{ismodalopen?: string}>`
 width: 100%;
 height: 100vh;
 
@@ -14,13 +14,10 @@ height: 100vh;
         align-items: center;
         position: relative;
         
-     
-
-
         .loader-container{
           width: 100%;
           height: 100%;
-          background-color: ${colors.primary.black};
+          background-color: rgba(49, 49, 49, 0.699);
           opacity: 0.2;
           display: flex;
         justify-content: center;

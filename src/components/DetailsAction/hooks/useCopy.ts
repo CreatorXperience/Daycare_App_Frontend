@@ -15,7 +15,6 @@ const useCopy = (phoneNumber: string | undefined, setIsCopied: React.Dispatch<Re
           copyTextToClipboard(phoneNumber)
             .then(() => {
               setIsCopied(true);
-              console.log("copied")
               setTimeout(() => {
                 setIsCopied(false);
               }, 1500);

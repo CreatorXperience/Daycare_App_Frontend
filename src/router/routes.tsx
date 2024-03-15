@@ -1,4 +1,4 @@
-import {createBrowserRouter } from "react-router-dom";
+import {Route, createBrowserRouter } from "react-router-dom";
 import App from "../App/App";
 import NavBarIcon from "../components/NavBarIcons";
 import Home from "../pages/Home";
@@ -12,6 +12,11 @@ import UserInputData from "../pages/UserInputData";
 import Search from "../pages/Search";
 import Result from "../pages/Result";
 import ChildCareProfile from "../pages/ChildcareProfile";
+import Chats from "../pages/Chats";
+import Message from "../pages/Messages";
+import ViewAll from "../pages/ViewAll";
+import SplashScreen from "../pages/SplashScreen";
+import Position from "../pages/Position";
 
 
 
@@ -67,6 +72,22 @@ let router = createBrowserRouter([{
 },{
     path: ROUTE.profile,
     element: <ChildCareProfile />
+},
+{
+    path: ROUTE.chats,
+    element: <Chats />
+},{
+    path: ROUTE.messages,
+    element: <Message />
+},{
+    path: ROUTE.viewall,
+    element: <ViewAll />
+},{
+    path: ROUTE.root,
+    element: <SplashScreen />
+},{
+    path: ROUTE.position,
+    element: <Position />
 }
     ]
 }])

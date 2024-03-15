@@ -8,7 +8,6 @@ const useGetCurrentPosition = ()=> {
   const [position, setPositionObj] = useState<GeolocationPosition |  null>(null)
   
   const onsucess = (success: GeolocationPosition)=>{
-      console.log(success)
       setPositionObj(success)
     }
     

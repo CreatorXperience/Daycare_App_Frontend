@@ -13,12 +13,18 @@ const Recent = ()=>{
         <RecentWrapper isexpand={JSON.stringify(isExpand)} data={user?.search}>
             <div className="cont-wrapper">
         {user?.search && user.search.map((item, i)=>{
-                  return       <div className="recent-cont" key={i} onClick={()=> navigate(`/result?term=${item}`)}>
+                  return       <div className="recent-cont" key={i} onClick={(e)=> {
+                    e.stopPropagation() 
+                    navigate(`/result?term=${item}`)
+                    }}>
                   <div className="recent-search"> 
                       <GoClock size="20px"/>
                       <div className="searchTerm">{item}</div>
                   </div>
-                  <GoX onClick={(e)=> handleRemoveLastSeen(e, i)}/>
+                  <GoX onClick={(e)=> {
+                    e.stopPropagation()
+                    handleRemoveLastSeen(e, i)
+                  }}/>
               </div>
             })}
         

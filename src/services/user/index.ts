@@ -9,7 +9,6 @@ import axiosInstance from "../Axios/axiosInstance"
 const registerUser = async (userPayload: TUserPayload)=>{
     try{
  let response = await axiosInstance.post(`${ENDPOINT.signup}`, userPayload)
- console.log(response.data)
 return response.data as TResponse 
     }
     catch(e: any){

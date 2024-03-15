@@ -3,11 +3,13 @@ import useGetProfile from "./useGetProfile"
 import { TChild, TExtendChildcare } from "../type"
 import useSaveProfile from "./useSaveProfile"
 import _ from "lodash"
+import useGetuserInfoFromStorage from "../../../utils/useGetUserInfoFromStorage"
 
 const useProfileForm = ()=> {   
             const {setId:setUserId, data,isLoading:isProfileLoading,} = useGetProfile()
             const [,setId] = useState<string>()
-            const {mutateProfile,isLoading:isUpdateLoading, errorResponse} = useSaveProfile()
+            const {mutateProfile,isLoading:isUpdateLoading, errorResponse, isSuccess,} = useSaveProfile()
+            let {user} = useGetuserInfoFromStorage()
             const [form, setForm] = useState<TExtendChildcare<TChild & {location:string},"_id">>({
                 amount: "",
                 description: "",
@@ -15,15 +17,36 @@ const useProfileForm = ()=> {
                 image: "",
                 isOpen: false,
                 location: "",
-                owner: "",
                 phonenumber: "",
                 rating: 3,
                 title: "",
-                userId: "",
+                userId: user?.message._id as string,
                 from: "",
                 to: "",
                 role:""
             })
+
+            useEffect(()=>{
+              if(isSuccess && !errorResponse ){
+                let sanitizedData = _.omitBy(form, (value)=> value === "") as Partial<TExtendChildcare<TChild & {location:string},"_id">>
+                localStorage.setItem("profileData", JSON.stringify(sanitizedData))
+                if(user){
+                  user.message.day_care_owner = true
+                  localStorage.removeItem("DayCareuserLoginInfo")
+                  localStorage.setItem("DayCareuserLoginInfo",  JSON.stringify(user))
+                }
+              }
+            }, [isSuccess,errorResponse,form, user])
+
+            useEffect(()=>{
+              let profile = localStorage.getItem("profileData")
+              if(profile){
+                let parseProfile = JSON.parse(profile) as TExtendChildcare<TChild & {location:string},"_id">
+                if(parseProfile.userId === user?.message._id){
+                  setForm(parseProfile)
+                }
+              }
+            },[user?.message._id])
       
 
             useEffect(()=>{
@@ -68,6 +91,7 @@ const useProfileForm = ()=> {
         
           const onSubmit = (e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>) =>{
             e.preventDefault()
+
           
             let sanitizedData = _.omitBy(form, (value)=> value === "") as Partial<TExtendChildcare<TChild & {location:string},"_id">>
             mutateProfile(_.omit(sanitizedData, ["exactLocation"]))

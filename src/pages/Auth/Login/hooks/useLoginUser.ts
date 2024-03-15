@@ -25,6 +25,7 @@ const useLoginUser = ()=>  {
 
 
     const mutateUserData = (userPayload: TUserPayload)=> {
+        if(userPayload)
     mutate(userPayload, {
         onSuccess: (data)=>{
             if(data.status !== "404"){

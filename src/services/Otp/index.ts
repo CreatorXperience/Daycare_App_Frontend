@@ -1,5 +1,5 @@
 import { ENDPOINT } from "../../constants/endpoints"
-import { TOtpPayload } from "../../pages/Verification/type"
+import { TOtpPayload, TResendOtp } from "../../pages/Verification/type"
 import axiosInstance from "../Axios/axiosInstance"
 
 let   sendOtp = async(otpPayload:  TOtpPayload)=>{
@@ -16,4 +16,17 @@ let   sendOtp = async(otpPayload:  TOtpPayload)=>{
     }
 }
 
-export default sendOtp
+
+const resendOtp = async({id,email,setError}: TResendOtp)=> {
+    try{
+        if(email && id){
+            let response = await axiosInstance.get(`${ENDPOINT.resendOtp}/${email}/${id}`)
+            return response.data
+        }
+    }
+    catch(e: any){
+        setError(e.response.data)
+    }
+}
+
+export  {sendOtp,resendOtp}

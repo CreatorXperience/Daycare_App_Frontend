@@ -26,6 +26,7 @@ setForm((prev)=> ({...prev, isOpen: searchParams.get("label") !== "Open" ? true 
     if(isChecked){
      return setSearchParams({label: "Open"})
     }
+    setSearchParams({label: "Close"})
   }, [isChecked])
 
   return (

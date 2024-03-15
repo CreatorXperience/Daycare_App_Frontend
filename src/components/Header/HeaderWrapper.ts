@@ -8,6 +8,7 @@ const HeaderWrapper = styled.div`
     justify-content: center;
     align-items: center;
 
+    
     .header-container {
         width: 92%;
         height: 80%;
@@ -15,6 +16,48 @@ const HeaderWrapper = styled.div`
         justify-content: space-between;
         align-items: center;
         padding: 10px;
+        position: relative;
+
+        .open { 
+            display: block;
+        }
+
+        .close {
+              display: none;
+        }
+        
+        .nav{
+        position: fixed;
+        z-index: 10;
+        width: 50%;
+        height: 30vh;
+        top: 0;
+        right: 0;
+        background-color: ${colors.primary.white};
+        box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.10);
+        border-radius: 12px;
+      
+       li{
+                font-size: 16px;
+                font-weight: bold;
+                padding: 12px;
+                list-style-type: none;
+                color: ${colors.primary.black}
+            }
+
+        a{
+            text-decoration: none;
+            display: flex;
+
+            li{
+                font-size: 16px;
+                font-weight: bold;
+                padding: 12px;
+                list-style-type: none;
+                color: ${colors.primary.black}
+            }
+        }
+        }
 
         .icon-left, .icon-right {
             width: 40px;
