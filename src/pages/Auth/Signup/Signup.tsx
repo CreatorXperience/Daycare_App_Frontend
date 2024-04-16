@@ -9,12 +9,13 @@ import { useNavigate } from "react-router-dom"
 
 
 const Signup = ()=>{
+    
   const {
     handleChangeEmail,
     handleChangePassword,
-    handleSubmitSignUpData, 
-    handleChangeName, 
-    setIsPasswordVisible, 
+    handleSubmitSignUpData,
+    handleChangeName,
+    setIsPasswordVisible,
     isPasswordVisible,
     userPayload,
     errorResponse
@@ -28,8 +29,12 @@ const Signup = ()=>{
     <div className="back-wrapper">
         <div className="back-btn"><GoChevronLeft onClick = {()=> navigate(-1)} color={colors.primary.black} /></div>
 
-    <LoginMessage title="Create Account"  message="Fill in  your Identity or continue with Google" />
+        <LoginMessage
+          title="Create Account"
+          message="Fill in  your Identity or continue with Google"
+        />
         <div className="input-wrapper">
+
       <form onSubmit={(e)=> handleSubmitSignUpData(e)}>
         <NameInput type="text" label="Name" placeholder="Enter Your Name" onChangeHandler={handleChangeName} value={userPayload.fullname}>
          <GoPerson className="eye" color={`${colors.primary.lightGray}`} fontSize="22px" />
@@ -46,13 +51,11 @@ const Signup = ()=>{
           <div className="error">{errorResponse?.message ? errorResponse.message : ""}</div>
          <FormAction text="Create Account"  link="Login"/>
       </form>
+
         </div>
-    </div>
-
+      </div>
     </SignUpWrapper>
-  )
-}
+  );
+};
 
-export default Signup
-
-
+export default Signup;

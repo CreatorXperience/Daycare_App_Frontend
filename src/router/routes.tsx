@@ -8,6 +8,7 @@ import Login from "../pages/Auth/Login/Login";
 import Signup from "../pages/Auth/Signup/Signup";
 import Verification from "../pages/Verification";
 import Details from "../pages/Details";
+import UserInputData from "../pages/UserInputData";
 import Search from "../pages/Search";
 import Result from "../pages/Result";
 import ChildCareProfile from "../pages/ChildcareProfile";
@@ -16,6 +17,7 @@ import Message from "../pages/Messages";
 import ViewAll from "../pages/ViewAll";
 import SplashScreen from "../pages/SplashScreen";
 import Position from "../pages/Position";
+
 
 
 let router = createBrowserRouter([{
@@ -52,6 +54,9 @@ let router = createBrowserRouter([{
     element: <Details />
 },
 {
+    path:  ROUTE.userProfile,
+    element: <UserInputData />
+},{
     path: ROUTE.search,
     element: <Search /> 
 },

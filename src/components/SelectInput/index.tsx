@@ -1,4 +1,5 @@
 import SelectInputWrapper from "./SelectInputWrapper";
+
 import { SelectInputProps } from "./type";
 
 
@@ -21,4 +22,6 @@ const SelectInput = ({ name, id, placeholder, options }: SelectInputProps) => {
   );
 };
 
+
 export default SelectInput;
+
