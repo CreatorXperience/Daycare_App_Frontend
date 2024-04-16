@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
-import useLastSearch from "./hooks/useLastSearch"
-import { UserContext } from "../../App/App"
-import { useNavigate, useSearchParams } from "react-router-dom"
+import useLastSearch from "./useLastSearch"
+import { UserContext } from "../../../App/App"
+import { useNavigate } from "react-router-dom"
 
 const useSearch = ()=>{
     const {handleLastSearch} = useLastSearch()

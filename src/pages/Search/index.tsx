@@ -5,7 +5,7 @@ import Header from "../../components/Header"
 import LastSeen from "../../components/Lastseen"
 import Recent from "../../components/Recent"
 import useGetLastSeen from "./hooks/useGetLastSeenDayCares"
-import useSearch from "./useSearch"
+import useSearch from "./hooks/useSearch"
 import SearchWrapper from "./SearchWrapper"
 
 const Search = ()=>{

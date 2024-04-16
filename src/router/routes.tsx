@@ -1,4 +1,4 @@
-import {Route, createBrowserRouter } from "react-router-dom";
+import {createBrowserRouter } from "react-router-dom";
 import App from "../App/App";
 import NavBarIcon from "../components/NavBarIcons";
 import Home from "../pages/Home";
@@ -8,7 +8,6 @@ import Login from "../pages/Auth/Login/Login";
 import Signup from "../pages/Auth/Signup/Signup";
 import Verification from "../pages/Verification";
 import Details from "../pages/Details";
-import UserInputData from "../pages/UserInputData";
 import Search from "../pages/Search";
 import Result from "../pages/Result";
 import ChildCareProfile from "../pages/ChildcareProfile";
@@ -52,11 +51,8 @@ let router = createBrowserRouter([{
 {
     path: ROUTE.details,
     element: <Details />
-},
-{
-    path:  ROUTE.userProfile,
-    element: <UserInputData />
-},{
+}
+,{
     path: ROUTE.search,
     element: <Search /> 
 },

@@ -16,7 +16,7 @@ const SplashScreen = ()=> {
     if(user){
         navigate("/position")
     }
-    },[user])
+    },[user, navigate])
 
 return (
     <SplashScreenWrapper>

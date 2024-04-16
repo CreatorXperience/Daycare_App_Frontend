@@ -4,7 +4,6 @@ import axiosInstance from "../../../services/Axios/axiosInstance"
 import { ENDPOINT } from "../../../constants/endpoints"
 import { TLoginResponse } from "../../Auth/Login/type"
 import { UserContext } from "../../../App/App"
-import { AxiosResponse } from "axios"
 import { TChildCare } from "../../Home/type"
 import { TQuery } from "../type"
 
