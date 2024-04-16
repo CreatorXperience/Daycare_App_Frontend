@@ -1,12 +1,15 @@
-import { colors } from "../../../constants/colors";
-import LoginMessage from "../../../components/LoginMessage";
-import NameInput from "../../../components/NameInput";
-import { GoEye, GoChevronLeft, GoMail, GoPerson } from "react-icons/go";
-import FormAction from "../../../components/FormAction";
-import SignUpWrapper from "./SignUpWrapper";
-import useAuth from "../hooks/useAuth";
+import { colors } from "../../../constants/colors"
+import LoginMessage from "../../../components/LoginMessage"
+import NameInput from "../../../components/NameInput"
+import {GoEye, GoChevronLeft, GoMail,GoPerson} from "react-icons/go"
+import FormAction from "../../../components/FormAction"
+import SignUpWrapper from "./SignUpWrapper"
+import useAuth from "../hooks/useAuth"
+import { useNavigate } from "react-router-dom"
 
-const Signup = () => {
+
+const Signup = ()=>{
+    
   const {
     handleChangeEmail,
     handleChangePassword,
@@ -15,15 +18,16 @@ const Signup = () => {
     setIsPasswordVisible,
     isPasswordVisible,
     userPayload,
-    errorResponse,
-  } = useAuth();
+    errorResponse
+  } =  useAuth()
+
+
+ const navigate = useNavigate()
 
   return (
     <SignUpWrapper>
-      <div className="back-wrapper">
-        <div className="back-btn">
-          <GoChevronLeft color={colors.primary.black} />
-        </div>
+    <div className="back-wrapper">
+        <div className="back-btn"><GoChevronLeft onClick = {()=> navigate(-1)} color={colors.primary.black} /></div>
 
         <LoginMessage
           title="Create Account"

@@ -56,7 +56,7 @@ const FormActionWrapper =  styled.div`
       align-items: center;
       margin-top: 20px;
       
-      .google-oauth{
+      a {
           width: 70%;
           height: 100%;
           border: 1px solid ${colors.primary.lightGray};
@@ -65,7 +65,14 @@ const FormActionWrapper =  styled.div`
           display: flex;
           justify-content: center;
           align-items: center;
+          text-decoration: none;
+
+      .google-oauth{
+        color: ${colors.primary.cyan};
+        font-size: 20px;
         }
+      }
+
     }
     }
     `
