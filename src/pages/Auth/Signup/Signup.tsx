@@ -5,6 +5,7 @@ import {GoEye, GoChevronLeft, GoMail,GoPerson} from "react-icons/go"
 import FormAction from "../../../components/FormAction"
 import SignUpWrapper from "./SignUpWrapper"
 import useAuth from "../hooks/useAuth"
+import { useNavigate } from "react-router-dom"
 
 
 const Signup = ()=>{
@@ -20,12 +21,12 @@ const Signup = ()=>{
   } =  useAuth()
 
 
- 
+ const navigate = useNavigate()
 
   return (
     <SignUpWrapper>
     <div className="back-wrapper">
-        <div className="back-btn"><GoChevronLeft color={colors.primary.black} /></div>
+        <div className="back-btn"><GoChevronLeft onClick = {()=> navigate(-1)} color={colors.primary.black} /></div>
 
     <LoginMessage title="Create Account"  message="Fill in  your Identity or continue with Google" />
         <div className="input-wrapper">

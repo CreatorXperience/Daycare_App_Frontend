@@ -5,7 +5,7 @@ import {GoEye, GoChevronLeft, GoMail} from "react-icons/go"
 import FormAction from "../../../components/FormAction"
 import SignInWrapper from "./SigninWrapper"
 import useAuth from "../hooks/useAuth"
-
+import { useNavigate } from "react-router-dom"
 
 const Login = ()=>{
 const {
@@ -18,10 +18,12 @@ const {
   LoginError,
 } = useAuth()
 
+const navigate = useNavigate()
+
   return (
     <SignInWrapper>
     <div className="back-wrapper">
-        <div className="back-btn"><GoChevronLeft color={colors.primary.black}/></div>
+        <div className="back-btn"><GoChevronLeft onClick={()=>  navigate(-1)} color={colors.primary.black}/></div>
 
     <LoginMessage title="Welcome Back"  message="Fill in  your email and password or continue with google" />
         <div className="input-wrapper">
