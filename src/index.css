@@ -11,6 +11,10 @@ body {
 background-color: whitesmoke;
 }
 
+  :root {
+    --theme: blue;
+  }
+
 ::-webkit-scrollbar{width:2px;border-left:1px solid ; height: 2px; }
 ::-webkit-scrollbar-thumb{background-color:rgba(217, 217, 217, 0.26);}
 
