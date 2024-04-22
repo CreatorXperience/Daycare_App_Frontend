@@ -14,7 +14,7 @@ const useGetMessages = (
 
     const {user} =  useGetuserInfoFromStorage()
 
-let {isError, isSuccess,isFetching} = useQuery(["messages", chatId],() =>  fetchMessages({token: user?.token, chatId: chatId}), {
+let {isError, isSuccess,isFetching, refetch}= useQuery(["messages", chatId],() =>  fetchMessages({token: user?.token, chatId: chatId}), {
     enabled: !!chatId,
     cacheTime: 30000,
     staleTime: 30000,
@@ -32,7 +32,7 @@ let {isError, isSuccess,isFetching} = useQuery(["messages", chatId],() =>  fetch
     },
 }) 
 
-return {isError,isSuccess, setChatId,isFetching}
+return {isError,isSuccess, setChatId,isFetching, refetch}
 }
 
 export default useGetMessages

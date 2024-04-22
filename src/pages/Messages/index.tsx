@@ -2,24 +2,32 @@ import Header from "../../components/Header"
 import {GoChevronLeft, GoKebabHorizontal, GoPaperAirplane } from "react-icons/go"
 import MessageHeader from "../../components/MessageHeader"
 import { colors } from "../../constants/colors"
-import {useEffect, useRef} from "react"
+import {useContext, useEffect, useRef} from "react"
 import useGetMessages from "./hooks/useGetMessages"
 import useHandleSendMessage from "./hooks/useHandleSendmessage"
 import MessageWrapper from "./MessageWrapper"
 
 import useGetuserInfoFromStorage from "../../utils/useGetUserInfoFromStorage"
+import { MessageContext } from "../../App/App"
 
 
 const Message = ()=>{
-    const {setChatId} =  useGetMessages()
+    const message = useContext(MessageContext)
+    
+    const {setChatId, refetch} =  useGetMessages()
     const {chatId,handleInputChange,handleSubmit,messages, reciever, user:chat} =  useHandleSendMessage()
     const ref =  useRef<HTMLDivElement | null>(null)
 
+    useEffect(()=>{
+        message?.setMesssages([])
+        refetch()
+    },[])
 
     useEffect(()=>{
         if(ref && ref.current){
             ref.current.scrollTop =  ref.current.scrollHeight
         }
+
     },[messages])
 
     const user = useGetuserInfoFromStorage()
@@ -32,7 +40,7 @@ const Message = ()=>{
 return (
     <MessageWrapper>
         <Header title="">
-            <GoChevronLeft onClick={()=> messages?.setMesssages(undefined)}/>   
+            <GoChevronLeft onClick={()=> messages?.setMesssages([])}/>   
             <GoKebabHorizontal />
             <MessageHeader id={reciever} chat={chat}/>
         </Header>

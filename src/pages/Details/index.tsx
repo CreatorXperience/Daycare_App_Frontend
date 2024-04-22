@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Header from "../../components/Header"
 import { GoChevronLeft,GoKebabHorizontal } from "react-icons/go"
 import ProfileDetailsImage from "../../components/BabyCardImage"
@@ -12,11 +12,13 @@ import { UserContext } from "../../App/App"
 import Alert from "../../components/Alert"
 import DetailsWrapper from "./DetailsWrapper"
 import useHandleRegister from "./hooks/useHandleRegister"
+import Modal from "../../components/Modal"
 
 const Details = ()=>{
     const {id} =  useParams()
     const user = useContext(UserContext)
     const [isCopied, setIsCopied] = useState<boolean>(false)
+    const navigate  = useNavigate()
     const {onMutateRegister,
         loggedInUser,
         registrationLoading,
@@ -48,10 +50,15 @@ const Details = ()=>{
 
     return (
   <DetailsWrapper>
+    { user?.isModalOpen &&  <Modal ismodalopen={JSON.stringify(user.isModalOpen)}>
+        <div className="loader-container">
+        <span className="loader"></span>
+        </div>
+        </Modal>}
    { isCopied ? <Alert /> : ""}
    <div className="details-header">
    <Header title="Details">
-<GoChevronLeft size="30px" />
+<GoChevronLeft size="30px" onClick={()=> navigate(-1)}/>
 <GoKebabHorizontal size="30px" />
 </Header>
    </div>

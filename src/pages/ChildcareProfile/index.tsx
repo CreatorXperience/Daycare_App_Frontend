@@ -7,10 +7,12 @@ import RadioInput from "../../components/RadioInput";
 import LocationSelect from "../../components/LocationSelect";
 import HourSelect from "../../components/HourSelect";
 import useUploadEffect from "./hooks/useUploadEffect";
+import {useNavigate } from "react-router-dom";
 
 
 
 const ChildCareProfile = () => {
+  const navigate = useNavigate()
 const {form,
   handleMimicUpload,
   handleSelect,
@@ -40,7 +42,7 @@ const {form,
     <UserInputDataWrapper id={form.image}>
       <div className="profile-wrapper">
        <Header title="Create Profile">
-        <GoChevronLeft />
+        <GoChevronLeft  onClick={()=> navigate(-1)}/>
         <GoKebabHorizontal  />
        </Header>
 

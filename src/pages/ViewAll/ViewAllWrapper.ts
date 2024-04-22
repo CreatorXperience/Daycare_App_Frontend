@@ -3,7 +3,7 @@ import { colors } from "../../constants/colors";
 
 const ViewAllWrapper = styled.div`
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -69,7 +69,7 @@ const ViewAllWrapper = styled.div`
 }
 
    .result-footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
    }

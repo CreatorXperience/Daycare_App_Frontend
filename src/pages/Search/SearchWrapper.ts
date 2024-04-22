@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../constants/colors";
+import { URL } from "../../constants/endpoints";
 
 const SearchWrapper = styled.div`
     width: 98%;
@@ -33,6 +34,54 @@ const SearchWrapper = styled.div`
                 margin-top: 10px;
             }
         }
+    }
+
+    .last-seen {
+        width: 100%;
+        display: flex;
+
+
+        .skeleton {
+    width: 28%;
+    height: 90px;
+    border-radius: 15px;
+    background-color: ${colors.primary.lightGray};
+    background-size: cover;
+    margin:5px;
+    position: relative;
+
+    .light {
+        position: absolute;
+        width: 60px;
+        height: 100%;
+        background-color: white;
+        filter: blur(30px);
+        animation: move ease-in-out 1s infinite;
+        animation-delay: 10;
+        left: 0px;
+    }
+ 
+    @keyframes move {
+    0%{
+        left: 0px;
+    }    
+    
+    25%{
+        left: 20px;
+    }
+
+    50%{
+        left: 40px;
+    }
+
+    75%{
+       left: 60px 
+    }
+    100%{
+        right: 0px;
+    }
+    }
+}
     }
 `
 

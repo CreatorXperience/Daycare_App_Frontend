@@ -33,7 +33,7 @@ type TOnlineUsers = {
 
 type TMessageContext = {
   messages: TMessage[] | undefined,
-  setMesssages: React.Dispatch<React.SetStateAction<TMessage[] | undefined>>
+  setMesssages: React.Dispatch<React.SetStateAction<TMessage[] | undefined | []>>
 }
 
 type TChatNotification = {

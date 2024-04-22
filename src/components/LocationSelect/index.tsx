@@ -14,7 +14,7 @@ const LocationSelect = ({handleSelect, disabled, value, children}:TSelect)=>{
     <GoLocation size={"20px"} color={colors.primary.textGray} />
     <select id="location" onChange={(e)=> handleSelect(e) } disabled={disabled}>
    {value ? <option  value={value}>{value}</option>: ""}
-        {data && data.map((item, i)=>{
+        {data && data.filter((item)=> item.country.toLowerCase().charAt(0) === "n" && item.country.toLowerCase().charAt(1) == "i").map((item, i)=>{
             return <option  value={`${item.city} , ${item.country}`} key={i}>{`${item.city} , ${item.country}`}</option>
         })}
 

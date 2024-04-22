@@ -1,9 +1,8 @@
-import { GoLocation, GoX } from "react-icons/go"
+import {GoX } from "react-icons/go"
 import { colors } from "../../constants/colors"
 import FilterWrapper from "./FilterWrapper"
 import useCloseFilter from "./hooks/useCloseFilter"
 import type { TFilter } from "./type"
-import useGetStates from "../LocationNav/hooks/useGetState"
 import useCustomFilter from "./hooks/useCustomFIlter"
 import LocationSelect from "../LocationSelect"
 

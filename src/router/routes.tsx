@@ -77,7 +77,13 @@ let router = createBrowserRouter([{
     element: <Message />
 },{
     path: ROUTE.viewall,
-    element: <ViewAll />
+    element: <ViewAll />,
+    children: [
+        {
+            path: ROUTE.viewall,
+            element: <NavBarIcon />
+        }
+    ]
 },{
     path: ROUTE.root,
     element: <SplashScreen />
