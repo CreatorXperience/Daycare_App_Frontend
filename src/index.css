@@ -8,11 +8,11 @@
     /* color: rgba(184, 183, 183, 0.651); */
 }
 body {
-background-color: whitesmoke;
+background-color: white;
 }
 
   :root {
-    --theme: blue;
+    --theme: white;
   }
 
 ::-webkit-scrollbar{width:2px;border-left:1px solid ; height: 2px; }
