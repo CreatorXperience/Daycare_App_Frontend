@@ -12,7 +12,7 @@ const DEVENDPOINT = {
 }
 
 const PRODENDPOINT = {
-    endpoint: ""
+    endpoint: "https://daycare-backend-1.onrender.com"
 } 
 
 const ENDPOINT = {
