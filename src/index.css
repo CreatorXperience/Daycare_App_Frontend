@@ -5,8 +5,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Poppins, sans-serif;
-    background-color: whitesmoke;
     /* color: rgba(184, 183, 183, 0.651); */
+}
+body {
+background-color: whitesmoke;
 }
 
 ::-webkit-scrollbar{width:2px;border-left:1px solid ; height: 2px; }
