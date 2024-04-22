@@ -32,7 +32,7 @@ const Message = ()=>{
 return (
     <MessageWrapper>
         <Header title="">
-            <GoChevronLeft />   
+            <GoChevronLeft onClick={()=> messages?.setMesssages(undefined)}/>   
             <GoKebabHorizontal />
             <MessageHeader id={reciever} chat={chat}/>
         </Header>
