@@ -8,14 +8,11 @@ import LastSeenWrapper from "./LastSeenWrapper"
 const  LastSeen = ({data}:TLastSeen)=>{
     const navigate = useNavigate()
     return (
-        <LastSeenWrapper>
-       {data.map((item,i)=>{
-        return   item ?   <div className="seen-container" key={i} onClick={()=> navigate(`/details/${item._id}`)}>
-
-        </div> : <div className="skeleton" key={i}>
-        <div className="light">hi</div>
-</div> 
-       })}
+        <LastSeenWrapper id={data && data.image} onClick={()=> navigate(`/details/${data._id}`)}>
+        <div className="seen-container">
+        <div className="image"></div>
+        </div>
+        <div className="light"></div>    
         </LastSeenWrapper>
     )
 }

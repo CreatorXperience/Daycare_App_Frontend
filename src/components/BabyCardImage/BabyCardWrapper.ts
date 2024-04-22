@@ -14,7 +14,7 @@ const BabyCardWrapper = styled.div<{id?: string}>`
     background-size: cover;
     border-radius: 10px;
     background-position:center center;
-    background-image:  url(${props => props.id ? URL().endpoint+/upload/+props.id: "https://i.pinimg.com/564x/f1/8c/2d/f18c2db587a424b237257922f36bd1b5.jpg"})
+    background-image:  url(${props => props.id ? URL().endpoint+/upload/+props.id: ""})
   }
 `;
 

@@ -9,7 +9,7 @@ import { QueryClient } from "react-query";
 import { QueryClientProvider } from "react-query";
 import { TChatContext, TChatNotification, TMessageContext, TOnlineUsers, TUserContext, TUserLoginContext } from "./type";
 import useIsUserRegistered from "./hooks/useIsUserRegistered";
-import Modal from "../components/Modal";
+
 import { TCreatedChatResponse } from "../components/Prompt/types";
 import {Socket} from "socket.io-client"
 

@@ -7,8 +7,8 @@ const URL = ()=>{
     return PRODENDPOINT
 }
 
-const DEVENDPOINT = {
-    endpoint: "http://localhost:3030"
+const DEVENDPOINT = { 
+    endpoint: "https://daycare-backend-1.onrender.com"
 }
 
 const PRODENDPOINT = {

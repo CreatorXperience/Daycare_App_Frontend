@@ -22,9 +22,9 @@ const useSocket = ()=>{
         setSocket(socket)
         
         
-        return ()=>{
-        socket.disconnect()
-        }
+        // return ()=>{
+        // socket.disconnect()
+        // }
     },[])
     
     

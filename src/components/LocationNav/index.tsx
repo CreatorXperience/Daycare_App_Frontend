@@ -1,4 +1,4 @@
-import { GoKebabHorizontal, GoSearch } from "react-icons/go";
+import {GoSearch } from "react-icons/go";
 import LocationNavWrapper from "./HelloUserWrapper";
 import useLocation from "./hooks/useLocation";
 import { TLocation } from "./type";
@@ -18,14 +18,15 @@ const LocationNav = ({setLocation,setIsCoordinatesLoading}:TLocation) => {
     },[isFetching,setIsCoordinatesLoading])
 
 
+
     return ( 
         <LocationNavWrapper>
             <div className="location-nav-wrapper">
                 <div className="location-header">
                     <div className="location">Location<select onChange={(e)=> handleSetCurrentLocation(e)}> 
                         <option value={""}>none</option>
-                        {data && data.map((item,i)=>{
-                            return <option value={`${item.city},${item.country}`} key={i}>{`${item.city},${item.country}`}</option>
+                        {data && data.filter((item)=> item.country.toLowerCase().charAt(0) === "n" && item.country.toLowerCase().charAt(1) === "i").sort((a,b)=> Number(a.country) - Number(b.country)).map((item,i)=>{
+                            return <option value={`${item.city},${item.country}`} key={i}>{`${item.country} , ${item.city}`}</option>
                         })}
                         </select></div>
                     <div className="user">{currentLocation === null  ? "Change your location": currentLocation}</div>

@@ -11,8 +11,16 @@ const LocationNavWrapper =styled.div`
         .location-header{
 
          .location {
+            
                 font-size: 18px;
                 font-weight: 400;
+
+                option {
+                    span.country{
+                        background-color: ${colors.primary.black};
+                        font-weight: 800;
+                    }
+                }
 
                 select {
                     background-color: white ;

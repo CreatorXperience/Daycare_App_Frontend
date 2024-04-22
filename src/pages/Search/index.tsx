@@ -35,7 +35,11 @@ const Search = ()=>{
             </form>
 
          <p className="seen-title">Last Seen</p>
-         <LastSeen data={resultMemo} />
+         <div className="last-seen">
+         {resultMemo ? resultMemo.map((item)=> {
+            return <LastSeen data={item}/> 
+         }): <div className="skeleton"><div className="light"></div></div>}
+         </div>
 
          <div className="last-search-cont">
          <p className="seen-title">Last Search</p>
