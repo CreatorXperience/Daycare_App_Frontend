@@ -12,12 +12,12 @@ import useChatClick from "./hooks/useChatClick"
 
 const DetailsAction = ({content: {owner,phoneNumber,setIsCopied, id}}: TDetails)=>{
 const {handleCopyClick} = useCopy(phoneNumber, setIsCopied)
-const {handleChatClick,isChatClick} =  useChatClick()
+const {handleChatClick,isChatClick, handleChatClickCalback} =  useChatClick()
 
     return (
         <DetailsActionWrapper>
             <div className="action-container">
-                {isChatClick ? <Modal> <Prompt handleChatClick={handleChatClick}  id= {id} message="are you sure you wanna chat with this guy" /> </Modal>: ""}
+                {isChatClick ? <Modal> <Prompt handleChatClick={handleChatClickCalback}  id= {id} message="are you sure you wanna chat with the owner of the daycare" /> </Modal>: ""}
                 <div className="info-cont">
                 <div className="profile"></div>
             <div className="name">

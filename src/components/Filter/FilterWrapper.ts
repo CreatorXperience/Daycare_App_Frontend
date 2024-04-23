@@ -4,6 +4,7 @@ import { colors } from "../../constants/colors";
 const FilterWrapper = styled.div`
 width: 100%;
 height: 100vh;
+overflow-y: auto;
 
 
 
@@ -37,7 +38,7 @@ height: 100vh;
 
             .main-container{
               width: 100%;
-              height: 80%;
+              height:  90%;
               position: absolute;
               background-color: ${colors.primary.white};
               z-index: 9;
@@ -52,11 +53,27 @@ height: 100vh;
                 .form-container{
                   width: 100%;
                   height: auto;
-                  margin-top: 40px;
+                  margin-top: 25px;
+                  position: relative;
+                  display: flex;
+                  flex-flow: column;
+                  justify-content: center;
+                  align-items: center;
+
+                  .label-cont{
+                    width: 100%;
+                    
+                    label {
+                    font-size: 16px;
+                    font-weight: bolder;
+                    margin-top: 20px;
+                  }
+                  }
                   
                   .continue {
-                    width: 98%;
-                    padding: 16px;
+                    bottom: 0;
+                    width: 90%;
+                    padding: 14px;
                     background: linear-gradient(180deg, #72B5F1 0%, rgba(23, 118, 202, 0.83) 131.58%);
                     border-radius: 12px;
                     margin-top: 50px;
@@ -67,11 +84,7 @@ height: 100vh;
                     text-align: center;
                   }
 
-                  label {
-                    font-size: 16px;
-                    font-weight: bolder;
-                    margin-top: 20px;
-                  }
+                  
 
 
                   .input-container{
@@ -98,10 +111,10 @@ height: 100vh;
           padding: 12px;
         }
 
-                .button-container{
-                  padding: 12px;
+            .button-container{
+              padding: 12px;
 
-                   .filter, .normal , .relevant{
+           .filter, .normal , .relevant, .color{
             padding: 8px;
             width: 120px;
             border-radius: 10px;
@@ -111,10 +124,10 @@ height: 100vh;
             flex-shrink: 0;
         }
 
-        .relevant {
+        /* .relevant {
           background: linear-gradient(180deg, #72B5F1 0%, rgba(23, 118, 202, 0.83) 131.58%);
             color: ${colors.primary.white}
-        }
+        } */
 
 
         button {
@@ -124,6 +137,10 @@ height: 100vh;
         .normal {
             color: ${colors.primary.cyan};
             background-color: ${colors.primary.grayishWhite};
+        }
+
+        .color {
+          background: linear-gradient(180deg, #72B5F1 0%, rgba(23, 118, 202, 0.83) 131.58%);
         }
 
           .normal_sec {

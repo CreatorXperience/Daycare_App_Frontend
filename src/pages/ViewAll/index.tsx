@@ -1,4 +1,4 @@
-import { Outlet, } from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
 import { GoChevronLeft, GoKebabHorizontal, GoSearch } from "react-icons/go"
 import { colors } from "../../constants/colors"
 import Header from "../../components/Header"
@@ -29,7 +29,7 @@ const ViewAll = ()=>{
         filterData
     } = useGetAllDaycares()
 
-    
+    const navigate = useNavigate()
   
     const responseMemo = useMemo(()=> {
         return data && data.map((item)=> {
@@ -43,7 +43,7 @@ const ViewAll = ()=>{
     return (
         <ViewAllWrapper>
                  <Header title="All Childcare">
-            <GoChevronLeft size="30px" />
+            <GoChevronLeft size="30px" onClick={()=> navigate("/home")} />
             <GoKebabHorizontal size="25px" />
             </Header>
         <div className="result-cont">

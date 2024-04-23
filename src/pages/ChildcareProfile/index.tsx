@@ -42,7 +42,7 @@ const {form,
     <UserInputDataWrapper id={form.image}>
       <div className="profile-wrapper">
        <Header title="Create Profile">
-        <GoChevronLeft  onClick={()=> navigate(-1)}/>
+        <GoChevronLeft  onClick={()=> navigate("/home")}/>
         <GoKebabHorizontal  />
        </Header>
 
