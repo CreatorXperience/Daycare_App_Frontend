@@ -14,10 +14,14 @@ const UserInputDataWrapper = styled.div<{id?: string}>`
     overflow-y: scroll;
     position: relative;
     padding: 8px;
+    border: 1px solid red;
+    height: 100vh;
 
 
     form{
-      height: 80vh;
+      width: 100%;
+      height: 40vh;
+      border: 1px solid red;
       overflow-y: auto;
     }
 

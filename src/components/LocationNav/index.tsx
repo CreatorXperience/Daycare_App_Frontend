@@ -17,7 +17,7 @@ const LocationNav = ({setLocation,setIsCoordinatesLoading}:TLocation) => {
         setIsCoordinatesLoading(isFetching)
     },[isFetching,setIsCoordinatesLoading])
 
-
+    
 
     return ( 
         <LocationNavWrapper>
@@ -31,7 +31,6 @@ const LocationNav = ({setLocation,setIsCoordinatesLoading}:TLocation) => {
                         </select></div>
                     <div className="user">{currentLocation === null  ? "Change your location": currentLocation}</div>
                 </div>
-
                 <div className="image">
                     <GoSearch fontSize="20px" className="search" onClick={()=> navigate("/search")}/>
                 </div>
