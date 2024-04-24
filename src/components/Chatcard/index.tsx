@@ -27,7 +27,7 @@ const ChatCard = memo(({content}: TChatProp)=>{
             
 
             <div className="message-details">
-                <div className="time">9:05 AM</div>
+                {/* <div className="time">9:05 AM</div> */}
                 {/* {notification &&  notification.notification?.map((item,i)=>{
                     if(item.chatId === content?.chatId){
                         return <div  >{notification && notification.notification && notification.notification.length}</div>
