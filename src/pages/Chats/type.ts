@@ -7,7 +7,8 @@ type TChats = {
     fullname: string,
     day_care_owner: boolean,
     _id:  string,
-    chatId: string
+    chatId: string,
+    loading: boolean
 }
 
 
