@@ -52,7 +52,11 @@ const Chats = ()=>{
         {responseMemo && responseMemo.map((item,i)=>{
             return   <ChatCard key= {i} content={item}  />
         })}
-            
+        
+        {
+            !responseMemo[0] ?  <p>loading</p> : ""
+
+        }
         </div>
         <div className="footer">
         <NavBarIcon />

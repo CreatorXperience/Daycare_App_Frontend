@@ -13,7 +13,7 @@ const useGetAllUser = ()=>{
         return {queryKey: ["chat", id.chatId], queryFn: () => fetchAllChats(id.usrId, id.chatId,user), enabled: !!chats}
     }))
 
-    let response = results.filter((data)=> data.data &&  data.data._doc !== undefined).map((data, i)=> ({...data.data._doc, chatId: chats[i].chatId}) ) as TChats[]
+    let response = results.filter((data)=> data.data &&  data.data._doc !== undefined).map((data, i)=> ({...data.data._doc, chatId: chats[i].chatId,loading:data.isLoading}) ) as TChats[]
 
     return {response, setChats}
 }

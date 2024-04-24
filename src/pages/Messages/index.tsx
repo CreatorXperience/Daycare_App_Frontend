@@ -9,6 +9,7 @@ import MessageWrapper from "./MessageWrapper"
 
 import useGetuserInfoFromStorage from "../../utils/useGetUserInfoFromStorage"
 import { MessageContext } from "../../App/App"
+import { useNavigate } from "react-router-dom"
 
 
 const Message = ()=>{
@@ -17,6 +18,7 @@ const Message = ()=>{
     const {setChatId, refetch} =  useGetMessages()
     const {chatId,handleInputChange,handleSubmit,messages, reciever, user:chat} =  useHandleSendMessage()
     const ref =  useRef<HTMLDivElement | null>(null)
+    const navigate =  useNavigate()
 
     useEffect(()=>{
         message?.setMesssages([])
@@ -40,7 +42,10 @@ const Message = ()=>{
 return (
     <MessageWrapper>
         <Header title="">
-            <GoChevronLeft onClick={()=> messages?.setMesssages([])}/>   
+            <GoChevronLeft onClick={()=> {
+                messages?.setMesssages([])
+                navigate("/chats")
+                }}/>   
             <GoKebabHorizontal />
             <MessageHeader id={reciever} chat={chat}/>
         </Header>
