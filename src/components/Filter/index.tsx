@@ -8,8 +8,14 @@ import LocationSelect from "../LocationSelect"
 
 
 const Filter = ({setIsFilterClicked, setFilter, setFiltered}:TFilter)=>{
-const {handleFilter,handleSlideDown, ref} = useCloseFilter(setIsFilterClicked,setFilter)
-const {handleChangeMaxPrice,handleChangeMinPrice,handleSelect,handleSubmit} = useCustomFilter(setFiltered,setIsFilterClicked)
+const {handleFilter,handleSlideDown, ref,searchParams} = useCloseFilter(setIsFilterClicked,setFilter)
+const {
+    handleChangeMaxPrice,
+    handleChangeMinPrice,
+    handleSelect,
+    handleSubmit
+    } = useCustomFilter(setFiltered,setIsFilterClicked)
+
 
     return (
         <FilterWrapper>
@@ -20,14 +26,18 @@ const {handleChangeMaxPrice,handleChangeMinPrice,handleSelect,handleSubmit} = us
     <div className="title">Filter</div>
     <div className="sort-title">Sort by</div>
     <div className="button-container">
-    <button className="relevant" ><span>Relevant</span></button>
-<button className="normal" onClick={()=> handleFilter("rating")} ><span>Rating</span></button>
-<button className="normal" onClick={()=> handleFilter("amount")} ><span>Amount</span></button>
+    <button className={`${searchParams.get("relevant") === "relevant" ? "color" : "normal"} `}><span onClick={()=> handleFilter("relevant")}>Relevant</span></button>
+    <button className={`${searchParams.get("label") === "rating" ? "color" : "normal"}`} onClick={()=> handleFilter("rating")} ><span>Rating</span></button>
+    <button className={`${searchParams.get("label") === "amount" ? "color" : "normal"} `} onClick={()=> handleFilter("amount")} ><span>Amount</span></button>
 
-<form className="form-container" onSubmit={(e)=> handleSubmit(e) }>
+    <form className="form-container" onSubmit={(e)=> handleSubmit(e) }>
+    <div className="label-cont">
     <label htmlFor="location" className="location">Location</label>
+    </div>
     <LocationSelect handleSelect={handleSelect} />
+    <div className="label-cont">
     <label htmlFor="price" className="price">Price</label>
+    </div>
 
     <div className="input-container">
     <input type="number" placeholder="Max price"  id="price" onChange={(e)=> handleChangeMaxPrice(e)}/>

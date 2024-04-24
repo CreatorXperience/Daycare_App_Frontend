@@ -3,7 +3,9 @@ import { colors } from "../../constants/colors";
 
 const HeaderWrapper = styled.div`
     width: 100%;
-    height: 80px;
+    height: 50px;
+    padding: 10px;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,7 +32,7 @@ const HeaderWrapper = styled.div`
         position: fixed;
         z-index: 10;
         width: 50%;
-        height: 30vh;
+        height: auto;
         top: 0;
         right: 0;
         background-color: ${colors.primary.white};

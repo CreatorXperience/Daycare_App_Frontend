@@ -6,7 +6,7 @@ width: 100%;
 
      .box {
                     width: 100%;
-                    height: 60px;
+                    height: 45px;
                     border: 1px solid red;
                     display: flex;
                     justify-content: space-between;
@@ -19,7 +19,7 @@ width: 100%;
 
                     select {
                     width: 95%;
-                    height: 40px;
+                    height: 30px;
                     background-color: ${colors.primary.white};
                     border: none;
                     padding: 8px;
