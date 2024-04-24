@@ -35,7 +35,7 @@ const ChatCard = memo(({content}: TChatProp)=>{
                     return ""
                 })} */}
 
-            {notification && notification.notification && notification.notification.length !== 0 &&   <div className="status">   {
+            {notification && notification.notification && notification.notification.length !== 0 && notification.notification[notification.notification.length-1].chatId === content?.chatId &&  <div className="status">   {
                        notification && notification.notification && notification.notification.length
                 }
                 </div>}
