@@ -42,7 +42,7 @@ const ChatCard = memo(({content}: TChatProp)=>{
             </div>
             </div>
             { notification && notification.notification && notification.notification[notification.notification.length-1] && notification.notification[notification.notification.length-1].chatId === content?.chatId &&
-           <div className="newMessage">{notification.notification[notification.notification.length-1].message.slice(0,5)}</div>
+           <div className="newMessage">{notification.notification[notification.notification.length-1].message.slice(0,8)}...</div>
 
                 }
         </ChatCardWrapper>
