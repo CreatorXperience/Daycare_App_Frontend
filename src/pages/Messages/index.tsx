@@ -61,7 +61,7 @@ return (
         <div className="message-input">
             <form onSubmit={(e)=> handleSubmit(e)}>
                 <input type="text" placeholder="message" onChange={(e)=> handleInputChange(e) } /> 
-                <GoPaperAirplane className="plane"  color={colors.primary.cyan}/>
+                <GoPaperAirplane className="plane"  color={colors.primary.cyan} onClick={(e)=> handleSubmit(e)}/>
 
             </form>
         </div>

@@ -12,7 +12,7 @@ const useHandleSendMessage = ()=>{
     const {chatId, id, reciever, user} =  useParams()
     const messages = useContext(MessageContext)
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>)=>{
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement> | React.MouseEvent<SVGElement>)=>{
         e.preventDefault()
         if(message &&  chatId &&  id && socket){
             setMessage("")
@@ -35,6 +35,7 @@ const useHandleSendMessage = ()=>{
                 }
             })
             mutateMessage(_.omit(myMessage, "_id"))
+            setMessage("")
         }
     }
 
