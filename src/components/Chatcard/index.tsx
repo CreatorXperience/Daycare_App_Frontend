@@ -20,7 +20,7 @@ const ChatCard = memo(({content}: TChatProp)=>{
         if(ref.current && ref.current.children.length > 0) {
             ref.current.replaceChildren(ref.current.lastChild as Node)
         }
-    },[])
+    },[notification])
 
     return (
         <ChatCardWrapper>
