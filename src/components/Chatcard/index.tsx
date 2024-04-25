@@ -22,9 +22,16 @@ const ChatCard = memo(({content}: TChatProp)=>{
         }
     },[notification])
 
+    const handleClearNotification = ()=>{
+        if(notification?.notification){
+           notification.setNotification(notification.notification.filter((data)=> data.chatId !== content?.chatId)) 
+        }
+        navigate(`/messages/${content?.chatId}/${user?.message._id}/${content?._id}/${content?.fullname}`)
+    }
+
     return (
         <ChatCardWrapper>
-            <div className="action-container" onClick={()=> navigate(`/messages/${content?.chatId}/${user?.message._id}/${content?._id}/${content?.fullname}`)}>
+            <div className="action-container" onClick={()=> handleClearNotification()}>
                 <div className="info-cont">
                 <div className="profile">{ content?.fullname && pierceWord({name: content.fullname})}</div>
             <div className="name">
