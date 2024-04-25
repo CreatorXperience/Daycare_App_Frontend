@@ -31,12 +31,11 @@ const ChatCard = memo(({content}: TChatProp)=>{
             
 
             <div className="message-details" ref={ref}>
-            {notification && notification.notification && notification.notification.length !== 0 && notification.notification.map((item)=>{
-              
+            {notification && notification.notification && notification.notification.length !== 0 && notification.notification.filter((data)=> data.chatId === content?.chatId).map((item)=>{
                 if(item.chatId === content?.chatId && ref.current){
                             ref.current.innerHTML = ""
                return    (  <div className="status">   
-                        {notification && notification.notification && notification.notification.length}
+                        {notification && notification.notification && notification.notification.filter((data)=> data.chatId === content?.chatId).length}
                  </div>)
                 }
             })}
