@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import ChatCardWrapper from "./ChatCardWrapper"
 import { TChatProp } from "./type"
 import useGetuserInfoFromStorage from "../../utils/useGetUserInfoFromStorage"
-import { memo, useContext } from "react"
+import { memo, useContext, useEffect, useRef } from "react"
 import { NotificationContext } from "../../App/App"
 import pierceWord from "../../utils/pieceWord"
 
@@ -12,6 +12,16 @@ const ChatCard = memo(({content}: TChatProp)=>{
     const navigate = useNavigate()
     const {user} =  useGetuserInfoFromStorage()
     const notification  = useContext(NotificationContext)
+
+
+    const ref =  useRef<HTMLDivElement | null>(null)
+
+    useEffect(()=>{
+        if(ref.current){
+            ref.current.innerHTML = ""
+        }
+    }, [notification])
+    
     return (
         <ChatCardWrapper>
             <div className="action-container" onClick={()=> navigate(`/messages/${content?.chatId}/${user?.message._id}/${content?._id}/${content?.fullname}`)}>
@@ -26,15 +36,7 @@ const ChatCard = memo(({content}: TChatProp)=>{
                 </div>
             
 
-            <div className="message-details">
-                {/* <div className="time">9:05 AM</div> */}
-                {/* {notification &&  notification.notification?.map((item,i)=>{
-                    if(item.chatId === content?.chatId){
-                        return <div  >{notification && notification.notification && notification.notification.length}</div>
-                    }
-                    return ""
-                })} */}
-
+            <div className="message-details" ref={ref}>
             {notification && notification.notification && notification.notification.length !== 0 && notification.notification.map((item)=>{
                 if(item.chatId === content?.chatId){
                return    (  <div className="status">   
