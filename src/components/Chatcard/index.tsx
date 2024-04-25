@@ -34,7 +34,7 @@ const ChatCard = memo(({content}: TChatProp)=>{
             {notification && notification.notification && notification.notification.length !== 0 && notification.notification.filter((data)=> data.chatId === content?.chatId).map((item)=>{
               let len  = notification && notification.notification &&  notification.notification.filter((data)=> data.chatId === content?.chatId).length
                 if(item.chatId === content?.chatId && ref.current){
-                            if(ref.current.children.length > 1) ref.current.replaceChildren(ref.current.lastChild as Node)
+                            if(ref.current.children.length > 0) ref.current.replaceChildren(ref.current.lastChild as Node)
                return    (  <div className="status">   
                         {notification && notification.notification && len}
                  </div>)
