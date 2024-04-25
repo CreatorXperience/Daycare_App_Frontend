@@ -16,6 +16,12 @@ const ChatCard = memo(({content}: TChatProp)=>{
 
     const ref =  useRef<HTMLDivElement | null>(null)
 
+    useEffect(()=>{
+        if(ref.current && ref.current.children.length > 0) {
+            ref.current.replaceChildren(ref.current.lastChild as Node)
+        }
+    },[])
+
     return (
         <ChatCardWrapper>
             <div className="action-container" onClick={()=> navigate(`/messages/${content?.chatId}/${user?.message._id}/${content?._id}/${content?.fullname}`)}>
@@ -34,7 +40,6 @@ const ChatCard = memo(({content}: TChatProp)=>{
             {notification && notification.notification && notification.notification.length !== 0 && notification.notification.filter((data)=> data.chatId === content?.chatId).map((item)=>{
               let len  = notification && notification.notification &&  notification.notification.filter((data)=> data.chatId === content?.chatId).length
                 if(item.chatId === content?.chatId && ref.current){
-                            if(ref.current.children.length > 0) ref.current.replaceChildren(ref.current.lastChild as Node)
                return    (  <div className="status">   
                         {notification && notification.notification && len}
                  </div>)
