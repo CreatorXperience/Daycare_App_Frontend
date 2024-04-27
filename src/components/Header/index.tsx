@@ -14,6 +14,7 @@ const Header = ({children, title}: THeader)=>{
         localStorage.removeItem("DayCareuserLoginInfo")
         localStorage.removeItem("lastSearch")
         localStorage.removeItem("lastSeen")
+        localStorage.removeItem("user_profile")
         navigate("/")
     }
     return (

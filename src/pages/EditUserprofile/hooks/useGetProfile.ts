@@ -2,23 +2,11 @@ import { useQuery } from "react-query"
 import axiosInstance from "../../../services/Axios/axiosInstance"
 import { ENDPOINT } from "../../../constants/endpoints"
 import useGetuserInfoFromStorage from "../../../utils/useGetUserInfoFromStorage"
+import { TProfilePayload, TResponse } from "../type"
 
 
 
-type TProfilePayload = {
-    id?: string,
-    token?: string
-}
 
-type TResponse = {
-        name: string,
-        children_name: string,
-        age: number,
-        gender: string,
-        role: string,
-        drop: string,
-        take: string
-}
 const useGetProfile = ()=>{
     const {user} = useGetuserInfoFromStorage()
     const getProfile = async({id, token}: TProfilePayload)=>{

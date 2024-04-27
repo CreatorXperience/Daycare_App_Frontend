@@ -6,7 +6,7 @@ import usePostProfile from "./UseUpdateUserProfile"
 import _ from 'lodash'
 
 const useHandleForm = ()=>{
-    const {data,isLoading,refetch} = useGetProfile()
+    const {data,refetch} = useGetProfile()
     const {mutateProfile, response,isLoading:isPostLoading} = usePostProfile()
 
     const {mutateProfile:updateProfile, response:update, isLoading:isPatchLoading} =  useUpdateProfile()

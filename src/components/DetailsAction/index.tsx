@@ -3,19 +3,29 @@ import { colors } from "../../constants/colors"
 import useCopy from "./hooks/useCopy"
 import type { TDetails } from "./type"
 import DetailsActionWrapper from "./DetailsActionWrapper"
-import { memo} from "react"
+import { memo, useEffect, useState} from "react"
 import Modal from "../Modal"
 import Prompt from "../Prompt"
 import useChatClick from "./hooks/useChatClick"
+import useGetDaycareImageId from "./hooks/useGetDaycareImage"
 
 
 
 const DetailsAction = ({content: {owner,phoneNumber,setIsCopied, id}}: TDetails)=>{
 const {handleCopyClick} = useCopy(phoneNumber, setIsCopied)
 const {handleChatClick,isChatClick, handleChatClickCalback} =  useChatClick()
+const {res} = useGetDaycareImageId(id)
+const [imageId, setImageId]= useState<string>()
 
+useEffect(()=>{
+if(res){
+    setImageId(res.imageId)
+}
+},[res])
+
+console.log(imageId)
     return (
-        <DetailsActionWrapper>
+        <DetailsActionWrapper id={imageId}>
             <div className="action-container">
                 {isChatClick ? <Modal> <Prompt handleChatClick={handleChatClickCalback}  id= {id} message="are you sure you wanna chat with the owner of the daycare" /> </Modal>: ""}
                 <div className="info-cont">

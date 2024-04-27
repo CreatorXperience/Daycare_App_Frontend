@@ -8,7 +8,7 @@ import { TLoginResponse } from "../../Auth/Login/type"
 type TRes = {
     imageId: string
 }
-const useGetUserId = ()=>{
+const useGetImageId = ()=>{
     const {user} = useGetuserInfoFromStorage()
     const [res, setRes] = useState<TRes>()
 
@@ -29,4 +29,4 @@ const useGetUserId = ()=>{
     return {data,isLoading,isError,res,refetch}
 }
 
-export default useGetUserId
+export default useGetImageId

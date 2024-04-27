@@ -1,4 +1,4 @@
-import { Outlet} from "react-router-dom"
+import { Outlet, useNavigate} from "react-router-dom"
 import HomeWrapper from "./HomeWrapper"
 import LocationNav from "../../components/LocationNav"
 import SafetyCard from "../../components/SafetyCard"
@@ -11,6 +11,7 @@ import Modal from "../../components/Modal"
 
 const Home = ()=>{
     const {coordinates,data,setLocation,childData,setIsCoordinatesLoading, user} = useHomeLogic()
+
 
 
     return (
