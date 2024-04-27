@@ -31,7 +31,7 @@ height: 100%;
             border-radius: 50%;
             margin: 10px 12px;
             position: relative;
-            background-image:  url(${props => props.id ? URL().endpoint+""+ENDPOINT.userprofile+"/"+props.id: ""});
+            background-image:  url(${props => props.id ? URL().endpoint+""+ENDPOINT.userprofile+"/"+props.id:"https://i.pinimg.com/564x/4e/22/be/4e22beef6d94640c45a1b15f4a158b23.jpg"});
             background-size: cover;
 
             form {

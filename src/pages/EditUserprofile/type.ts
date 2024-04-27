@@ -15,4 +15,19 @@ type TData = {
     id?:string
 }
 
-export type {TData,TUserFormProps}
+type TProfilePayload = {
+    id?: string,
+    token?: string
+}
+
+type TResponse = {
+        name: string,
+        children_name: string,
+        age: number,
+        gender: string,
+        role: string,
+        drop: string,
+        take: string
+}
+
+export type {TData,TUserFormProps,TProfilePayload,TResponse}

@@ -1,6 +1,6 @@
 
 import {createContext, useMemo, useState} from "react";
-import { Outlet} from "react-router-dom";
+import { Outlet, useNavigate} from "react-router-dom";
 
 import useResizeObeserver from "./hooks/useResizeObserver";
 import useIsCompatible from "./hooks/useIsCompatible";
@@ -35,12 +35,14 @@ const {screenRef} =  useResizeObeserver(setIsCompatible)
 const {UserContextValue,userLoginContextValue, isModalOpen,setIsModalOpen,setLastSearch,setSeen,setUserInfo,setUserLoginInfo} =  useIsUserRegistered(isCompatibleMemo)
 const [chat, setChat] = useState<TCreatedChatResponse | undefined>()
 const {messages,onLineUsers,setMesssages,socket, notification, setNotification} =  useSocket()
+const navigate = useNavigate()
+
 const chatMemo = useMemo(()=>{
   return chat
   },[chat])
 
 
-  
+
  
 
 

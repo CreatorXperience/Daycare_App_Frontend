@@ -29,6 +29,7 @@ const EditUserProfile = ()=>{
         if(data){
             setForm(({...data,gender: data.gender === "Male" ? true: false}))
             localStorage.setItem("user_profile", JSON.stringify(data))
+            navigate("/home")
         }else{
             let user_profile = localStorage.getItem("user_profile")
             if(user_profile){

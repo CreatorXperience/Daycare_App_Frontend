@@ -18,6 +18,7 @@ import SplashScreen from "../pages/SplashScreen";
 import Position from "../pages/Position";
 import UserProfile from "../pages/UserProfile";
 import EditUserProfile from "../pages/EditUserprofile";
+import ProfileWrapper from "../components/ProfileWrapper";
 
 
 
@@ -27,7 +28,7 @@ let router = createBrowserRouter([{
     children: [
        { 
         path: ROUTE.home,
-        element: <Home />,
+        element: <ProfileWrapper><Home /></ProfileWrapper>,
         children: [
             {
                 path: ROUTE.home,
@@ -73,7 +74,7 @@ let router = createBrowserRouter([{
 },
 {
     path: ROUTE.chats,
-    element: <Chats />
+    element:  <ProfileWrapper><Chats /></ProfileWrapper>,
 },{
     path: ROUTE.messages,
     element: <Message />
@@ -95,7 +96,7 @@ let router = createBrowserRouter([{
 },
 {
     path: ROUTE.userProfile,
-    element: <UserProfile />
+    element: <ProfileWrapper><UserProfile /></ProfileWrapper>,
 
 },{
     path: ROUTE.editUserProfile,

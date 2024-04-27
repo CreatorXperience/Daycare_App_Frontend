@@ -1,14 +1,10 @@
-import styled from "styled-components"
 import Header from "../../components/Header"
 import { GoChevronLeft, GoKebabHorizontal } from "react-icons/go"
 import { useNavigate } from "react-router-dom"
-import { colors } from "../../constants/colors"
-import useUploadImage from "../ChildcareProfile/hooks/useUploadImage"
-import {useEffect, useRef, useState } from "react"
+import {useEffect,useState } from "react"
 import Modal from "../../components/Modal"
 import ImageModal from "../../components/ImageModal"
-import { ENDPOINT, URL } from "../../constants/endpoints"
-import useGetUserId from "./hooks/useGetUserId"
+import useGetImageId from "./hooks/useGetUserId"
 import useGetProfile from "../EditUserprofile/hooks/useGetProfile"
 import UserProfileWrapper from "./UserProfileWrapper"
 import useUploadProfileImage from "./hooks/useUploadProfile"
@@ -16,7 +12,7 @@ import useUploadProfileImage from "./hooks/useUploadProfile"
 const UserProfile = ()=>{
     const navigate = useNavigate()
     const [openModal, setOpenModal] = useState<string|null>()
-    const {res,refetch} = useGetUserId()
+    const {res,refetch} = useGetImageId()
     const [imageId, setImageId]= useState<string>()
     const {data:profileData} = useGetProfile()
     const {handleMimicUpload,onFileUploaded,response,ref} = useUploadProfileImage()
@@ -40,13 +36,14 @@ const UserProfile = ()=>{
         localStorage.removeItem("DayCareuserLoginInfo")
         localStorage.removeItem("lastSearch")
         localStorage.removeItem("lastSeen")
+                localStorage.removeItem("user_profile")
         navigate("/")
     }
 
 
 return (
     <UserProfileWrapper id={imageId}>
-        {profileData && imageId && <div className="UserWrapper">
+        {profileData && <div className="UserWrapper">
         <Header title="My Profile">
             <GoChevronLeft onClick={()=> {
                 navigate("/home")
