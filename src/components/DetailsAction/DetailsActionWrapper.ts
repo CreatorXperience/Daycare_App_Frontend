@@ -61,6 +61,7 @@ const DetailsActionWrapper = styled.div`
                     width: 100%;
                     z-index: 99;
                     opacity: 0;
+                    cursor: pointer;
                 }
 
                 .phone-icon{
@@ -78,6 +79,7 @@ const DetailsActionWrapper = styled.div`
                 justify-content: center;
                 padding: 10px;
                 border-radius: 10px;
+                cursor: pointer;
             }
 
 

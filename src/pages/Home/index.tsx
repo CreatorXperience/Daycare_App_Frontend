@@ -26,7 +26,7 @@ const Home = ()=>{
         <SafetyCard data={childData} />
         <List right="View all" left="Around you" />
         <ChildCareCard data={data}  coordinates={coordinates}/>
-        <List left="Own  a day care"  />
+        <List left="Do you have daycare ?"  />
         <OwnADayCare />
         </div>
         <div className="footer">

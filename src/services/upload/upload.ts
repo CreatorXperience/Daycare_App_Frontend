@@ -1,4 +1,3 @@
-import { ENDPOINT } from "../../constants/endpoints"
 import { TLoginResponse } from "../../pages/Auth/Login/type"
 import { TMessage } from "../../pages/ChildcareProfile/type"
 import axiosInstance from "../Axios/axiosInstance"
@@ -12,7 +11,7 @@ const uploadImage = async (upload: TUpload)=>{
         let user = localStorage.getItem("DayCareuserLoginInfo")
         if(user){
             let parseUser = JSON.parse(user) as  TLoginResponse
-            let response = await axiosInstance.post(`${ENDPOINT.upload}`,formData, {
+            let response = await axiosInstance.post(`${upload.payload.endpoint}`,formData, {
                 headers: {
                     authorization: parseUser.token
                 }

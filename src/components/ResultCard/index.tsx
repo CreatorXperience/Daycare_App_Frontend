@@ -4,15 +4,19 @@ import { TChildCare } from "../../pages/Home/type"
 import { useNavigate } from "react-router-dom"
 import { GoLocation } from "react-icons/go"
 import ResultCardWrapper from "./ResulCardWrapper"
+import useSeen from "../Card/hooks/useSeen"
 
 
 
 
 const ResultCard = ({amount,perDuration,title, _id,image, exactLocation}:Partial<TChildCare>)=>{
     const navigate = useNavigate()
+    const {handleNavigateAndSaveLastSeen} = useSeen()
+
+
 
     return (
-        <ResultCardWrapper image={image} onClick={()=> navigate(`/details/${_id}`)} >
+        <ResultCardWrapper image={image} onClick={()=> handleNavigateAndSaveLastSeen(_id)} >
             <div className="result-card-cont">
                 <div className="result-image">
 

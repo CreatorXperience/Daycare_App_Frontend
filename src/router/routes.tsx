@@ -1,4 +1,4 @@
-import {Route, createBrowserRouter } from "react-router-dom";
+import {createBrowserRouter } from "react-router-dom";
 import App from "../App/App";
 import NavBarIcon from "../components/NavBarIcons";
 import Home from "../pages/Home";
@@ -16,6 +16,8 @@ import Message from "../pages/Messages";
 import ViewAll from "../pages/ViewAll";
 import SplashScreen from "../pages/SplashScreen";
 import Position from "../pages/Position";
+import UserProfile from "../pages/UserProfile";
+import EditUserProfile from "../pages/EditUserprofile";
 
 
 
@@ -90,6 +92,14 @@ let router = createBrowserRouter([{
 },{
     path: ROUTE.position,
     element: <Position />
+},
+{
+    path: ROUTE.userProfile,
+    element: <UserProfile />
+
+},{
+    path: ROUTE.editUserProfile,
+    element: <EditUserProfile />
 }
     ]
 }])

@@ -8,7 +8,7 @@ const URL = ()=>{
 }
 
 const DEVENDPOINT = { 
-    endpoint: "http://localhost:3030"
+    endpoint: "https://daycare-backend-1.onrender.com"
 }
 
 const PRODENDPOINT = {
@@ -27,7 +27,10 @@ const ENDPOINT = {
     users:"/users",
     message: "/message",
     register: "/register",
-    resendOtp: "/otp"
+    resendOtp: "/otp",
+    userprofile: "/upload/user",
+    user_image: "/user",
+    create_user_profile: "/create-user-profile"
 }
 
 export {URL,ENDPOINT}

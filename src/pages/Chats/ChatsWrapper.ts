@@ -18,6 +18,24 @@ overflow-y: auto;
     width: 100%;
     margin-bottom: 20px;
 }
+
+.loading-cont {
+    width: 80%;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 12px;
+    background-color: ${colors.primary.white};
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.10);
+    border-radius: 12px;
+    margin: 0 auto;
+    outline-width: .5px;
+    outline-color: ${colors.primary.red};
+    outline-style: solid;
+    p {
+        font-weight: bolder;
+        font-size: 14px;
+    }
+}
 }
 .footer {
     position: absolute;

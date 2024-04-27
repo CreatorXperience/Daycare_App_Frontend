@@ -37,7 +37,6 @@ const {form,
   errorResponse
 } = useUploadEffect()
   
-
   return (
     <UserInputDataWrapper id={form.image}>
       <div className="profile-wrapper">

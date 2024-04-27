@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { URL } from "../../constants/endpoints";
+import { ENDPOINT, URL } from "../../constants/endpoints";
 
 const CardWrapper = styled.div<{id?: string}>`
 width: 60%;
@@ -16,7 +16,7 @@ margin: 5px;
         height: 60%;
         border-radius: 10px;
     
-        background-image: url(${props=> props.id ? `${URL().endpoint}/upload/${props.id}`:"https://i.pinimg.com/564x/bd/78/30/bd7830482a990a97c57300a6f6a4bade.jpg"});
+        background-image:  url(${props => props.id ? URL().endpoint+ENDPOINT.upload+"/"+props.id: ""});
         background-size: cover;
     }
 

@@ -5,16 +5,22 @@ import ICONS from "../../constants/icons"
 import VerificationWrapper from "./VerificationWrapper"
 import useOtp from "./hooks/useOtp"
 import useResendOtp from "./hooks/useResendOtp"
+import { useCallback, useEffect } from "react"
 
 
 const Verification = ()=>{
     const {handleChangeOtp,handleSubmitOtp,errorResponse,isLoading,otp, userOtp} = useOtp()
-    const {setOtpPayload,isFetching, isError} = useResendOtp()
+    const {setOtpPayload, isError,data} = useResendOtp()
 
     const handleResendOtp = ()=>{
         setOtpPayload({email: userOtp?.email, id: userOtp?.id})
     }
- 
+
+    const otpCallback = useCallback(handleResendOtp, [handleResendOtp])
+    useEffect(()=>{
+        otpCallback()
+    },[otpCallback])
+    
     return (
         <VerificationWrapper>
                 <div>{ICONS.brandIcon1("80px")} </div>
@@ -28,7 +34,7 @@ const Verification = ()=>{
                 <GoLock className="eye" color={`${colors.primary.lightGray}`} fontSize="22px" />
                 </NameInput>
                     <button className="verifybtn" type="submit" disabled={isLoading ? true : false} style={{backgroundColor: `${isLoading? `${colors.primary.darkGreen}`: `${colors.primary.cyan}`}`}}>{isLoading ? "loading": "Verify"}</button>  
-                    <div className="resend"  onClick={()=> handleResendOtp()}>{isFetching ? "sending": "Resend otp"}</div>  
+                   { data ? <div className="resend">Sent</div> : <div className="resend"  onClick={()=> handleResendOtp()}>Resend Otp</div> } 
                     {isError && <div className="error">error occured while resending one time passcode</div>}
             </form>
              </div>

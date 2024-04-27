@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { URL } from "../../constants/endpoints";
+import { ENDPOINT, URL } from "../../constants/endpoints";
 
 
 const BabyCardWrapper = styled.div<{id?: string}>`
@@ -14,7 +14,7 @@ const BabyCardWrapper = styled.div<{id?: string}>`
     background-size: cover;
     border-radius: 10px;
     background-position:center center;
-    background-image:  url(${props => props.id ? URL().endpoint+/upload/+props.id: ""})
+    background-image:  url(${props => props.id ? URL().endpoint+ENDPOINT.upload+"/"+props.id: ""})
   }
 `;
 

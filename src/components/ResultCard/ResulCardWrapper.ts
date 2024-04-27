@@ -1,36 +1,40 @@
 import styled from "styled-components";
-import { URL } from "../../constants/endpoints";
+import { ENDPOINT, URL } from "../../constants/endpoints";
 
 const ResultCardWrapper = styled.div<{image?: string}>`
     width: 100%;
-    height: auto;
     display: flex;
     justify-content: center;
-    margin-top: 60px;
+    /* margin-top: 60px; */
+    height:  auto;
 
 
     .result-card-cont {
         width: 90%;
-        height: 150px;
-    }
+        height: 200px;
 
-    .result-image {
-        background-image: url(${props => props.image ? URL().endpoint+/upload/+props.image: "https://i.pinimg.com/564x/f1/8c/2d/f18c2db587a424b237257922f36bd1b5.jpg"});
+        .result-image {
+        background-image:  url(${props => props.image ? URL().endpoint+ENDPOINT.upload+"/"+props.image: ""});
         background-size: cover;
         width: 100%;
-        height: 90%;
+        height: 120px;
         border-radius: 12px;
     }
+
+      
 
     .result-details {
         display: flex;
         justify-content: space-between;
         width: 100%;
         margin-top: 5px;
+        height: 80px;
+  
 
         .details {
+            
             .title {
-                font-size: 20px;
+                font-size: 18px;
                 font-weight: bolder;
             }
         }
@@ -46,6 +50,9 @@ const ResultCardWrapper = styled.div<{image?: string}>`
             }
         }
     }
+    }
+
+
 
 `
 

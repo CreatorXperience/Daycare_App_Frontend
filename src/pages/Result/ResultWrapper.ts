@@ -4,18 +4,20 @@ import { colors } from "../../constants/colors";
 const ResultWrapper = styled.div`
     width: 100%;
     height: 100vh;
+   background-color: ${colors.primary.white};
     display: flex;
     flex-flow: column;
     align-items: center;
-   background-color: ${colors.primary.white};
-   position: relative;
 
    .result-cont {
     width: 98%;
-    height: 90%;
+    height: calc(100vh - 20vh);
     display: flex;
     flex-flow: column;
     overflow-y: auto;
+    /* border: 1px solid red; */
+    margin-top: 10px;
+    padding-bottom: 30px;
 
     .no-data{
         position: relative;
@@ -69,9 +71,10 @@ const ResultWrapper = styled.div`
 }
 
    .result-footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
+    background: white;
    }
 `
 export default ResultWrapper

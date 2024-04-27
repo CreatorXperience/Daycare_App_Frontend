@@ -5,7 +5,10 @@ import { UserContext } from "../../../App/App";
 const useSeen = ()=>{
     const  navigate = useNavigate()
     const user = useContext(UserContext)
-    const handleNavigateAndSaveLastSeen = (id: string)=>{
+    const handleNavigateAndSaveLastSeen = (id?: string)=>{
+      if(!id){
+        return
+      }
       let  lastSeen  = localStorage.getItem("lastSeen") 
   
       let parseObj:[] = [];
@@ -20,6 +23,9 @@ const useSeen = ()=>{
            currentLastSeen = [...parseObj]
            navigate(`/details/${id}`) 
            return currentLastSeen
+         }
+         if(currentLastSeen.length > 6){
+          currentLastSeen.pop()
          }
          currentLastSeen = [id,...parseObj]
          user?.setSeen(currentLastSeen)

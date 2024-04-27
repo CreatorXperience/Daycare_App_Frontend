@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../constants/colors";
-import { URL } from "../../constants/endpoints";
+import { ENDPOINT, URL } from "../../constants/endpoints";
 
 const UserInputDataWrapper = styled.div<{id?: string}>`
   width: 100%;
@@ -19,7 +19,7 @@ const UserInputDataWrapper = styled.div<{id?: string}>`
 
     form{
       width: 100%;
-      height: 70vh;
+      height: 80vh;
       overflow-y: auto;
     }
 
@@ -53,7 +53,7 @@ const UserInputDataWrapper = styled.div<{id?: string}>`
       border-radius: 12px;
       border: 2px solid ${colors.primary.grayishWhite};
       margin: 0 auto;
-      background-image: url(${props=> props.id ? `${URL().endpoint}/upload/${props.id}`:""});
+      background-image:  url(${props => props.id ? URL().endpoint+ENDPOINT.upload+"/"+`${props.id}`: ""});
       background-size: cover;
 
     .loader {
@@ -152,8 +152,23 @@ const UserInputDataWrapper = styled.div<{id?: string}>`
       }
     }
 
+    .hour {
+      display: flex;
+    }
+
     .location-wrapper{
       width: 100%;
+      
+      label {
+        display: block;
+      }
+      #appt {
+        width: 80%;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1px solid lightgrey;
+        outline: none;
+      }
 
       .location-title {
         padding: 12px;

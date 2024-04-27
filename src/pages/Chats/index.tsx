@@ -54,7 +54,9 @@ const Chats = ()=>{
         })}
         
         {
-            !responseMemo[0] ?  <p>loading</p> : ""
+            !responseMemo[0] ?  <div className="loading-cont">
+                <p> Loading chats... </p>
+            </div> : ""
 
         }
         </div>

@@ -26,7 +26,7 @@ const NavBarIcon = () => {
     
         </div>
         <div className="icon-wrapper">
-        <Link to={"/profile"}>
+        <Link to={"/userprofile"}>
           <div className="image">
             <GoPersonFill  color={colors.primary.cyan} size={"20px"}/>
          <p>Profile</p>
