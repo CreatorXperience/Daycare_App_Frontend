@@ -10,11 +10,10 @@ const UserInputDataWrapper = styled.div<{id?: string}>`
 
   .profile-wrapper {
     width: 100%;
-    padding-top: 20px;
+    padding: 5px;
     overflow-y: scroll;
     position: relative;
-    padding: 8px;
-    height: 100vh;
+    height: 80%;
 
 
     form{
@@ -28,15 +27,16 @@ const UserInputDataWrapper = styled.div<{id?: string}>`
       display: flex;
       justify-content: center;
       position: fixed;
-      bottom: 30px;
+      bottom: 0px;
       background-color: ${colors.primary.white};
       padding: 5px;
+      left: -2px;
 
 
 
    .save-btn{
       width: 90%;
-      padding: 12px;
+      padding: 8px;
       border: none;
       background-color: ${colors.primary.cyan};
       font-size: 16px;
