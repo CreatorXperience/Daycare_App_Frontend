@@ -8,7 +8,7 @@ const OwnADayCare = () => {
       <div className="card">
         <div className="circled-img">{ICONS.promoIcon()}</div>
         <div className="text">
-          <p>Own a Child Care ? </p>
+          <p>Do you have a day care ? </p>
           <Link to={"/profile"}><div className="percent-text">Create a child care profile now!</div></Link>
         </div>
       </div>

@@ -22,7 +22,7 @@ const Header = ({children, title}: THeader)=>{
             <div className={`nav ${openNav ? "open": "close" }`}>
                 <Link to="/home"><li>Home</li></Link>
                 <Link to="/chats"><li>Chat</li></Link>
-                <Link to="/profile"><li>Profile</li></Link>
+                <Link to="/userprofile"><li>Profile</li></Link>
              <li onClick={()=> logOut()}>logout</li> 
             </div>
             <div className="icon-left" onClick={()=> navigate("/home")}>{children[0]}</div>

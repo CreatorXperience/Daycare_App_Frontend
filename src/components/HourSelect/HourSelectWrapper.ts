@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { colors } from "../../constants/colors";
 
-const HourSelectWrapper = styled.div`
+const HourSelectWrapper = styled.div<{size?:string}>`
     width: 100%;
 
 .box {
-               width: 100%;
+               width: ${props => props.size ? props.size: "100%"};
                height: 60px;
                border: 1px solid red;
                display: flex;

@@ -46,7 +46,7 @@ const ViewAll = ()=>{
             <GoChevronLeft size="30px" onClick={()=> navigate("/home")} />
             <GoKebabHorizontal size="25px" />
             </Header>
-        <div className="result-cont">
+
             <form onSubmit={(e)=> onSearchTermChanged(e)}>
         <NameInput 
         type="text"
@@ -62,6 +62,8 @@ const ViewAll = ()=>{
 
             <FilterSlider setFilter = {setFilter} setIsFilterClicked={setIsFilterClicked}/>
 
+        <div className="result-cont">
+
         {responseMemo && filter === "amount" && filterData(responseMemo).sort((a,b)=>  Number(a["amount"])-Number(b["amount"])).reverse().map((item, i)=>{
             return     <ResultCard title={item.title} amount={item.amount} perDuration={item.perDuration} _id={item._id} key={i} location={item.location} image={item.image}  exactLocation={item.exactLocation}/>
         })}
@@ -76,11 +78,13 @@ const ViewAll = ()=>{
         {isFilterClicked && <Modal ismodalopen={JSON.stringify(isLoading)}>
             <Filter setFiltered={setFiltered}  setFilter={setFilter} setIsFilterClicked={setIsFilterClicked} />
             </Modal>}
-        </div>
- 
+           
+
         <div className="result-footer">
         <Outlet />
         </div>
+        </div>
+
         </ViewAllWrapper>
     )
 }

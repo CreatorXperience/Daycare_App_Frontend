@@ -13,6 +13,7 @@ const ROUTE = {
     chats: "/chats",
     messages: "/messages/:chatId/:id/:reciever/:user",
     viewall: "/viewall",
-    position: "/position"
+    position: "/position",
+    editUserProfile: "/editmyprofile"
 }
 export default ROUTE

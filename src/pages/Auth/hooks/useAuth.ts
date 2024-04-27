@@ -3,10 +3,10 @@ import useRegisterUser from "../Signup/hooks/useRegisterUser"
 import useLoginUser from "../Login/hooks/useLoginUser"
 import useRedirect from "../../../App/hooks/useRedirect"
 import { UserContext } from "../../../App/App"
+import { useNavigate } from "react-router-dom"
 
 const useAuth = ()=> {
-  
-    useRedirect()
+   const navigate = useNavigate()
     const [userPayload,setUserPayload] = useState({
         password: "",
         email: "",
@@ -17,10 +17,17 @@ const useAuth = ()=> {
 
       let {errorResponse:LoginError, mutateUserData:mutateUserLoginData, response: LoginResponse, isLoading:isLoginLoading} = useLoginUser()
 
-      const user = useContext(UserContext)
+      const user = useContext(UserContext)  
 
+      
 
       const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false)
+
+      useEffect(()=>{
+        if(LoginResponse){
+          navigate("/position")
+        }
+      },[LoginResponse])
 
       useEffect(()=>{
         if(isLoginLoading){

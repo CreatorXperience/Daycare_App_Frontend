@@ -39,6 +39,7 @@ const SearchWrapper = styled.div`
     .last-seen {
         width: 100%;
         display: flex;
+        overflow-x:auto;
 
 
         .skeleton {

@@ -3,11 +3,12 @@ import useUploadImage from "./useUploadImage"
 import useProfileForm from "./useProfileForm"
 import { useSearchParams } from "react-router-dom"
 import { TLoginResponse } from "../../Auth/Login/type"
+import { ENDPOINT } from "../../../constants/endpoints"
 
 const useUploadEffect  = ()=>{
 
   const ref = useRef<HTMLInputElement | null>(null)
-  const {response, mutateUpload,error,isLoading} = useUploadImage()
+  const {response, mutateUpload,error,isLoading} = useUploadImage({endpoint: ENDPOINT.upload})
   const [,setId] = useState<string>()
 
   const radioRef = useRef<HTMLDivElement | null>(null) 

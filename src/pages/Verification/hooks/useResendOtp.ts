@@ -13,7 +13,7 @@ const useResendOtp = ()=>{
     const [error, setError] =  useState()
 
 
-let {isError, isSuccess,isFetching} = useQuery(["resendOtp",otpPayload],() =>  resendOtp({id: otpPayload?.id, email: otpPayload?.email,setError}), {
+let {isError, isSuccess,isLoading,data} = useQuery(["resendOtp",otpPayload],() =>  resendOtp({id: otpPayload?.id, email: otpPayload?.email,setError}), {
     enabled: otpPayload ? true: false,
     cacheTime: 30000,
     staleTime: 30000,
@@ -34,9 +34,9 @@ let {isError, isSuccess,isFetching} = useQuery(["resendOtp",otpPayload],() =>  r
 
 }) 
 
-console.log(otpPayload)
 
-return {isError,isSuccess,isFetching, setOtpPayload, response,error}
+
+return {isError,isSuccess, setOtpPayload, response,error,isLoading,data}
 }
 
 export default useResendOtp

@@ -8,4 +8,7 @@ type TMessage = {
     id: string
 }
 
-export type {TExtendChildcare, TChild, TMessage} 
+type Tupload = |{
+    endpoint: string
+}
+export type {TExtendChildcare, TChild, TMessage, Tupload} 

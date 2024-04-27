@@ -55,26 +55,30 @@ const Details = ()=>{
         <span className="loader"></span>
         </div>
         </Modal>}
-   { isCopied ? <Alert /> : ""}
-   <div className="details-header">
+   { isCopied ? <Modal><Alert /></Modal> : ""}
+   {data && <div className="details-header">
    <Header title="Details">
 <GoChevronLeft size="30px" onClick={()=> navigate(-1)}/>
 <GoKebabHorizontal size="30px" />
 </Header>
-   </div>
+   </div>}
 
 <div className="DetailsBody">
 <ProfileDetailsImage id={data?.image}/>
 {data?.title && <ProfileDetailsTitle  title={data?.title} isOpen={data.isOpen} amount={data.amount}/>}
 {data?.rating && <ProfileDetailsVerification rating={data?.rating} time={{from: data.from, to: data.to}} isVerified={data?.isVerified} />}
 {data?.description && <DetailsDescription desc={data?.description} />}
-<DetailsAction content={{owner: data?.owner as string, id: data?.userId, phoneNumber: data?.phonenumber, setIsCopied:setIsCopied}}   />
+{data && <DetailsAction content={{owner: data?.owner as string, id: data?.userId, phoneNumber: data?.phonenumber, setIsCopied:setIsCopied}}   />}
 {data &&  data.location && <GoogleMap lat={data?.location.coordinates[1]} lng={data?.location.coordinates[0]}  />}
 </div>
-<div className="btn-container">
+{data && <div className="btn-container">
 <button type="submit" onClick={()=>  onMutateRegister(data?._id)} className="register">{ registered && loggedInUser?.message._id &&  registered?.registered.includes(loggedInUser?.message._id) ?  "Already Enrolled" : "Enroll" }</button>
-{registrationLoading && <button type="submit" className="register">Loading</button>}
-</div>
+{registrationLoading && user && <Modal ismodalopen={JSON.stringify(user.isModalOpen)}>
+        <div className="loader-container">
+        <span className="loader"></span>
+        </div>
+        </Modal>}
+</div>}
 </DetailsWrapper>
     )
 }

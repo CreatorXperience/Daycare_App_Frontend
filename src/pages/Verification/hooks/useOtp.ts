@@ -24,7 +24,7 @@ const useOtp = ()=>{
         else if(loggedIn){
             setUserOtp({email: loggedIn.message.email, id: loggedIn.message._id})
         }
-     }, [user, setUserOtp])
+     }, [user, setUserOtp,loggedIn])
 
 
     useEffect(()=>{
@@ -33,7 +33,7 @@ const useOtp = ()=>{
         
              mutateOtpCallback({otp, ownerId: parsedUserObj.message._id})
         }
-    }, [otp, mutateOtpCallback])
+    }, [otp, mutateOtpCallback,user])
 
 
     useEffect(()=>{
@@ -42,7 +42,7 @@ const useOtp = ()=>{
             localStorage.removeItem("userDayCareInfo")
             navigate("/login")
         }
-    },[response, navigate])
+    },[response, navigate,errorResponse])
 
     const handleChangeOtp = (e: React.ChangeEvent<HTMLInputElement>)=>{
 e.preventDefault()

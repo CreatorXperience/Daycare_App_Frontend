@@ -28,8 +28,7 @@ const Result = ()=>{
 
     return (
         <ResultWrapper>
-        <div className="result-cont">
-        <Header title="Result">
+              <Header title="Result">
             <GoChevronLeft size="30px" />
             <GoKebabHorizontal size="25px" />
             </Header>
@@ -48,7 +47,7 @@ const Result = ()=>{
             </form>
 
             <FilterSlider setFilter = {setFilter} setIsFilterClicked={setIsFilterClicked}/>
-
+        <div className="result-cont">
         {data && filter === "amount" && filterData(data).sort((a,b)=>  Number(a["amount"])-Number(b["amount"])).reverse().map((item, i)=>{
             return     <ResultCard title={item.title} amount={item.amount} perDuration={item.perDuration} _id={item._id} key={i} location={item.location} image={item.image} exactLocation={item.exactLocation}/>
         })}

@@ -34,7 +34,7 @@ setForm((prev)=> ({...prev, isOpen: searchParams.get("label") !== "Open" ? true 
       <div className="wrapper">
       <div className={`radio-cont ${handleLabel("active")}`}>
         <div>
-          <input type="radio"  name={name} id="gender" onChange={handleClick} checked={label === searchParams.get("label") ? true : false} />
+          <input type="radio"  name={name} id="isOpen" onChange={handleClick} checked={label === searchParams.get("label") ? true : false} />
         </div>
 
         <p className={`${handleLabel("active-text")} text`} id="tex">

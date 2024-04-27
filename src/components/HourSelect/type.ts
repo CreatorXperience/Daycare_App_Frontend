@@ -5,7 +5,8 @@ type THourProp = {
     userClosingHour?: number,
     userOpeningHour?:number,
     children?: ReactNode,
-    onTimeChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
+    onTimeChange: (e: React.ChangeEvent<HTMLSelectElement>) => void,
+    size?: string
 }
 
 export type {THourProp}

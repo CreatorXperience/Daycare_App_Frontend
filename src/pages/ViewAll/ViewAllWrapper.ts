@@ -3,19 +3,17 @@ import { colors } from "../../constants/colors";
 
 const ViewAllWrapper = styled.div`
     width: 100%;
-    height: 90vh;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
+    height: 100vh;
    background-color: ${colors.primary.white};
-   position: relative;
 
    .result-cont {
     width: 98%;
-    height: 100%;
+    height: calc(100vh - 30vh);
     display: flex;
     flex-flow: column;
     overflow-y: auto;
+    margin-top: 14px;
+    padding-bottom: 60px;
 
     .no-data{
         position: relative;
@@ -72,6 +70,7 @@ const ViewAllWrapper = styled.div`
     position: fixed;
     bottom: 0;
     width: 100%;
+    background: white;
    }
 `
 export default ViewAllWrapper
