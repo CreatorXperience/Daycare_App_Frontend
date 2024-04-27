@@ -47,12 +47,13 @@ const EditUserProfile = ()=>{
       
     return (
         <UserInputDataWrapper>
-        <div className="profile-wrapper">
-         <Header title="Profile">
+          <Header title="Profile">
           <GoChevronLeft  onClick={()=> navigate("/home")}/>
           <GoKebabHorizontal  />
          </Header>
   
+        <div className="profile-wrapper">
+   
          <form onSubmit={(e)=> onSubmit(e)}>
 
          {/* {error ?  <div>{error.message}</div> : ""} */}
