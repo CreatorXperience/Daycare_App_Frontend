@@ -1,15 +1,17 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { TUserFormProps } from "../type"
 import useGetProfile from "./useGetProfile"
 import useUpdateProfile from "./useUpdateProfile"
 import usePostProfile from "./UseUpdateUserProfile"
 import _ from 'lodash'
+import {useNavigate } from "react-router-dom"
 
 const useHandleForm = ()=>{
     const {data,refetch} = useGetProfile()
-    const {mutateProfile, response,isLoading:isPostLoading} = usePostProfile()
+    const {mutateProfile, response,isLoading:isPostLoading,error} = usePostProfile()
+    const navigate =  useNavigate()
 
-    const {mutateProfile:updateProfile, response:update, isLoading:isPatchLoading} =  useUpdateProfile()
+    const {mutateProfile:updateProfile, response:update, isLoading:isPatchLoading,error:patchError} =  useUpdateProfile()
     const [form, setForm] = useState<TUserFormProps>({
         name: "",
         children_name: "",
@@ -19,6 +21,20 @@ const useHandleForm = ()=>{
         take: "",
         gender:false,
     })
+
+    useEffect(()=>{
+      if(response){
+        navigate("/home")
+        localStorage.setItem("user_profile", JSON.stringify(response))
+      }
+    }, [response])
+
+    useEffect(()=>{
+      if(update){
+        navigate("/home")
+        localStorage.setItem("user_profile", JSON.stringify(update))
+      }
+    }, [update])
     const onNameChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
         e.preventDefault()
         setForm((prev)=> ({...prev,name: e.target.value}))
@@ -70,7 +86,9 @@ const useHandleForm = ()=>{
         form,
         data,
         isPostLoading,
-        isPatchLoading
+        isPatchLoading,
+        error,
+        patchError
     }
 }
 export default useHandleForm

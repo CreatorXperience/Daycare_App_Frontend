@@ -6,15 +6,18 @@ type TProfileWrapperProps = {
 children: ReactNode
 }
 const ProfileWrapper  = ({children}: TProfileWrapperProps)=>{
-    const {data:profileData} = useGetProfile()
+    // const {data:profileData} = useGetProfile()
     const navigate = useNavigate()
 
     useLayoutEffect(()=>{
-        if(!profileData){
-            navigate("/editmyprofile")
-            window.location.reload()
-        }
-      },[profileData])
+     let profile =    localStorage.getItem("user_profile")
+     if(profile){
+        return
+     }
+       
+        navigate("/hasprofile")
+
+      })
 
     return (
         <div>

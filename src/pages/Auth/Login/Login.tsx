@@ -6,6 +6,8 @@ import FormAction from "../../../components/FormAction"
 import SignInWrapper from "./SigninWrapper"
 import useAuth from "../hooks/useAuth"
 import { useNavigate } from "react-router-dom"
+import ProfileModal from "../../../components/ProfileModal"
+import Modal from "../../../components/Modal"
 
 const Login = ()=>{
 const {
@@ -21,7 +23,9 @@ const {
 const navigate = useNavigate()
 
   return (
+    
     <SignInWrapper>
+
     <div className="back-wrapper">
         <div className="back-btn"><GoChevronLeft onClick={()=>  navigate(-1)} color={colors.primary.black}/></div>
 

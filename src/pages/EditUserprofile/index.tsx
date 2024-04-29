@@ -21,7 +21,9 @@ const EditUserProfile = ()=>{
       setForm,
       data,
       isPostLoading,
-      isPatchLoading
+      isPatchLoading,
+      error,
+      patchError
     } = useHandleForm()
 
 
@@ -29,7 +31,6 @@ const EditUserProfile = ()=>{
         if(data){
             setForm(({...data,gender: data.gender === "Male" ? true: false}))
             localStorage.setItem("user_profile", JSON.stringify(data))
-            navigate("/home")
         }else{
             let user_profile = localStorage.getItem("user_profile")
             if(user_profile){
@@ -40,7 +41,6 @@ const EditUserProfile = ()=>{
     },[data])
 
     const radioRef = useRef<HTMLDivElement | null>(null)
-
 
 
 
@@ -56,8 +56,8 @@ const EditUserProfile = ()=>{
    
          <form onSubmit={(e)=> onSubmit(e)}>
 
-         {/* {error ?  <div>{error.message}</div> : ""} */}
-  
+         {error ?  <div>{error.message}</div> : ""}
+         {patchError ?  <div>{patchError.message}</div> : ""}
           <div className="username-wrapper">
             
             <NameInput      
@@ -132,7 +132,7 @@ const EditUserProfile = ()=>{
             
   
           </div>
-          {/* {errorResponse ?  <div>{errorResponse.message}</div> : ""} */}
+
           </form>
   
           <div className="btnwrapper">

@@ -11,9 +11,6 @@ import Modal from "../../components/Modal"
 
 const Home = ()=>{
     const {coordinates,data,setLocation,childData,setIsCoordinatesLoading, user} = useHomeLogic()
-
-
-
     return (
         <HomeWrapper>
              { user?.isModalOpen &&  <Modal ismodalopen={JSON.stringify(user.isModalOpen)}>

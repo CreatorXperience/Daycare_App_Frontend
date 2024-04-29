@@ -19,6 +19,8 @@ import Position from "../pages/Position";
 import UserProfile from "../pages/UserProfile";
 import EditUserProfile from "../pages/EditUserprofile";
 import ProfileWrapper from "../components/ProfileWrapper";
+import ProfileModal from "../components/ProfileModal";
+import Blank from "../components/Blank";
 
 
 
@@ -101,6 +103,9 @@ let router = createBrowserRouter([{
 },{
     path: ROUTE.editUserProfile,
     element: <EditUserProfile />
+},{
+    path: ROUTE.hasProfile,
+    element: <Blank />
 }
     ]
 }])
