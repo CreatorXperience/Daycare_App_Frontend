@@ -39,12 +39,11 @@ const {form,
   
   return (
     <UserInputDataWrapper id={form.image}>
-      <div className="profile-wrapper">
-       <Header title="Create Profile">
+        <Header title="Create Profile">
         <GoChevronLeft  onClick={()=> navigate("/home")}/>
         <GoKebabHorizontal  />
        </Header>
-
+      <div className="profile-wrapper">
        <form onSubmit={(e)=> onSubmit(e)}>
         <input type="file" style={{display: "none"}}  ref={ref}  onChange={(e)=> onFileUploaded(e)}/>
         <div className="image-container">

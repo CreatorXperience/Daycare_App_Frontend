@@ -13,13 +13,18 @@ const useGetProfile = ()=>{
         if(!id &&  !token){
             return 
         }
-        let res = await axiosInstance.get(`${ENDPOINT.create_user_profile}/${id}`,  {
-            headers: {
-                authorization: token
-            }
-        })
+try{
+    let res = await axiosInstance.get(`${ENDPOINT.create_user_profile}/${id}`,  {
+        headers: {
+            authorization: token
+        }
+    })
 
-        return res.data as TResponse
+    return res.data as TResponse
+}catch(e){
+    
+}
+       
     }
    const {data, isLoading,isError, refetch} = useQuery("get_profile", ()=>  getProfile({id: user?.message._id,token:user?.token}), {
     enabled: !!user?.message._id,

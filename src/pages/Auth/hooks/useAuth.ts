@@ -17,6 +17,7 @@ const useAuth = ()=> {
 
       let {errorResponse:LoginError, mutateUserData:mutateUserLoginData, response: LoginResponse, isLoading:isLoginLoading} = useLoginUser()
 
+
       const user = useContext(UserContext)  
 
       
@@ -25,8 +26,8 @@ const useAuth = ()=> {
 
       useEffect(()=>{
         if(LoginResponse){
-          navigate("/position")
-        }
+          navigate("/hasprofile")
+        }        
       },[LoginResponse])
 
       useEffect(()=>{
