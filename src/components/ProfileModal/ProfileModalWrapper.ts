@@ -20,11 +20,11 @@ const ProfileModalWrapper = styled.div<{id?: string}>`
   }
 
   .profile-wrapper {
-    width: 80%;
+    width: 95%;
     padding: 5px;
     overflow-y: scroll;
     position: relative;
-    height: 80%;
+    height: 95%;
     background-color: ${colors.primary.white};
     border-radius: 12px;
 
